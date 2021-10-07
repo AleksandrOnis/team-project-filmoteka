@@ -1,0 +1,18 @@
+:root {
+  --mobile-width: 320px;
+  --tablet-width: 768px;
+  --desktop-width: 1024px;
+
+  --main-font: 'Roboto', sans-serif;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #000000;
+
+  --bg-color: #ffffff;
+
+  --btn-bg-primary-color: #ff6b01;
+  --btn-bg-secondary-color: #ffffff;
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 250ms;
+}
