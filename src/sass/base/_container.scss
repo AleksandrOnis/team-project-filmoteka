@@ -1,24 +1,48 @@
 .container {
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 
   @media screen and (min-width: 320px) {
-    max-width: 320px;
+    width: 280px;
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
-    padding-left: 75px;
-    padding-right: 75px;
+    width: 620px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   @media screen and (min-width: 1024px) {
-    max-width: 1024px;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-left: 71px;
-    padding-right: 71px;
+    width: 1024px;
   }
 }
+
+// с отсупами по бокам
+
+// .container {
+//   padding: 20px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   width: 100%;
+
+//   @media screen and (min-width: 320px) {
+//     max-width: 320px;
+//   }
+
+//   @media screen and (min-width: 768px) {
+//     max-width: 768px;
+//     padding-top: 60px;
+//     padding-bottom: 60px;
+//     padding-left: 75px;
+//     padding-right: 75px;
+//   }
+
+//   @media screen and (min-width: 1024px) {
+//     max-width: 1024px;
+//     padding-left: 71px;
+//     padding-right: 71px;
+//   }
+// }
