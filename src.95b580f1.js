@@ -7,6 +7,6 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"handlebars/dist/handlebars.runtime":"pAws"}],"eQwa":[function(require,module,exports) {
 
 },{}],"Focm":[function(require,module,exports) {
-"use strict";var e=i(require("./templates/filmСard.hbs")),r=i(require("./js/apiService.js"));function i(e){return e&&e.__esModule?e:{default:e}}
-},{"./templates/filmСard.hbs":"FRZa","./js/apiService.js":"eQwa"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-filmoteka/src.a05b53c5.js.map
+"use strict";var e=s(require("./templates/filmСard.hbs")),r=s(require("./templates/filmDescription.hbs")),i=s(require("./js/apiService.js"));function s(e){return e&&e.__esModule?e:{default:e}}
+},{"./templates/filmСard.hbs":"FRZa","./templates/filmDescription.hbs":"FRZa","./js/apiService.js":"eQwa"}]},{},["Focm"], null)
+//# sourceMappingURL=/team-project-filmoteka/src.95b580f1.js.map
