@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--footer-text-color);
+  background-color: var(--footer-bg-color);
+}
+
+.footer__copyright,
+.footer__developers {
+  display: flex;
+  align-items: center;
+}
+
+.footer__copyright {
+  margin-bottom: 10px;
+}
+
+.footer__svg {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.footer__link {
+  margin-left: 0.3em;
+  text-decoration: underline;
+}
