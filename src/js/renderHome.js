@@ -1,32 +1,31 @@
 import filmCard from "../templates/filmСard.hbs";
 import axios from 'axios';
-import filmsApiService from '../js/apiService';
+import { filmsApiService } from '../js/apiService';
+console.log(filmsApiService);
 
 
 const galleryEl = document.querySelector('.gallery');
 console.log(galleryEl);
 
+///по данным из запроса  создаем галерею
+
 filmsApiService.popularMovie().then((data) => {
     const { results } = data;
-    console.log(data);
-                console.log(data.results);
-                console.log(data.results[0]);
-                console.log(data.results[0].poster_path);
-                let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
-                console.log(imgUrl);
+        let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
 
-    
-
-    
     const newResults = getData(results)
     console.log(newResults);
     renderImageCard(newResults)
 });
 
-
+////добавляем разметку  на страницу
 function renderImageCard(cards) {
     galleryEl.insertAdjacentHTML('beforeend', filmCard(cards))
-  }
+}
+  
+
+/////обновляем год и название в массиве из бека 
+
 
 function getData(arr) {
     return arr.map(el => {
@@ -39,7 +38,8 @@ function getData(arr) {
         if (!el.title) {
             el.title = el.name;
         }
-    
         return el;
     }
-     ) }
+    )
+}
+     
