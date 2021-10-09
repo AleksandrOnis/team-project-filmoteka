@@ -1,0 +1,14 @@
+
+{{#each this}}
+<li class="item gallery-item">
+    <img src="https://image.tmdb.org/t/p/w300{{this.poster_path}}" class='gallery-item_image' data-source="{{largeImageURL}}" alt="{{title}}" />
+    <div class="gallery-item_text">
+        <p class="gallery-item_title title">{{title}}</p>
+        <p class='gallery-item_genres'>{{#each genre_ids}} <span></span> {{/each}}</p>
+        <span>|</span>
+        <p class="gallery-item_year">{{release_date}}</p>
+    </div>
+</li>
+{{/each}}
+
+
