@@ -1,18 +1,18 @@
-
 {{#each this}}
 <li class="item gallery-item">
     {{#if poster_path}}
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image'  alt="{{title}} poster" />
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" />
     {{else}}
     <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
     {{/if}}
     <div class="gallery-item_text">
-        <p class="gallery-item_title title">{{title}}</p>
+        <h2 class="gallery-item_title title">{{title}}</h2>
+        <div class='gallery-item_text-thumb'>
         <p class='gallery-item_genres'>{{#each genre_ids}} <span></span> {{/each}}</p>
         <span>|</span>
         <p class="gallery-item_year">{{release_date}}</p>
+        <span class='gallery-item_rating'>{{vote_average}}</span>
+    </div>
     </div>
 </li>
 {{/each}}
-
-
