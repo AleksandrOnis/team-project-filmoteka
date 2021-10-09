@@ -1,0 +1,10 @@
+{{#each this}}
+<li class="item gallery-item">
+    <img src="{{webformatURL}}" class='gallery-item_image' data-source="{{largeImageURL}}" alt="{{title}}" />
+    <div class="gallery-item_text">
+        <p class="gallery-item_title">{{title}}/p>
+        <span>|</span>
+        <p class="gallery-item_year">{{release_date}}</p>
+    </div>
+</li>
+{{/each}}
