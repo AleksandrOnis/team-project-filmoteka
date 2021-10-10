@@ -1,4 +1,3 @@
-
 {{#each this}}
 <li class="item gallery-item">
     {{#if poster_path}}
@@ -8,9 +7,12 @@
     {{/if}}
     <div class="gallery-item_text">
         <p class="gallery-item_title title">{{title}}</p>
-        <p class='gallery-item_genres'>{{genre_ids}} <span></span> </p>
-        <span>|</span>
-        <p class="gallery-item_year">{{release_date}}</p>
+<ul class='gallery-item_genres-list'>
+            {{#each genres}}
+            <li>{{name}}</li>
+            {{/each}}
+
+        <p class="gallery-item_year">|{{year}}</p>
     </div>
 </li>
 {{/each}}
