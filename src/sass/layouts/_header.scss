@@ -1,128 +1,129 @@
-body {
-    margin: 0;
-}
+// body {
+//   margin: 0;
+// }
 
 .header {
-    background-image: url(../../images/mobile/header_1@1x_mobile.jpg);
-    width: 100%;
-    height: 230px;
-    background-repeat: no-repeat;
-    justify-content: center;
-    align-items: center;        
+  background-image: url(../images/mobile/header_1@1x_mobile.jpg);
+  width: 100%;
+  height: 230px;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 640px) {
-    .header {
-        background-image: url(../../images/mobile/header_1@2x_mobile.jpg);
-        height: 460px;
-    }
+  .header {
+    background-image: url(../images/mobile/header_1@2x_mobile.jpg);
+    height: 460px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .header {
-        background-image: url(../../images/tablet/header_1@1x_tablet.jpg);
-        height: 230px;
-    }
+  .header {
+    background-image: url(../images/tablet/header_1@1x_tablet.jpg);
+    height: 230px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .header {
-        background-image: url(../../images/desktop/header_1@1x_desktop.jpg);
-        height: 230px;
-    }
+  .header {
+    background-image: url(../images/desktop/header_1@1x_desktop.jpg);
+    height: 230px;
+  }
 }
 
 @media screen and (min-width: 1536px) {
-    .header {
-        background-image: url(../../images/tablet/header_1@2x_tablet.jpg);
-        height: 460px;
-    }
+  .header {
+    background-image: url(../images/tablet/header_1@2x_tablet.jpg);
+    height: 460px;
+  }
 }
 
 @media screen and (min-width: 2048px) {
-    .header {
-        background-image: url(../../images/desktop/header_1@2x_desktop.jpg);
-        height: 460px;
-    }
-}  
+  .header {
+    background-image: url(../images/desktop/header_1@2x_desktop.jpg);
+    height: 460px;
+  }
+}
 
 @media screen and (min-width: 3072px) {
-    .header {
-        background-image: url(../../images/desktop/header_1@3x_desktop.jpg);
-        height: 690px;
-    }
+  .header {
+    background-image: url(../images/desktop/header_1@3x_desktop.jpg);
+    height: 690px;
+  }
 }
 
 .leftbox {
-    margin: 0;
-    padding-top: 41px;
-    display: flex;
+  margin: 0;
+  padding-top: 41px;
+  display: flex;
 }
 
 .leftbox h1 {
-    margin: 0;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
 }
 
 .logo {
-    display: flex;
-    margin-right: 12px;
-    margin-left: 73px;
-    padding-top: 7px;
+  display: flex;
+  margin-right: 12px;
+  margin-left: 73px;
+  padding-top: 7px;
 }
 
 .lang {
-    display: flex;
-    height: 30px;
-    margin-left: 150px;
-    margin-top: 50px;
+  display: flex;
+  height: 30px;
+  margin-left: 150px;
+  margin-top: 50px;
 }
 
 .search {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .search-film {
-    width: 260px;
-    border: none;
-    border-bottom: 0.5px solid #FFFFFF;
-    outline: none;
-    background: none;
-    color: #FFFFFF;
+  width: 260px;
+  border: none;
+  border-bottom: 0.5px solid #ffffff;
+  outline: none;
+  background: none;
+  color: #ffffff;
 }
 
 .search-film::placeholder {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    align-items: center;
-    color: #FFFFFF;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  align-items: center;
+  color: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
-    .search-film {
-        width: 336px;
-    }
+  .search-film {
+    width: 336px;
+  }
 }
 
 .rightbox {
-    display: grid;
-    justify-content: end;
-    align-items: center;
+  display: grid;
+  justify-content: end;
+  align-items: center;
 }
 
 .library {
-    display: flex;
-    margin-bottom: 50px;
+  display: flex;
+  margin-bottom: 50px;
+  uppercase;
 }
