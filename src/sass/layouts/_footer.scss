@@ -9,6 +9,10 @@
   justify-content: center;
   color: var(--footer-text-color);
   background-color: var(--footer-bg-color);
+  @media screen and(min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .footer__copyright,
@@ -19,6 +23,10 @@
 
 .footer__copyright {
   margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-right: 3px;
+  }
 }
 
 .footer__svg {
@@ -35,28 +43,40 @@
   background-color: var(--footer-bg-color);
   color: var(--footer-text-color);
   width: 90vw;
-  height: 80vh;
+  height: 90vh;
   border-radius: 15px;
   box-shadow: var(--footer-modal-shadow);
   padding: 20px;
+  overflow-y: auto;
 }
 .footer__members {
   display: flex;
+  flex-direction: column;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 1024px) {
+  }
 }
 
 .footer__image {
   position: relative;
+  margin-bottom: 20px;
   z-index: 1200;
 }
 .footer__member {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
   box-shadow: var(--footer-cards-shadow);
-  font-size: 16px;
-  height: 200px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   z-index: 1200;
   max-width: 140px;
-
+  min-width: 100px;
+  max-height: 200px;
   position: relative;
   text-align: center;
   background-color: yellowgreen;
@@ -71,32 +91,57 @@
   //   height: 300px;
   //   background-color: yellowgreen;
   // }
+
+  @media screen and (min-width: 978px) {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 1024px) {
+    height: 200px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 16px;
+  }
 }
 
 .footer__heading {
   text-align: center;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1024px) {
+  }
 }
 
 .member__one {
-  margin-top: 70px;
+  @media screen and (min-width: 1024px) {
+    margin-top: 70px;
+  }
 }
 .member__two {
-  margin-top: 140px;
+  @media screen and (min-width: 1024px) {
+    margin-top: 140px;
+  }
 }
 .member__three {
-  margin-top: 30px;
+  @media screen and (min-width: 1024px) {
+    margin-top: 30px;
+  }
 }
 .member__four {
-  margin-top: 145px;
+  @media screen and (min-width: 1024px) {
+    margin-top: 145px;
+  }
 }
 .member__five {
-  margin-top: 70px;
+  @media screen and (min-width: 1024px) {
+    margin-top: 70px;
+  }
 }
 .member__six {
-  margin-top: 160px;
+  @media screen and (min-width: 1024px) {
+    margin-top: 160px;
+  }
 }
 
-.modal__button {
+.footer__button {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -120,7 +165,7 @@
   background-repeat: no-repeat;
 }
 
-.modal__button:hover,
-.modal__button:focus {
+.footer__button:hover,
+.footer__button:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
