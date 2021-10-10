@@ -7,24 +7,21 @@ const apiKey = `97183b54cab806dd382058e86706ceb2`;
 
 
 //Объект со списком жанров
- export const genreList = {
-    getGenreList() {
-        return axios.get(`genre/movie/list?api_key=${apiKey}&language=en-US`).then(response=>({list: response.data.genres}))
+ async function getGenreList() {
+   const response = await axios.get(`genre/movie/list?api_key=${apiKey}&language=en-US`)
+     const object = await response;
+    return await object.data.genres
     }
-};
-genreList.getGenreList();
+getGenreList();
 //-//
 
-export const filmsApiService = {
+async function
   popularMovie() {
-    return axios
-      .get(`trending/movie/day?api_key=${apiKey}`)
-      .then(response =>
-        ({ results: response.data.results, total: response.data.total_results }),
-      );
-  },
-};
-filmsApiService.popularMovie();
+  const response = await axios.get(`trending/movie/day?api_key=${apiKey}`)
+  const object = await response;
+  return await object.data.results
+      
+}
 
 
 export const searchFilmsApiService = {
@@ -58,3 +55,4 @@ export const searchFilmsApiService = {
 searchFilmsApiService.searchMovie();
 
 //const PIC_URL = `https://image.tmdb.org/t/p/w500`;
+export { popularMovie, getGenreList } 

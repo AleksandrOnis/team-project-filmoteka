@@ -40,7 +40,9 @@
   //   text-align: start;
   color: var(--secondary-text-color);
 }
-
+.gallery-item_genres-list {
+  color: var(--secondary-text-color);
+}
 .gallery-item_rating {
   display: flex;
   width: 36px;
