@@ -49,10 +49,50 @@ function getData(arr) {
         el.vote_average = String(el.vote_average).padEnd(3, '.0');
         console.log(el.vote_average);
  
+        const genresArr = []
+
+
+        /////на основе полученных  из  запроса жанров  
+        genreList.getGenreList()
+            .then(list => {
+                console.log(list.list);
+                // const genresArr = []
+                console.log(el.genre_ids); 
+///перебираем массив  с  жанрами ,  НО не  получается получить  в  итоге массив  с 
+                ///именами жанров  чтобы  подставить его  в  фильм вместо  массива с цифрами жанров
+                    for (let i = 0; i <= list.list.length; i += 1) {
+                        console.log(list.list[i]);
+                        console.log(list.list[i].id);
+                        if (el.genre_ids.includes(list.list[i].id)) {
+                            genresArr.push(list.list[i].name)
+                            console.log(genresArr);
+                            // el.genre_ids = genresArr;
+                        }
+                        //  el.genre_ids = genresArr;
+                        console.log(genresArr);
+                    }
+                     console.log(genresArr);
+                    return genresArr;
+                
+                })
         
-console.log(el);
-        return el;
+                console.log(el);
+                return el;
+            }
+            )
     }
-    )
-}
+
      
+
+
+// function getGenreById(genreId) {
+//   genreList.getGenreList().then(res => {
+//     const data = res.list;
+//     data.forEach(el => {
+//       console.log(el);
+//       if (el.id === genreId) {
+//         genreId = el.name;
+//         console.log(genreId);
+//       }
+//     });
+//   });
