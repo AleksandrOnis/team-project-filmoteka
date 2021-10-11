@@ -1,33 +1,49 @@
 import filmCard from '../templates/filmСard.hbs';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
-
-import axios from 'axios';
-import { searchFilmsApiService } from '../js/apiService';
-import { genreList } from '../js/apiService';
-const debounce = require('lodash.debounce');
-
-console.log();
+import ApiService  from '../js/apiService';
+import { createFilmCard,loadTrendFilms} from  './renderHome'
+import _ from 'lodash'
+console.log(createFilmCard);
 
 const searchForm = document.querySelector('.search-film');
 const galleryEl = document.querySelector('.gallery');
 
 console.log(searchForm);
 
-searchForm.addEventListener('input', debounce(onSearch, 500));
+searchForm.addEventListener('input',_.debounce(onSearch,500));
+const apiService = new ApiService;
+
 
 function onSearch(e) {
   e.preventDefault();
 
   const newSearch = e.target.value.trim();
-  searchFilmsApiService.setQuery(newSearch);
+  apiService.setQuery(newSearch);
+  if (newSearch === '') {
+    clearGallery()
+    apiService.resetPage()
+     loadTrendFilms()
+return
+  }
+    clearGallery()
+ apiService.resetPage()
+    renderFoundFilms()
+}
 
-  searchFilmsApiService.searchMovie().then(res => {
-     
-    console.log(res.results)
+async function renderFoundFilms() {
+  const findedFilms = await apiService.getFilmsfromSearch();
+  const genres = await apiService.getGenreList();
+  const { results, totalResults } = findedFilms;
+ 
+  if (totalResults === 0) {
     clearGallery();
-  
-    renderImageCard(res.results);
-  });
+    return;
+  }
+
+  const renderedFilms =createFilmCard(results, genres);
+  renderImageCard(renderedFilms);
+
+  return renderedFilms;
 }
 
 function renderImageCard(cards) {
