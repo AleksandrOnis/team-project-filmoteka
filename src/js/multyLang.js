@@ -1,14 +1,5 @@
 import LangArr from './data-lang.js';
 
-//нужно добавить в верстку header
-//<select class="change-lang">
-//  <option value="ua">EN</option>
-//  <option value="ua">RU</option>
-//  <option value="ru">UA</option>
-//</select>
-// тексту который певеодим нужно добавить class "lang-"+"ключевое слово соответвующее тексту"
-
-
 const select = document.querySelector('select');
 const allLang = ['ru', 'ua', 'en'];
 
@@ -18,21 +9,27 @@ function changeURLLanguage() {
   let lang = select.value;
   location.href = window.location.pathname + '#' + lang;
   location.reload();
+
 }
 
 function changeLanguage() {
     let hash = window.location.hash;
-    hash = hash.substring([hash.length - 2]);
+    hash = hash.substr(1);
     if (!allLang.includes(hash)) {
         location.href = window.location.pathname + '#en';
         location.reload();
     }
   select.value = hash;
-  
-  for (let key in LangArr) {
-    document.querySelector(`.lng-${key}`).innerHTML = LangArr[key][hash];
-  }
+  document.querySelector('.lng-home').innerHTML = LangArr['home'][hash];
+  document.querySelector('.lng-library').innerHTML = LangArr['library'][hash];
+  document.querySelector('.lng-login').innerHTML = LangArr['login'][hash];
+  document.querySelector('.lng-account').innerHTML = LangArr['account'][hash];
+  document.querySelector('.lng-placeholder').placeholder = LangArr['placeholder'][hash];
+  document.querySelector('.lng-rights').innerHTML = LangArr['rights'][hash];
+  document.querySelector('.lng-developer').innerHTML = LangArr['developer'][hash];
+  document.querySelector('.lng-by').innerHTML = LangArr['by'][hash];
+  document.querySelector('.lng-students').innerHTML = LangArr['students'][hash];
+
 }
 
 changeLanguage()
-

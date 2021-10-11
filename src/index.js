@@ -5,4 +5,5 @@ import filmsApiService from './js/apiService.js';
 import Notiflix from 'notiflix';
 import './js/modalFooter.js';
 import './js/renderHome.js';
-import './js/renderSearchMovie.js'
+import './js/renderSearchMovie.js';
+import './js/multyLang.js';
