@@ -1,4 +1,5 @@
 export default {
+  //header
   home: {
     en: 'home',
     ru: 'главная',
@@ -14,21 +15,45 @@ export default {
     ru: 'Поиск фильма',
     ua: 'Пошук фільму',
   },
+  login: {
+    en: 'Log In',
+    ru: 'Войти',
+    ua: 'Увійти',
+  },
+    account: {
+    en: 'Create your Account',
+    ru: 'Создать аккаунт',
+    ua: 'Створити аккаунт',
+  },
+   placeholder: {
+    en: 'Movie search ',
+    ru: 'Поиск фильма',
+    ua: 'Пошук фільму',
+  },
+   
+   //footer
   rights: {
-    en: 'All Rights Reserved',
-    ru: 'Все права защищены',
-    ua: 'Усі права захищені',
+    en: '© 2021 | All Rights Reserved |',
+    ru: '© 2021 | Все права защищены |',
+    ua: '© 2021 | Усі права захищені |',
   },
   developer: {
     en: 'Developed with',
     ru: 'Создано',
     ua: 'Створено',
   },
+  by: {
+    en: 'by',
+    ru: '',
+    ua: '',
+  },
   students: {
     en: 'by GoIT Students',
     ru: 'Студентами GoIT',
     ua: 'Студентами GoIT',
   },
+
+  //  modal
   watch: {
     en: 'add to watched',
     ru: 'добавить к просмотру',
@@ -39,4 +64,5 @@ export default {
     ru: 'добавить в очередь',
     ua: 'додати в чергу',
   },
+
 };
