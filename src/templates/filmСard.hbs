@@ -7,11 +7,12 @@
     {{/if}}
     <div class="gallery-item_text">
         <p class="gallery-item_title title">{{title}}</p>
-<ul class='gallery-item_genres-list'>
+        <ul class='gallery-item_genres-list'>
             {{#each genres}}
             <li>{{name}}</li>
             {{/each}}
         <p class="gallery-item_year">|{{year}}</p>
+        <p class="gallery-item_rating">{{vote_average}}</p>
     </div>
 </li>
 {{/each}}
