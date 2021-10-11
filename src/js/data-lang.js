@@ -39,8 +39,8 @@ export default {
   },
   developer: {
     en: 'Developed with',
-    ru: 'Создано',
-    ua: 'Створено',
+    ru: 'Создано с',
+    ua: 'Створено з',
   },
   by: {
     en: 'by',
@@ -48,7 +48,7 @@ export default {
     ua: '',
   },
   students: {
-    en: 'by GoIT Students',
+    en: 'GoIT Students',
     ru: 'Студентами GoIT',
     ua: 'Студентами GoIT',
   },
