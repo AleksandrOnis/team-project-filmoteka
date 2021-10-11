@@ -9,9 +9,9 @@
         <p class="gallery-item_title title">{{title}}</p>
 <ul class='gallery-item_genres-list'>
             {{#each genres}}
-            <li>{{name}}</li>
+            <li class='gallery-item_genres-item'>{{name}}{{#unless @last}},{{/unless}}</li>
             {{/each}}
-        <p class="gallery-item_year">|{{year}}</p>
+        <p class="gallery-item_year"><span class='gallery-item_delimeter'>|</span>{{year}}</p>
     </div>
 </li>
 {{/each}}
