@@ -8,8 +8,12 @@
     {{/if}}
     <div class="gallery-item_text">
         <p class="gallery-item_title title">{{title}}</p>
-        <p class='gallery-item_genres'>{{genre_ids}} <span></span> </p>
+        <div class='gallery-item_genres'>
+        {{#each genre_ids}}
+        <p class='gallery-item_genre'>{{this}}, </p>
+        {{/each}}
         <span>|</span>
+        </div>
         <p class="gallery-item_year">{{release_date}}</p>
     </div>
 </li>

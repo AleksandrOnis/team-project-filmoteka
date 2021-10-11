@@ -41,6 +41,14 @@
   color: var(--secondary-text-color);
 }
 
+.gallery-item_genres {
+  display: flex;
+}
+.gallery-item_genre {
+  display: flex;
+  color: var(--btn-bg-primary-color);
+}
+
 .gallery-item_rating {
   display: flex;
   width: 36px;
