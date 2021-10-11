@@ -1,7 +1,7 @@
 {{#each this}}
 <li class="item gallery-item">
     {{#if poster_path}}
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image'  alt="{{title}} poster" />
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" />
     {{else}}
     <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
     {{/if}}
@@ -11,10 +11,10 @@
             {{#each genres}}
             <li>{{name}}</li>
             {{/each}}
-
         <p class="gallery-item_year">|{{year}}</p>
     </div>
 </li>
 {{/each}}
+
 
 
