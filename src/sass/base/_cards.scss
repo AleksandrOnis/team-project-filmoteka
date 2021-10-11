@@ -31,13 +31,23 @@
   font-size: 12px;
   line-height: 1.33;
 }
+
+.gallery-item_delimeter {
+  margin-right: 5px;
+}
 .gallery-item_title {
   //   text-align: start;
   color: var(--secondary-text-color);
 }
 .gallery-item_genres-list {
-  color: var(--secondary-text-color);
+  display: flex;
+  color: var(--btn-bg-primary-color);
 }
+
+.gallery-item_genres-item {
+  margin-right: 5px;
+}
+
 .gallery-item_rating {
   display: flex;
   width: 36px;

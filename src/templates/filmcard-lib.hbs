@@ -6,13 +6,13 @@
     <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
     {{/if}}
     <div class="gallery-item_text">
-        <h2 class="gallery-item_title title">{{title}}</h2>
-        <div class='gallery-item_text-thumb'>
-        <p class='gallery-item_genres'>{{#each genre_ids}} <span></span> {{/each}}</p>
-        <span>|</span>
-        <p class="gallery-item_year">{{release_date}}</p>
-        <span class='gallery-item_rating'>{{vote_average}}</span>
-    </div>
+        <p class="gallery-item_title title">{{title}}</p>
+        <ul class='gallery-item_genres-list'>
+            {{#each genres}}
+            <li class='gallery-item_genres-item'>{{name}}{{#unless @last}},{{/unless}}</li>
+            {{/each}}
+            <p class="gallery-item_year"><span class='gallery-item_delimeter'>|</span>{{year}}</p>
+            <span class='gallery-item_rating'>{{vote_average}}</span>
     </div>
 </li>
 {{/each}}
