@@ -17,49 +17,36 @@
 .gallery-item_image {
   margin-bottom: 10px;
   border-radius: 5px;
-
   transform: translateY(1%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .gallery-item_image:hover {
   box-shadow: 2px 4px 6px rgba(230, 113, 35, 0.12), 1px 4px 4px rgba(211, 128, 19, 0.06),
     10px 10px 5px 0px rgba(238, 176, 54, 0.75);
-
   transform: translateY(0);
 }
-
 .gallery-item_year {
   color: var(--btn-bg-primary-color);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
 }
-
 .gallery-item_title {
   //   text-align: start;
   color: var(--secondary-text-color);
 }
-
-.gallery-item_genres {
-  display: flex;
+.gallery-item_genres-list {
+  color: var(--secondary-text-color);
 }
-.gallery-item_genre {
-  display: flex;
-  color: var(--btn-bg-primary-color);
-}
-
 .gallery-item_rating {
   display: flex;
   width: 36px;
   height: 16px;
-
   justify-content: center;
   align-items: center;
   border-radius: 5px;
   background-color: var(--btn-bg-primary-color);
 }
-
 .gallery-item_text-thumb {
   display: flex;
   align-items: center;

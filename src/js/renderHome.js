@@ -42,3 +42,15 @@ function getData(trendFilm, filmGenres) {
   });
 }
 createMovieCard();
+
+// function getGenreById(genreId) {
+//   genreList.getGenreList().then(res => {
+//     const data = res.list;
+//     data.forEach(el => {
+//       console.log(el);
+//       if (el.id === genreId) {
+//         genreId = el.name;
+//         console.log(genreId);
+//       }
+//     });
+//   });
