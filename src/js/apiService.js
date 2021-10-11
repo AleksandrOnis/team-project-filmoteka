@@ -12,7 +12,7 @@ const apiKey = `97183b54cab806dd382058e86706ceb2`;
      const object = await response;
     return await object.data.genres
     }
-getGenreList();
+
 //-//
 
 async function

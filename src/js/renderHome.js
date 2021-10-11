@@ -1,7 +1,6 @@
 import filmCard from "../templates/filmСard.hbs";
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 import { popularMovie, getGenreList } from './apiService.js'
-
 const galleryEl = document.querySelector('.gallery');
 console.log(galleryEl);
 
