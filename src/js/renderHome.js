@@ -8,7 +8,7 @@ console.log(galleryEl);
 
 const apiService = new ApiService;
 ///по данным из запроса  создаем галерею
-export default async function loadTrendFilms() {
+export  async function loadTrendFilms() {
   const { results, totalResults} = await apiService. getTrendFilms();
   const genres = await apiService.getGenreList();
   // let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;

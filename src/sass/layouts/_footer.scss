@@ -10,6 +10,7 @@
   color: var(--footer-text-color);
   background-color: var(--footer-bg-color);
   @media screen and(min-width: 768px) {
+    height: 77px;
     flex-direction: row;
     align-items: center;
   }
