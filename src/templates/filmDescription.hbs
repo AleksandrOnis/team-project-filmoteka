@@ -1,0 +1,67 @@
+<div class='modal-film__container' id={{id}}>
+    <button type='button' class='modal-close-btn js-modal-close-btn '>
+        <span class="close"></span>
+    </button>
+    <div class='modal-film__img-container'>
+        {{#if poster_path}}
+        <img class='modal-film__img' src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+            alt='{{title}}' />
+        {{else}}
+        <img class='gallery-item_noimage' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
+        {{/if}}
+    </div>
+
+    <div class='modal-film__description'>
+    <div>
+        <h2 class="film__title">{{title}}</h2>
+        <ul>
+            <li class="film__item">
+                <p class="film__details ">Vote / Votes</p>
+                <p class="film__info--uper">
+                    <span class=" film__rating--orange">{{vote_average}}</span>
+                    <span class="film__rating--divider"> / </span>
+                    <span>{{vote_count}}</span>
+                </p>
+            </li>
+            <li class="film__item">
+                <p class="film__details ">Popularity</p>
+                <p class="film__info--uper">{{popularity}}</p>
+            </li>
+            <li class="film__item">
+                <p class="film__details">Original title</p>
+                <p>{{original_title}}</p>
+            </li>
+            <li class="film__item">
+                <p class="film__details">Genre</p>
+                <p class="film__info">
+                    {{#if genres}}
+                    {{#each genres}}
+                    <span>{{this.name}}{{#unless @last}},{{/unless}}</span>
+                    {{/each}}
+                    {{else}}<span>N/A</span>
+                    {{/if}}
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="film__about__title">About</h3>
+        <p class="film__about__text">
+            {{overview}}
+        </p>
+    </div>
+    <div class="film__button__wrapper">
+        <button type="button" class=" film__button btn__watch" data-id="{{id}}">Add to watched</button>
+        <button type="button" class=" film__button btn__queue" data-id="{{id}}">Add to queue</button>
+    </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+    

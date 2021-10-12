@@ -1,5 +1,6 @@
 import filmCard from '../templates/filmСard.hbs';
 import ApiService from './apiService.js';
+import openModalfilm from './modal.js'
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 
 
@@ -51,7 +52,7 @@ function clearGallery() {
   galleryEl.innerHTML = '';
 }
 loadTrendFilms();
-
+galleryEl.addEventListener('click',openModalfilm)
 // function getGenreById(genreId) {
 //   genreList.getGenreList().then(res => {
 //     const data = res.list;
