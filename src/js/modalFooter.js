@@ -3,22 +3,32 @@ import * as basicLightbox from 'basiclightbox';
 const footerAccess = document.querySelector('.footer');
 const linkAccess = document.querySelector('.footer__link');
 const modalAccess = document.querySelector('.footer__modal');
-const closeFooterModal = document.querySelector('.footer__button');
+
+footerAccess.addEventListener('click', modalFooter);
+
+const instance = basicLightbox.create(document.querySelector('.footer__template'));
 
 function modalFooter(e) {
   console.log(e.target.nodeName);
-  if (e.target.nodeName === 'A') {
-    const instance = basicLightbox.create(document.querySelector('.footer__template'));
-
-    instance.show();
-  } else {
+  if (!e.target.nodeName === 'A') {
     return;
   }
+  instance.show();
+  window.addEventListener('keydown', onEscapeClose);
 }
-footerAccess.addEventListener('click', modalFooter);
 
-// closeFooterModal.addEventListener('click', closeModal);
-// window.addEventListener('keydown', instance.close());
+function removeListener() {
+  window.removeEventListener('keydown', onEscapeClose);
+}
 
-// remove event listener
-// check blb for creating a proper modal window
+function onEscapeClose(e) {
+  console.log(e);
+   if (e.code === 'Escape') {
+    console.log(e.code);
+     instance.close()
+     removeListener()
+  }
+}
+
+
+
