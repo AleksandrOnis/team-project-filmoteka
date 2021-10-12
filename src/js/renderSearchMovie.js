@@ -3,6 +3,13 @@ import filmCard from '../templates/filmСard.hbs';
 import ApiService  from '../js/apiService';
 import { createFilmCard,loadTrendFilms} from  './renderHome'
 import _ from 'lodash'
+
+console.log(loadTrendFilms);
+
+import { showSpiner, hideSpiner } from './spiner.js'
+// console.log(showSpiner);
+// console.log(hideSpiner);
+
 console.log(createFilmCard);
 
 const searchForm = document.querySelector('.search-film');
@@ -16,18 +23,21 @@ const apiService = new ApiService;
 
 function onSearch(e) {
   e.preventDefault();
-
   const newSearch = e.target.value.trim();
   apiService.setQuery(newSearch);
   if (newSearch === '') {
     clearGallery()
     apiService.resetPage()
-     loadTrendFilms()
+    showSpiner()
+    loadTrendFilms()
+    hideSpiner()
 return
   }
-    clearGallery()
- apiService.resetPage()
-    renderFoundFilms()
+  clearGallery()
+ showSpiner()
+  apiService.resetPage()
+  renderFoundFilms()
+  hideSpiner()
 }
 
 async function renderFoundFilms() {
