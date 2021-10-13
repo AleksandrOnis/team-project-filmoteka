@@ -1,24 +1,43 @@
 import filmCard from '../templates/filmСard.hbs';
 import ApiService from './apiService.js';
-import openModalfilm from './modal.js'
+import openModalfilm from './modal.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 
+///////////////////////////////////OLD
+
+// import { popularMovie, getGenreList } from './apiServicePopularMovieFn.js';
+
+// const galleryEl = document.querySelector('.gallery');
+// console.log(galleryEl);
+
+// const apiService = new ApiService();
+
+// ///по данным из запроса  создаем галерею
+// async function createMovieCard(page = 1) {
+//   console.log('🚀 ~ page', page);
+//   galleryEl.innerHTML = '';
+//   const results = await apiService.popularMovie(page); //???????????????????????????????????????
+//   const genres = await apiService.getGenreList(page);
+//   // let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
+//   const newResults = getData(results, genres);
+//   renderImageCard(newResults);
+// }
+////////////////////////////////////OLD
 
 const galleryEl = document.querySelector('.gallery');
 console.log(galleryEl);
 
-const apiService = new ApiService;
+const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
-export  async function loadTrendFilms() {
-  const { results, totalResults} = await apiService. getTrendFilms();
+export async function loadTrendFilms(page = 1) {
+  const { results, totalResults } = await apiService.getTrendFilms();
   const genres = await apiService.getGenreList();
   // let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
   if (totalResults === 0) {
-
-   clearGallery()
+    clearGallery();
     return;
   }
-  const filmCard = createFilmCard(results, genres);
+  const filmCard = createFilmCard(results, genres, page);
   renderFilmCard(filmCard);
 }
 
@@ -29,7 +48,7 @@ function renderFilmCard(cards) {
 
 /////обновляем год и название в массиве из бека
 
- export function createFilmCard(trendFilm, filmGenres) {
+export function createFilmCard(trendFilm, filmGenres, page = 1) {
   return trendFilm.map(film => {
     film.year = film.release_date.split('-')[0];
     if (film.genre_ids.length > 0 && film.genre_ids.length <= 3) {
@@ -52,7 +71,7 @@ function clearGallery() {
   galleryEl.innerHTML = '';
 }
 loadTrendFilms();
-galleryEl.addEventListener('click',openModalfilm)
+galleryEl.addEventListener('click', openModalfilm);
 // function getGenreById(genreId) {
 //   genreList.getGenreList().then(res => {
 //     const data = res.list;
