@@ -10,7 +10,6 @@ console.log(galleryEl);
 const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
 export default async function loadTrendFilms(page = 1) {
-  console.log('🚀 ~ loadTrendFilms ~ page', page);
   const { results, totalResults } = await apiService.getTrendFilms(page);
   const genres = await apiService.getGenreList(page);
   // let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
@@ -19,6 +18,9 @@ export default async function loadTrendFilms(page = 1) {
     return;
   }
   const filmCard = createFilmCard(results, genres, page);
+  const totalPages = totalResults;
+  console.log('🚀 ~ loadTrendFilms ~ totalResults', totalPages);
+  pagination(totalPages);
   renderFilmCard(filmCard);
 }
 

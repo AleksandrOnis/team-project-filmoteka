@@ -37,25 +37,25 @@ const options = {
 // else {} // home (default)
 
 // home (default)
-apiService.totalResults().then(totalResults => {
-  totalPages = totalResults;
+// apiService.totalResults().then(totalResults => {
+//   totalPages = totalResults;
+//   console.log(`totalPages=${totalPages} передаем в tui-pagination`);
+//   const pagination = new Pagination('pagination', { totalItems: totalPages, ...options });
+
+//   pagination.on('beforeMove', event => {
+//     loadTrendFilms(event.page);
+//   });
+
+//   document.querySelector('.tui-last').textContent = `${totalPages / 20}`;
+//   document.querySelector('.tui-first').textContent = `1`;
+// });
+
+export default function pagination(totalPages) {
   console.log(`totalPages=${totalPages} передаем в tui-pagination`);
   const pagination = new Pagination('pagination', { totalItems: totalPages, ...options });
 
   pagination.on('beforeMove', event => {
     loadTrendFilms(event.page);
-  });
-
-  document.querySelector('.tui-last').textContent = `${totalPages / 20}`;
-  document.querySelector('.tui-first').textContent = `1`;
-});
-
-export function pagination(totalPages, onPagination) {
-  console.log(`totalPages=${totalPages} передаем в tui-pagination`);
-  const pagination = new Pagination('pagination', { totalItems: totalPages, ...options });
-
-  pagination.on('beforeMove', event => {
-    onPagination(event.page);
   });
 
   document.querySelector('.tui-last').textContent = `${totalPages / 20}`;
