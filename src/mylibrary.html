@@ -11,12 +11,8 @@
       crossorigin="anonymous"
     />
     <link rel="icon" type="image/svg" sizes="760x642" href="./images/favicon.svg" />
-    <!-- <link rel="stylesheet" href="plugins/notiflix-3.1.0.min.css" />
-    <link
-      rel="stylesheet"
-      href="plugins/basicLightbox.min.c
-    ss"
-    /> -->
+    <link rel="stylesheet" href="plugins/notiflix-3.1.0.min.css" />
+    <link rel="stylesheet" href="plugins/basicLightbox.min.css" />
     <link href="//cdn.muicss.com/mui-latest/css/mui.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./sass/main.scss" />
   </head>
@@ -24,16 +20,19 @@
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/spiner.html"></include>
     <include src="./partials/header.html"></include>
-    <include src="./partials/gallery.html"></include>
+    <!-- <include src="./partials/gallery.html"></include> -->
+    <include src="./partials/library.html"></include>
+
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal.html"></include>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
+    <script src="./js/firebase.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/slider.js"></script>
     <script src="//cdn.muicss.com/mui-latest/js/mui.min.js"></script>
-    <script src="plugins/notiflix-3.1.0.min.js"></script>
-    <script src="plugins/basicLightbox.min.js"></script>
+    <!-- <script src="plugins/notiflix-3.1.0.min.js"></script>
+    <script src="plugins/basicLightbox.min.js"></script> -->
   </body>
 </html>
