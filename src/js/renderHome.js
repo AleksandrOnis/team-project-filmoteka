@@ -1,6 +1,7 @@
 import filmCard from '../templates/filmСard.hbs';
 import ApiService from './apiService.js';
 import openModalfilm from './modal.js';
+import pagination from './pagination.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 
 const galleryEl = document.querySelector('.gallery');
