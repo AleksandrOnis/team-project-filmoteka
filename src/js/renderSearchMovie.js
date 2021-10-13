@@ -3,7 +3,9 @@ import filmCard from '../templates/filmСard.hbs';
 import ApiService from '../js/apiService';
 import { createFilmCard, loadTrendFilms } from './renderHome';
 import _ from 'lodash';
-
+import pagination from './pagination.js';
+let isNewQuery = null;
+let isPagnationHidden = null;
 console.log(loadTrendFilms);
 
 import { showSpiner, hideSpiner } from './spiner.js';
@@ -14,6 +16,7 @@ console.log(createFilmCard);
 
 const searchForm = document.querySelector('.search-film');
 const galleryEl = document.querySelector('.gallery');
+const paginationRef = document.querySelector('#pagination');
 
 console.log(searchForm);
 
@@ -32,7 +35,7 @@ function onSearch(e) {
     hideSpiner();
     return;
   }
-  clearGallery();
+  isNewQuery = 1;
   showSpiner();
   apiService.resetPage();
   renderFoundFilms();
@@ -43,9 +46,16 @@ export default async function renderFoundFilms(page = 1) {
   const findedFilms = await apiService.getFilmsfromSearch();
   const genres = await apiService.getGenreList();
   const { results, totalResults } = findedFilms;
-
+  clearGallery();
+  if (isNewQuery === 1) {
+    pagination(totalResults, renderFoundFilms);
+    isNewQuery = 0;
+    if ((isPagnationHidden = 1)) paginationRef.classList.remove('visually-hidden');
+  }
   if (totalResults === 0) {
     clearGallery();
+    paginationRef.classList.add('visually-hidden');
+    isPagnationHidden = 1;
     return;
   }
 

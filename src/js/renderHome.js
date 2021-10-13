@@ -3,10 +3,10 @@ import ApiService from './apiService.js';
 import openModalfilm from './modal.js';
 import pagination from './pagination.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
-const totalPages = null;
 const galleryEl = document.querySelector('.gallery');
 console.log(galleryEl);
-
+let newQuery = 1;
+let totalPages = null;
 const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
 export default async function loadTrendFilms(page = 1) {
@@ -17,8 +17,14 @@ export default async function loadTrendFilms(page = 1) {
     clearGallery();
     return;
   }
-  pagination(totalResults);
+  totalPagesFn(totalResults); ////////////////////////////////////
+  if (newQuery === 1) {
+    pagination(totalResults, loadTrendFilms);
+    newQuery = 0;
+  }
+  ///////////////////////////////////////////////////////////////////////////////////////
   const filmCard = createFilmCard(results, genres, page);
+  //window.onload = funonload;/////////////////////////////////
   renderFilmCard(filmCard);
   return;
 }
@@ -55,11 +61,14 @@ export function createFilmCard(trendFilm, filmGenres, page = 1) {
 function clearGallery() {
   galleryEl.innerHTML = '';
 }
-
-function totalPages(totalResults) {
+//////////////////////////////////
+function totalPagesFn(totalResults) {
+  console.log('🚀 ~ totalPagesFn ~ totalResults', totalResults);
+  totalPages = totalResults;
   return totalResults;
 }
-
+console.log('🚀 ~ totalPagesFn ~ totalPages', totalPages);
+///////////////////////////
 loadTrendFilms();
 galleryEl.addEventListener('click', openModalfilm);
 // function getGenreById(genreId) {
