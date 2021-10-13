@@ -36,14 +36,13 @@ apiService.totalResults().then(totalPages => {
 
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
-    try {
-      console.log('🚀 ~ loadTrendFilms', loadTrendFilms);
-      loadTrendFilms(currentPage);
 
-      // const { results, totalResults } = apiService.getTrendFilms();
-      // results = await apiService.popularMovie(currentPage); //???????????????????????????????????????
-      // genres = await apiService.getGenreList(currentPage);
-      // createMovieCard(results, genres, currentPage);
+    // if (flag===1) {} // search
+    // if (flag===2) {} // library
+    // else {} // home (default)
+
+    try {
+      loadTrendFilms(currentPage);
     } catch (error) {
       console.log('🚀 ~ Pagination.js 41-43 ~ error2', error);
     }
