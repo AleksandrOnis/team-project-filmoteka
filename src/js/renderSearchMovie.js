@@ -5,20 +5,13 @@ import { createFilmCard, loadTrendFilms } from './renderHome';
 import _ from 'lodash';
 import pagination from './pagination.js';
 let isNewQuery = null;
-let isPagnationHidden = null;
-console.log(loadTrendFilms);
+let isPaginationHidden = null;
 
 import { showSpiner, hideSpiner } from './spiner.js';
-// console.log(showSpiner);
-// console.log(hideSpiner);
-
-console.log(createFilmCard);
 
 const searchForm = document.querySelector('.search-film');
 const galleryEl = document.querySelector('.gallery');
 const paginationRef = document.querySelector('#pagination');
-
-console.log(searchForm);
 
 searchForm.addEventListener('input', _.debounce(onSearch, 500));
 const apiService = new ApiService();
@@ -31,6 +24,7 @@ function onSearch(e) {
     clearGallery();
     apiService.resetPage();
     showSpiner();
+    paginationHidden();
     loadTrendFilms();
     hideSpiner();
     return;
@@ -50,12 +44,11 @@ export default async function renderFoundFilms(page = 1) {
   if (isNewQuery === 1) {
     pagination(totalResults, renderFoundFilms);
     isNewQuery = 0;
-    if ((isPagnationHidden = 1)) paginationRef.classList.remove('visually-hidden');
+    if ((isPaginationHidden = 1)) paginationRef.classList.remove('visually-hidden');
   }
   if (totalResults === 0) {
     clearGallery();
-    paginationRef.classList.add('visually-hidden');
-    isPagnationHidden = 1;
+    paginationHidden();
     return;
   }
 
@@ -71,6 +64,11 @@ function renderImageCard(cards) {
 
 function clearGallery() {
   galleryEl.innerHTML = '';
+}
+
+function paginationHidden() {
+  paginationRef.classList.add('visually-hidden');
+  isPaginationHidden = 1;
 }
 
 /* const replaceFilmId = array => {
