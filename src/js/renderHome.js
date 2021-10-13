@@ -4,9 +4,7 @@ import openModalfilm from './modal.js';
 import pagination from './pagination.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 const galleryEl = document.querySelector('.gallery');
-console.log(galleryEl);
 let newQuery = 1;
-let totalPages = null;
 const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
 export default async function loadTrendFilms(page = 1) {
@@ -36,7 +34,6 @@ function renderFilmCard(cards) {
 /////обновляем год и название в массиве из бека
 
 export function createFilmCard(trendFilm, filmGenres, page = 1) {
-  console.log('🚀 ~ createFilmCard ~ page', page);
   return trendFilm.map(film => {
     film.year = film.release_date.split('-')[0];
     if (film.genre_ids.length > 0 && film.genre_ids.length <= 3) {

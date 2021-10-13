@@ -180,3 +180,19 @@
 // .tui-is-disabled .tui-ico-last {
 //   background-position: -13px -12px;
 // }
+
+.tui-first,
+.tui-last,
+.tui-prev-is-ellip,
+.tui-next-is-ellip {
+  @media screen and (max-width: 620px) {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+}
