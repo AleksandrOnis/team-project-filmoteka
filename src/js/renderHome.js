@@ -3,7 +3,7 @@ import ApiService from './apiService.js';
 import openModalfilm from './modal.js';
 import pagination from './pagination.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
-
+const totalPages = null;
 const galleryEl = document.querySelector('.gallery');
 console.log(galleryEl);
 
@@ -17,17 +17,17 @@ export default async function loadTrendFilms(page = 1) {
     clearGallery();
     return;
   }
+  pagination(totalResults);
   const filmCard = createFilmCard(results, genres, page);
-  const totalPages = totalResults;
-  console.log('🚀 ~ loadTrendFilms ~ totalResults', totalPages);
-  pagination(totalPages);
   renderFilmCard(filmCard);
+  return;
 }
 
 ////добавляем разметку  на страницу
 function renderFilmCard(cards) {
   clearGallery();
   galleryEl.insertAdjacentHTML('beforeend', filmCard(cards));
+  return;
 }
 
 /////обновляем год и название в массиве из бека
@@ -55,6 +55,11 @@ export function createFilmCard(trendFilm, filmGenres, page = 1) {
 function clearGallery() {
   galleryEl.innerHTML = '';
 }
+
+function totalPages(totalResults) {
+  return totalResults;
+}
+
 loadTrendFilms();
 galleryEl.addEventListener('click', openModalfilm);
 // function getGenreById(genreId) {

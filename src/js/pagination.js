@@ -33,7 +33,6 @@ const options = {
 };
 
 // if (flag===1) {} // search
-// if (flag===2) {} // library
 // else {} // home (default)
 
 // home (default)
@@ -50,14 +49,15 @@ const options = {
 //   document.querySelector('.tui-first').textContent = `1`;
 // });
 
-export default function pagination(totalPages) {
+export default function pagination(totalResults) {
   console.log(`totalPages=${totalPages} передаем в tui-pagination`);
-  const pagination = new Pagination('pagination', { totalItems: totalPages, ...options });
-
+  if (totalPages !== totalResults) {
+    totalPages = totalResults;
+    const pagination = new Pagination('pagination', { totalItems: totalPages, ...options });
+    document.querySelector('.tui-last').textContent = `${totalPages / 20}`;
+    document.querySelector('.tui-first').textContent = `1`;
+  }
   pagination.on('beforeMove', event => {
     loadTrendFilms(event.page);
   });
-
-  document.querySelector('.tui-last').textContent = `${totalPages / 20}`;
-  document.querySelector('.tui-first').textContent = `1`;
 }
