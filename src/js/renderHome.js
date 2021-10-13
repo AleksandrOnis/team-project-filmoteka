@@ -7,6 +7,7 @@ const galleryEl = document.querySelector('.gallery');
 let newQuery = 1;
 const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
+
 export default async function loadTrendFilms(page = 1) {
   const { results, totalResults } = await apiService.getTrendFilms(page);
   const genres = await apiService.getGenreList(page);
