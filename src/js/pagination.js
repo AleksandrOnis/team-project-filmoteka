@@ -3,11 +3,6 @@ import ApiService from './apiService.js';
 import loadTrendFilms from './renderHome';
 const apiService = new ApiService();
 
-// try {
-// } catch (error) {
-//   console.log('🚀 ~ Pagination.js ~ error1', error);
-// }
-
 apiService.totalResults().then(totalPages => {
   console.log(`totalPages=${totalPages} передаем в tui-pagination`);
   const options = {
@@ -43,7 +38,9 @@ apiService.totalResults().then(totalPages => {
     const currentPage = event.page;
     console.log('🚀 ~ currentPage', currentPage);
     try {
+      console.log('🚀 ~ loadTrendFilms', loadTrendFilms);
       loadTrendFilms(currentPage);
+
       // const { results, totalResults } = apiService.getTrendFilms();
       // results = await apiService.popularMovie(currentPage); //???????????????????????????????????????
       // genres = await apiService.getGenreList(currentPage);
