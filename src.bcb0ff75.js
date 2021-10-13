@@ -121,4 +121,4 @@ var t,o=arguments[3];!function(o,i){"function"==typeof t&&t.amd?t([],function(){
 },{"./data-lang.js":"jja2"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=u(require("./templates/filmСard.hbs")),r=u(require("./templates/filmDescription.hbs")),s=u(require("./js/apiService.js")),i=u(require("notiflix"));function u(e){return e&&e.__esModule?e:{default:e}}require("./js/modalFooter.js"),require("./js/renderHome.js"),require("./js/renderSearchMovie.js"),require("./js/spiner.js"),require("./js/multyLang.js"),require("./js/pagination.js");
 },{"./sass/main.scss":"clu1","./templates/filmСard.hbs":"FRZa","./templates/filmDescription.hbs":"NWLV","./js/apiService.js":"eQwa","notiflix":"ja4j","./js/modalFooter.js":"amkG","./js/renderHome.js":"WvC6","./js/renderSearchMovie.js":"I6PA","./js/spiner.js":"eYPI","./js/multyLang.js":"zIfY","./js/pagination.js":"o8lo"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-filmoteka/src.65862b9c.js.map
+//# sourceMappingURL=/team-project-filmoteka/src.bcb0ff75.js.map
