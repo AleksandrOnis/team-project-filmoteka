@@ -1,56 +1,58 @@
 import filmCard from '../templates/filmСard.hbs';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
-import ApiService  from '../js/apiService';
-import { createFilmCard,loadTrendFilms} from  './renderHome'
-import _ from 'lodash'
+import ApiService from '../js/apiService';
+import { createFilmCard, loadTrendFilms } from './renderHome';
+import _ from 'lodash';
+import pagination from './pagination.js';
+let isNewQuery = null;
+let isPaginationHidden = null;
 
-console.log(loadTrendFilms);
-
-import { showSpiner, hideSpiner } from './spiner.js'
-// console.log(showSpiner);
-// console.log(hideSpiner);
-
-console.log(createFilmCard);
+import { showSpiner, hideSpiner } from './spiner.js';
 
 const searchForm = document.querySelector('.search-film');
 const galleryEl = document.querySelector('.gallery');
+const paginationRef = document.querySelector('#pagination');
 
-console.log(searchForm);
-
-searchForm.addEventListener('input',_.debounce(onSearch,500));
-const apiService = new ApiService;
-
+searchForm.addEventListener('input', _.debounce(onSearch, 500));
+const apiService = new ApiService();
 
 function onSearch(e) {
   e.preventDefault();
   const newSearch = e.target.value.trim();
   apiService.setQuery(newSearch);
   if (newSearch === '') {
-    clearGallery()
-    apiService.resetPage()
-    showSpiner()
-    loadTrendFilms()
-    hideSpiner()
-return
+    clearGallery();
+    apiService.resetPage();
+    showSpiner();
+    paginationHidden();
+    loadTrendFilms();
+    hideSpiner();
+    return;
   }
-  clearGallery()
- showSpiner()
-  apiService.resetPage()
-  renderFoundFilms()
-  hideSpiner()
+  isNewQuery = 1;
+  showSpiner();
+  apiService.resetPage();
+  renderFoundFilms();
+  hideSpiner();
 }
 
-async function renderFoundFilms() {
+export default async function renderFoundFilms(page = 1) {
   const findedFilms = await apiService.getFilmsfromSearch();
   const genres = await apiService.getGenreList();
   const { results, totalResults } = findedFilms;
- 
+  clearGallery();
+  if (isNewQuery === 1) {
+    pagination(totalResults, renderFoundFilms);
+    isNewQuery = 0;
+    if ((isPaginationHidden = 1)) paginationRef.classList.remove('visually-hidden');
+  }
   if (totalResults === 0) {
     clearGallery();
+    paginationHidden();
     return;
   }
 
-  const renderedFilms =createFilmCard(results, genres);
+  const renderedFilms = createFilmCard(results, genres, page);
   renderImageCard(renderedFilms);
 
   return renderedFilms;
@@ -62,6 +64,11 @@ function renderImageCard(cards) {
 
 function clearGallery() {
   galleryEl.innerHTML = '';
+}
+
+function paginationHidden() {
+  paginationRef.classList.add('visually-hidden');
+  isPaginationHidden = 1;
 }
 
 /* const replaceFilmId = array => {

@@ -1,15 +1,13 @@
 import filmCard from '../templates/filmСard.hbs';
 import ApiService from './apiService.js';
 import openModalfilm from './modal.js';
+import pagination from './pagination.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
-
 const galleryEl = document.querySelector('.gallery');
-console.log(galleryEl);
 
 const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
 export default async function loadTrendFilms(page = 1) {
-  console.log('🚀 ~ loadTrendFilms ~ page', page);
   const { results, totalResults } = await apiService.getTrendFilms(page);
   const genres = await apiService.getGenreList(page);
   // let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
@@ -19,18 +17,19 @@ export default async function loadTrendFilms(page = 1) {
   }
   const filmCard = createFilmCard(results, genres, page);
   renderFilmCard(filmCard);
+  return;
 }
 
 ////добавляем разметку  на страницу
 function renderFilmCard(cards) {
   clearGallery();
   galleryEl.insertAdjacentHTML('beforeend', filmCard(cards));
+  return;
 }
 
 /////обновляем год и название в массиве из бека
 
 export function createFilmCard(trendFilm, filmGenres, page = 1) {
-  console.log('🚀 ~ createFilmCard ~ page', page);
   return trendFilm.map(film => {
     film.year = film.release_date.split('-')[0];
     if (film.genre_ids.length > 0 && film.genre_ids.length <= 3) {
@@ -52,6 +51,7 @@ export function createFilmCard(trendFilm, filmGenres, page = 1) {
 function clearGallery() {
   galleryEl.innerHTML = '';
 }
+
 loadTrendFilms();
 galleryEl.addEventListener('click', openModalfilm);
 // function getGenreById(genreId) {
