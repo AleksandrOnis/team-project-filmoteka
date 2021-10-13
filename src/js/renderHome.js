@@ -3,27 +3,6 @@ import ApiService from './apiService.js';
 import openModalfilm from './modal.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 
-///////////////////////////////////OLD
-
-// import { popularMovie, getGenreList } from './apiServicePopularMovieFn.js';
-
-// const galleryEl = document.querySelector('.gallery');
-// console.log(galleryEl);
-
-// const apiService = new ApiService();
-
-// ///по данным из запроса  создаем галерею
-// async function createMovieCard(page = 1) {
-//   console.log('🚀 ~ page', page);
-//   galleryEl.innerHTML = '';
-//   const results = await apiService.popularMovie(page); //???????????????????????????????????????
-//   const genres = await apiService.getGenreList(page);
-//   // let imgUrl = `https://image.tmdb.org/t/p/original${data.results[1].poster_path}`;
-//   const newResults = getData(results, genres);
-//   renderImageCard(newResults);
-// }
-////////////////////////////////////OLD
-
 const galleryEl = document.querySelector('.gallery');
 console.log(galleryEl);
 
@@ -44,6 +23,7 @@ export default async function loadTrendFilms(page = 1) {
 
 ////добавляем разметку  на страницу
 function renderFilmCard(cards) {
+  clearGallery();
   galleryEl.insertAdjacentHTML('beforeend', filmCard(cards));
 }
 

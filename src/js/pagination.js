@@ -36,7 +36,6 @@ apiService.totalResults().then(totalPages => {
 
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
-    console.log('🚀 ~ currentPage', currentPage);
     try {
       console.log('🚀 ~ loadTrendFilms', loadTrendFilms);
       loadTrendFilms(currentPage);
