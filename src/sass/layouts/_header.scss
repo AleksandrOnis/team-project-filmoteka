@@ -139,3 +139,16 @@ body {
   line-height: 14px;
   color: #ffffff;
 }
+
+.lng-home {
+  margin-right: 39px;
+}
+
+.lng-home::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 34px;
+  height: 3px;
+  background-color: #ff6b08;
+}
