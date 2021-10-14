@@ -68,7 +68,7 @@ body {
     font-size: 30px;
     line-height: 1.17;
 
-    color: #ffffff;
+    color: var(--primary-text-color);
   }
 }
 
@@ -86,7 +86,7 @@ body {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
-  color: #ffffff;
+  color: var(--primary-text-color);
 }
 
 .navigation-text:not(:last-child) {
@@ -105,7 +105,7 @@ body {
 
     width: 105%;
     height: 4px;
-    background-color: #ff6b01;
+    background-color: var(--btn-bg-primary-color);
   }
 }
 
@@ -130,10 +130,10 @@ body {
 .search-film {
   width: 280px;
   border: none;
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.5px solid var(--primary-text-color);
   outline: none;
   background: none;
-  color: #ffffff;
+  color: var(--primary-text-color);
   padding: 5px;
 }
 
@@ -150,7 +150,7 @@ body {
   font-size: 14px;
   line-height: 16px;
   align-items: center;
-  color: #ffffff;
+  color: var(--primary-text-color);
 }
 
 .search-img {
@@ -174,7 +174,7 @@ body {
   -webkit-appearance: none;
   appearance: none;
 
-  color: #ff6b01;
+  color: var(--btn-bg-primary-color);
 
   border: none;
   background-color: transparent;
@@ -209,7 +209,7 @@ body {
   height: 0;
   border-style: solid;
   border-width: 5px 3px 0 3px;
-  border-color: #ff6b01 transparent transparent transparent;
+  border-color: var(--btn-bg-primary-color) transparent transparent transparent;
 
   pointer-events: none;
 }
