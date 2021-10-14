@@ -1,0 +1,134 @@
+.mylibrary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  padding: 60px;
+  padding-bottom: 160px;
+  color: var(--secondary-text-color);
+}
+
+.authentication__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.authentication__option {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.input-element {
+  text-align: left;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.authentication__modal {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  display: flex;
+
+  flex-direction: column;
+  width: 90vw;
+  font-size: 12px;
+  transform: translateX(-50%);
+  padding: 15px;
+  box-shadow: var(--basic-box-shadow);
+  background-color: var(--footer-bg-color);
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 350px) {
+    width: 320px;
+    height: 200px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    height: 255px;
+    width: 465px;
+    font-size: 20px;
+    padding: 25px;
+  }
+}
+
+.modal__heading {
+  text-align: center;
+  font-size: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.input-field {
+  &::placeholder {
+    font-size: 10px;
+    @media screen and (min-width: 768px) {
+      font-size: 12px;
+    }
+  }
+}
+
+// buttons
+.authentication__button {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  width: 110px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  height: 36px;
+  padding: 0 26px;
+  margin: 6px 0;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  text-align: center;
+  line-height: 36px;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--button-shadow);
+}
+.authentication__signup-btn {
+  color: #fff;
+  background-color: var(--btn-bg-primary-color);
+}
+
+.authentication__login-btn {
+  margin-right: 25px;
+}
+
+.authentication__modal-button {
+  background-color: var(--btn-bg-primary-color);
+  font-size: 12px;
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+    box-shadow: none;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+.authentication__modal-close {
+  @extend .footer__button;
+}

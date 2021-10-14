@@ -8,6 +8,7 @@ const galleryEl = document.querySelector('.gallery');
 let newQuery = 1;
 const apiService = new ApiService();
 ///по данным из запроса  создаем галерею
+
 export default async function loadTrendFilms(page = 1) {
   const { results, totalResults } = await apiService.getTrendFilms(page);
   const genres = await apiService.getGenreList(page);
@@ -38,7 +39,10 @@ function renderFilmCard(cards) {
 
 export function createFilmCard(trendFilm, filmGenres, page = 1) {
   return trendFilm.map(film => {
-    film.year = film.release_date.split('-')[0];
+    if (film.release_date) {
+      film.year = film.release_date.slice(0, 4);
+    }
+    else { film.year = 'N/A'}
     if (film.genre_ids.length > 0 && film.genre_ids.length <= 3) {
       film.genres = film.genre_ids.map(id => filmGenres.filter(el => el.id === id)).flat();
     }
