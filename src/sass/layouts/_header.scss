@@ -20,7 +20,8 @@ body {
 
 @media screen and (min-width: 768px) {
   .header {
-    background-image: url(../images/tablet/header_1@1x_tablet.jpg);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/tablet/header_1@1x_tablet.jpg);
     padding-left: 70px;
     padding-right: 70px;
   }
@@ -28,7 +29,8 @@ body {
 
 @media screen and (min-width: 1024px) {
   .header {
-    background-image: url(../images/desktop/header_1@1x_desktop.jpg);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/desktop/header_1@1x_desktop.jpg);
     padding-left: 70px;
     padding-right: 70px;
   }
