@@ -25,10 +25,10 @@
          </div>
          <div class="authentication__option authentication__loggedout">
               <li class="">
-            <button type="button" class="authentication__button mui-btn mui-btn--raised mui-btn--primary authentication__login " id="login-button">Login</button>
+            <button type="button" class="btn authentication__button authentication__login-btn " id="login-button">Login</button>
           </li>
           <li class="">
-            <button type="button" class="authentication__button mui-btn mui-btn--raised mui-btn--danger" id="signup-button">Sign up</button>
+            <button type="button" class="btn authentication__button  authentication__signup-btn" id="signup-button">Sign up</button>
           </li>
          </div>
         </span>
@@ -50,7 +50,7 @@
           <label for="signup-password">Choose password</label>
         <input type="password" id="signup-password" class="input-field" placeholder='Type in your password' required />
       </div>
-      <button class="authentication__modal-button mui-btn mui-btn--raised" type="submit" id="submit-button" disabled>Sign up</button>
+      <button class="btn authentication__modal-button authentication__button " type="submit" id="submit-button" disabled>Sign up</button>
     </form>
   </div>
 </div>
@@ -70,7 +70,7 @@
           <label for="login-password">Your password</label>
         <input type="password" id="login-password" class="input-field" placeholder='Type in your password' required minlength="10"/>
       </div>
-      <button class="authentication__modal-button mui-btn mui-btn--raised mui-btn--primary" type="submit" disabled>Login</button>
+      <button class="btn authentication__button authentication__modal-button " type="submit" disabled>Login</button>
     </form>
   </div>
 </div>
