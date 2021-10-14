@@ -1,11 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
 const { footerAccess, footerCloseBtn, footerModalAccess } = refs;
-console.log(footerCloseBtn);
 footerAccess.addEventListener('click', modalFooter);
 
 function modalFooter(e) {
-  console.log(e.target.nodeName);
   if (!e.target.nodeName === 'A') {
     return;
   }
@@ -21,9 +19,7 @@ function removeListener() {
 }
 
 function onEscapeClose(e) {
-  console.log(e);
   if (e.code === 'Escape') {
-    console.log(e.code);
     closeFooterModal();
     removeListener();
   }

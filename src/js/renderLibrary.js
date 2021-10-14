@@ -6,13 +6,10 @@ import refs from './refs';
 // import hbs
 import mylibrary from '../templates/mylibrary.hbs';
 import libHeader from '../templates/libheader.hbs';
-// console.log(libHeader());
 import handleAuthModals from './handle-authentication-modals';
 // get access to the My Library button, main
 
 const { mainHTML, myLibraryLink, homeLink, headerHTML } = refs;
-console.log(mainHTML, myLibraryLink, homeLink, headerHTML);
-console.log(headerHTML);
 
 // add event listener on My Library
 myLibraryLink.addEventListener('click', renderLibrary);
@@ -24,8 +21,7 @@ function renderLibrary() {
   mainHTML.innerHTML = '';
 
   headerHTML.innerHTML = '';
-  console.log(headerHTML);
-  
+
   // 2. render content from mylibrary.hbs
   const libHeaderMarkup = libHeader();
   const libraryMarkup = mylibrary();
