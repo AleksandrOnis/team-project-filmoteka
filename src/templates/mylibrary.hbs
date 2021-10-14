@@ -1,0 +1,93 @@
+<section class="mylibrary ">
+
+<ul class="mylibrary__slideshow">
+	<li>
+		<span></span>
+	</li>
+	<li><span></span></li>
+	<li><span></span>
+		</li>
+  <li><span></span></li>
+  <li><span></span></li>
+  <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+</ul>
+
+
+       <div class="authentication">
+           <ul id="login-nav" class="authentication__list">
+         <div class="authentication__option authentication__loggedin visually-hidden">
+              <li class="">
+            <button type="button" class="authentication__button mui-btn mui-btn--flat modal-trigger" data-target="modal-account">Account</button>
+          </li>
+          <li class="">
+            <button type="button" class="authentication__button authentication__logout mui-btn mui-btn--flat"  id="logout">Logout</button>
+          </li>
+         </div>
+         <div class="authentication__option authentication__loggedout">
+              <li class="">
+            <button type="button" class="btn authentication__button authentication__login-btn " id="login-button">Login</button>
+          </li>
+          <li class="">
+            <button type="button" class="btn authentication__button  authentication__signup-btn" id="signup-button">Sign up</button>
+          </li>
+         </div>
+        </span>
+      </ul>
+       </div>
+
+<!-- SIGN UP MODAL -->
+<div id="modal-signup" class="authentication__modal is-hidden">
+    <button type="button" class="authentication__modal-close" id="signup-close"></button>
+  <div class="modal__content">
+    <h2 class="modal__heading">Sign up</h2>
+    <br />
+    <form id="signup-form">
+      <div class="input-element">
+          <label for="signup-email" >Email address</label>
+        <input type="email" id="signup-email" class="input-field" placeholder='Type in your email'required />
+      </div>
+      <div class="input-element">
+          <label for="signup-password">Choose password</label>
+        <input type="password" id="signup-password" class="input-field" placeholder='Type in your password' required />
+      </div>
+      <button class="btn authentication__modal-button authentication__button " type="submit" id="submit-button" disabled>Sign up</button>
+    </form>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="modal-login" class="authentication__modal is-hidden ">
+    <button type="button" class="authentication__modal-close" id="login-close"></button>
+    <div class="modal__content">
+    <h2 class="modal__heading">Login</h2>
+    <br />
+    <form id="login-form">
+      <div class="input-element">
+          <label for="login-email" >Email address</label>
+        <input type="email" id="login-email" class="input-field"  placeholder='Type in your email'required />
+      </div>
+      <div class="input-element">
+          <label for="login-password">Your password</label>
+        <input type="password" id="login-password" class="input-field" placeholder='Type in your password' required minlength="10"/>
+      </div>
+      <button class="btn authentication__button authentication__modal-button " type="submit" disabled>Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div id="modal-account" class="authentication__modal visually-hidden ">
+    <button type="button" class="authentication__modal-close"></button>
+  <div class="">
+    <h2 class="modal__heading">Account details</h2>
+    <br />
+    <div class="account-details"></div>
+  </div>
+</div>
+
+
+  
+</section>
