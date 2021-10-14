@@ -20,7 +20,6 @@ body {
 
 @media screen and (min-width: 768px) {
   .header {
-    /* max-width: 768px; */
     background-image: url(../images/tablet/header_1@1x_tablet.jpg);
     padding-left: 70px;
     padding-right: 70px;
@@ -29,8 +28,6 @@ body {
 
 @media screen and (min-width: 1024px) {
   .header {
-    /*     max-width: 1024px;
- */
     background-image: url(../images/desktop/header_1@1x_desktop.jpg);
     padding-left: 70px;
     padding-right: 70px;
@@ -51,8 +48,6 @@ body {
 }
 
 .logo {
-  /*   display: flex;
-  flex-direction: row; */
   align-items: baseline;
 }
 
@@ -64,8 +59,6 @@ body {
 
 @media screen and (min-width: 768px) {
   .logo-text {
-    /*     display: flex;
- */
     align-items: center;
     text-align: center;
 
@@ -74,13 +67,12 @@ body {
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;
-    /* text-transform: uppercase; */
+
     color: #ffffff;
   }
 }
 
 .logo-img {
-  /* display: flex; */
   margin-right: 10px;
 }
 
@@ -169,15 +161,6 @@ body {
   left: 95%;
 
   transform: translateY(-50%);
-  @media screen and (min-width: 768px) {
-    .search-img {
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .search-img {
-    }
-  }
 }
 
 //select
