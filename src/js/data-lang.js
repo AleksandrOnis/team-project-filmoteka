@@ -10,28 +10,13 @@ export default {
     ru: 'моя библиотека',
     ua: 'моя бібліотека',
   },
-  search: {
-    en: 'Search movie',
-    ru: 'Поиск фильма',
-    ua: 'Пошук фільму',
-  },
-  login: {
-    en: 'Log In',
-    ru: 'Войти',
-    ua: 'Увійти',
-  },
-    account: {
-    en: 'Create your Account',
-    ru: 'Создать аккаунт',
-    ua: 'Створити аккаунт',
-  },
-   placeholder: {
+  placeholder: {
     en: 'Movie search ',
     ru: 'Поиск фильма',
     ua: 'Пошук фільму',
   },
-   
-   //footer
+
+  //footer
   rights: {
     en: '© 2021 | All Rights Reserved |',
     ru: '© 2021 | Все права защищены |',
@@ -55,14 +40,13 @@ export default {
 
   //  modal
   watch: {
-    en: 'add to watched',
-    ru: 'добавить к просмотру',
-    ua: 'додати до перегляду',
+    en: 'Add to watched',
+    ru: 'Добавить к просмотру',
+    ua: 'Додати до перегляду',
   },
   queue: {
-    en: 'add to queue',
-    ru: 'добавить в очередь',
-    ua: 'додати в чергу',
+    en: 'Add to queue',
+    ru: 'Добавить в очередь',
+    ua: 'Додати в чергу',
   },
-
 };
