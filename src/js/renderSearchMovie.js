@@ -4,6 +4,8 @@ import ApiService from '../js/apiService';
 import { createFilmCard, loadTrendFilms } from './renderHome';
 import _ from 'lodash';
 import pagination from './pagination.js';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 let isNewQuery = null;
 let isPaginationHidden = null;
 
@@ -23,6 +25,7 @@ function onSearch(e) {
   if (newSearch === '') {
     clearGallery();
     apiService.resetPage();
+    Notify.warning('Please enter your query');
     showSpiner();
     paginationHidden();
     loadTrendFilms();
@@ -47,6 +50,7 @@ export default async function renderFoundFilms(page = 1) {
     if ((isPaginationHidden = 1)) paginationRef.classList.remove('visually-hidden');
   }
   if (totalResults === 0) {
+    Notify.failure('Unfortunately no movies found');
     clearGallery();
     paginationHidden();
     return;

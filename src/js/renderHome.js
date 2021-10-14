@@ -2,6 +2,7 @@ import filmCard from '../templates/filmСard.hbs';
 import ApiService from './apiService.js';
 import openModalfilm from './modal.js';
 import pagination from './pagination.js';
+import { showSpiner, hideSpiner } from './spiner.js';
 // import filmCardLib from '../templates/filmcard-lib.hbs';
 const galleryEl = document.querySelector('.gallery');
 let newQuery = 1;
@@ -20,8 +21,10 @@ export default async function loadTrendFilms(page = 1) {
     pagination(totalResults, loadTrendFilms);
     newQuery = 0;
   }
+  showSpiner();
   const filmCard = createFilmCard(results, genres, page);
   renderFilmCard(filmCard);
+  hideSpiner();
   return;
 }
 
