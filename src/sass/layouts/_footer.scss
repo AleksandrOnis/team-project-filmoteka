@@ -41,14 +41,21 @@
 }
 
 .footer__modal {
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
   background-color: var(--footer-bg-color);
   color: var(--footer-text-color);
   width: 90vw;
-  height: 90vh;
+  height: 80vh;
   border-radius: 15px;
   box-shadow: var(--footer-modal-shadow);
   padding: 20px;
   overflow-y: auto;
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 .footer__members {
   display: flex;

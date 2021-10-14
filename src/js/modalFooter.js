@@ -1,34 +1,34 @@
 import * as basicLightbox from 'basiclightbox';
-
-const footerAccess = document.querySelector('.footer');
-const linkAccess = document.querySelector('.footer__link');
-const modalAccess = document.querySelector('.footer__modal');
-
+import refs from './refs';
+const { footerAccess, footerCloseBtn, footerModalAccess } = refs;
+console.log(footerCloseBtn);
 footerAccess.addEventListener('click', modalFooter);
-
-const instance = basicLightbox.create(document.querySelector('.footer__template'));
 
 function modalFooter(e) {
   console.log(e.target.nodeName);
   if (!e.target.nodeName === 'A') {
     return;
   }
-  instance.show();
+  footerModalAccess.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscapeClose);
+  // window.addEventListener('click', onClickClose);
+  footerCloseBtn.addEventListener('click', closeFooterModal);
 }
 
 function removeListener() {
   window.removeEventListener('keydown', onEscapeClose);
+  // window.removeEventListener('click', onClickClose);
 }
 
 function onEscapeClose(e) {
   console.log(e);
-   if (e.code === 'Escape') {
+  if (e.code === 'Escape') {
     console.log(e.code);
-     instance.close()
-     removeListener()
+    closeFooterModal();
+    removeListener();
   }
 }
 
-
-
+function closeFooterModal() {
+  footerModalAccess.classList.add('is-hidden');
+}
