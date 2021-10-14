@@ -39,7 +39,10 @@ function renderFilmCard(cards) {
 
 export function createFilmCard(trendFilm, filmGenres, page = 1) {
   return trendFilm.map(film => {
-    film.year = film.release_date.split('-')[0];
+    if (film.release_date) {
+      film.year = film.release_date.slice(0, 4);
+    }
+    else { film.year = 'N/A'}
     if (film.genre_ids.length > 0 && film.genre_ids.length <= 3) {
       film.genres = film.genre_ids.map(id => filmGenres.filter(el => el.id === id)).flat();
     }
