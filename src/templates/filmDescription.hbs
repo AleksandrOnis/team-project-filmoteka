@@ -1,0 +1,67 @@
+<div class='modal-film__container' id={{id}}>
+    <button type='button' class='modal-close-btn js-modal-close-btn '>
+        <span class="close"></span>
+    </button>
+    <div class='modal-film__img-container'>
+        {{#if poster_path}}
+        <img class='modal-film__img' src='https://image.tmdb.org/t/p/w780{{poster_path}}'
+            alt='{{title}}' />
+        {{else}}
+        <img class='modal-film_noimg' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
+        {{/if}}
+    </div>
+
+    <div class='modal-film__description'>
+    <div>
+        <h2 class="modal-film__title">{{title}}</h2>
+        <ul>
+            <li class="modal-film__info">
+                <p class="modal-film__info--names">Vote / Votes</p>
+                <p class="modal-film__info--text">
+                    <span class="modal-film__rating">{{vote_average}}</span>
+                    <span class="modal-film__rating--divider"> / </span>
+                    <span>{{vote_count}}</span>
+                </p>
+            </li>
+            <li class="modal-film__info">
+                <p class="modal-film__info--names ">Popularity</p>
+                <p class="modal-film__info--text">{{popularity}}</p>
+            </li>
+            <li class="modal-film__info">
+                <p class="modal-film__info--names">Original title</p>
+                <p class="modal-film__info--text">{{original_title}}</p>
+            </li>
+            <li class="modal-film__info">
+                <p class="modal-film__info--names">Genre</p>
+                <p class="modal-film__info--text">
+                    {{#if genres}}
+                    {{#each genres}}
+                    <span>{{this.name}}{{#unless @last}},{{/unless}}</span>
+                    {{/each}}
+                    {{else}}<span>N/A</span>
+                    {{/if}}
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="modal-film__about--title">About</h3>
+        <p class="modal-film__about--text">
+            {{overview}}
+        </p>
+    </div>
+    <div class="modal-film__button__wrapper">
+        <button type="button" class=" modal-film__button btn__watch" data-id="{{id}}">Add to watched</button>
+        <button type="button" class=" modal-film__button btn__queue" data-id="{{id}}">Add to queue</button>
+    </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+    

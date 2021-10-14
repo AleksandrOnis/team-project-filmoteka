@@ -30,6 +30,7 @@
     "basiclightbox": "^5.0.4",
     "firebase": "^9.1.2",
     "muicss": "^0.10.3",
-    "notiflix": "^3.1.0"
+    "notiflix": "^3.1.0",
+    "tui-pagination": "^3.4.1"
   }
 }
