@@ -26,7 +26,7 @@ function onSearch(e) {
     clearGallery();
     apiService.resetPage();
     Notify.warning('Please enter your query');
-    showSpiner();
+    // showSpiner();
     paginationHidden();
     loadTrendFilms();
     hideSpiner();
