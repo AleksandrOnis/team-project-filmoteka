@@ -4,4 +4,7 @@ import './js/renderHome.js';
 import './js/renderSearchMovie.js';
 import './js/spiner.js';
 import './js/multyLang.js';
+//import './js/firebase.js';
+import './js/firebase-database.js';
+import './js/authenticationModals.js';
 import './js/pagination.js';
