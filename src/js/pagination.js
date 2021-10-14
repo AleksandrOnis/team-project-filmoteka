@@ -45,5 +45,9 @@ export default function pagination(totalResults, onCreateCards) {
 
   pagination.on('afterMove', event => {
     onCreateCards(event.page);
+    document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   });
 }
