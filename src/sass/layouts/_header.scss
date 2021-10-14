@@ -18,6 +18,20 @@ body {
   padding-top: 45px;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .header {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/mobile/header_1@2x_mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .header {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -27,12 +41,44 @@ body {
   }
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  @media screen and (min-width: 768px) {
+    .header {
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/tablet/header_1@2x_tablet.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .header {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/desktop/header_1@1x_desktop.jpg);
     padding-left: 70px;
     padding-right: 70px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  @media screen and (min-width: 1024px) {
+    .header {
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/desktop/header_1@2x_desktop.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 }
 
