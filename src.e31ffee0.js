@@ -121,4 +121,4 @@ const e=document.querySelector("#signup-button"),n=document.querySelector("#logi
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/modalFooter.js"),require("./js/renderHome.js"),require("./js/renderSearchMovie.js"),require("./js/spiner.js"),require("./js/multyLang.js"),require("./js/firebase-database.js"),require("./js/authenticationModals.js"),require("./js/pagination.js");
 },{"./sass/main.scss":"clu1","./js/modalFooter.js":"amkG","./js/renderHome.js":"WvC6","./js/renderSearchMovie.js":"I6PA","./js/spiner.js":"eYPI","./js/multyLang.js":"zIfY","./js/firebase-database.js":"XyQF","./js/authenticationModals.js":"CNFK","./js/pagination.js":"o8lo"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-filmoteka/src.10d5c94d.js.map
+//# sourceMappingURL=/team-project-filmoteka/src.e31ffee0.js.map
