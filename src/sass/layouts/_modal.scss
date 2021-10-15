@@ -4,53 +4,31 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
-  max-height: 968px;
-  height: 90vh;
+  max-height: 958px;
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0 auto;
-  padding: 48px 20px 41px 20px;
+  padding: 50px 20px 40px 20px;
   overflow: auto;
   border: 1px solid rgba(0, 0, 0, 0);
   background-color: var(--bg-color);
 }
-.modal-close-btn {
+.modal-close__btn-wrapper {
   position: absolute;
-
-  top: 10px;
-  right: 10px;
+  top: 18px;
+  right: 18px;
+}
+.modal-close-btn {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: transparent;
   border: 0;
-  &:hover .close {
-    opacity: 1;
-  }
-}
-
-.close {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  width: 25px;
-  height: 25px;
   opacity: 0.3;
-
-  &:before,
-  &:after {
-    position: absolute;
-    left: 15px;
-    content: '';
-    border: 1px solid #0000;
-    height: 15px;
-    width: 2px;
-    background-color: var(--secondary-text-color);
-  }
-
-  &:before {
-    transform: rotate(45deg);
-  }
-  &:after {
-    transform: rotate(-45deg);
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -62,19 +40,24 @@
   border-radius: 5px;
 }
 .modal-film__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: start;
   font-weight: 500;
-  padding-top: 30px;
+
   color: var(--secondary-text-color);
 }
 .modal-film__title {
   font-size: 20px;
   line-height: 1.15;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .modal-film__info {
   display: flex;
+}
+.modal-film__info:not(:last-child) {
   padding-bottom: 10px;
 }
 .modal-film__info--names {
@@ -100,15 +83,14 @@
 
 .modal-film__about--title {
   line-height: 1.33;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .modal-film__about--text {
   line-height: 1.67;
   text-transform: uppercase;
-  padding-bottom: 21px;
 }
 .modal-film__button__wrapper {
+  padding-top: 20px;
   display: flex;
 }
 .modal-film__button {
@@ -135,8 +117,7 @@
 
 @media screen and (min-width: 768px) {
   .modal-film__container {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     width: 618px;
     height: auto;
     padding: 42px 30px 40px 30px;
@@ -148,8 +129,8 @@
   }
 
   .modal-film__description {
-    padding: 0;
-    width: 264px;
+    width: 265px;
+    justify-content: space-around;
   }
 }
 
@@ -162,8 +143,6 @@
 @media screen and (min-width: 1024px) {
   .modal-film__container {
     min-width: 882px;
-    padding-top: 50px;
-    padding-bottom: 40px;
   }
 
   .modal-film__img {
@@ -171,7 +150,7 @@
     height: 478px;
   }
   .modal-film__description {
-    width: 396px;
+    width: 400px;
   }
   .modal-film__title {
     font-size: 30px;
