@@ -43,7 +43,11 @@ export default function pagination(totalResults, onCreateCards) {
   Refs.tuiLast.textContent = `${Math.ceil(totalResults / 20)}`;
   Refs.tuiFirst.textContent = `1`;
 
-  pagination.on('beforeMove', event => {
+  pagination.on('afterMove', event => {
     onCreateCards(event.page);
+    document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   });
 }
