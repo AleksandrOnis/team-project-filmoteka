@@ -95,6 +95,32 @@ body {
 .logo {
   align-items: baseline;
 }
+.logo__link {
+  transform: perspective(1px) translateZ(0);
+}
+.logo__link:hover .logo-text,
+.logo__link:focus .logo-text {
+  color: var(--btn-bg-primary-color);
+}
+
+.logo__link:hover .logo-img,
+.logo__link:focus .logo-img {
+  stroke: var(--btn-bg-primary-color);
+  animation-name: pulse-grow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: var(--timing-function);
+}
+
+@keyframes pulse-grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3) rotate(1turn);
+  }
+}
 
 @media screen and (max-width: 767.9px) {
   .logo-text {
@@ -124,6 +150,33 @@ body {
 .navigation {
   display: flex;
 }
+.navigation__home,
+.navigation__library {
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: -2px;
+    background-color: var(--btn-bg-primary-color);
+    height: 4px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+}
+
+.navigation__home:hover::before,
+.navigation__library:hover::before,
+.navigation__home:focus::before,
+.navigation__library:focus::before {
+  left: 0;
+  right: 0;
+}
 
 .navigation-text {
   text-transform: uppercase;
@@ -146,7 +199,7 @@ body {
     position: absolute;
 
     left: 0;
-    bottom: -5px;
+    bottom: -2px;
 
     width: 105%;
     height: 4px;
