@@ -15,6 +15,7 @@ export default function handleAuthModals() {
   const loginForm = document.getElementById('login-form');
   // input access
   const inputEmail = signupForm.querySelector('#signup-email');
+  console.log(inputEmail);
   const inputPassword = signupForm.querySelector('#signup-password');
   const inputEmailLogin = loginForm.querySelector('#login-email');
   const inputPasswordLogin = loginForm.querySelector('#login-password');
@@ -77,4 +78,7 @@ export default function handleAuthModals() {
       closeModal();
     }
   }
+  return {
+    addBackdrop: addBackdrop,
+  };
 }
