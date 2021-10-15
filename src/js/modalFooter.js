@@ -8,14 +8,13 @@ function modalFooter(e) {
     return;
   }
   footerModalAccess.classList.remove('is-hidden');
+   document.body.classList.toggle('modal-open');
   window.addEventListener('keydown', onEscapeClose);
-  // window.addEventListener('click', onClickClose);
   footerCloseBtn.addEventListener('click', closeFooterModal);
 }
 
 function removeListener() {
   window.removeEventListener('keydown', onEscapeClose);
-  // window.removeEventListener('click', onClickClose);
 }
 
 function onEscapeClose(e) {

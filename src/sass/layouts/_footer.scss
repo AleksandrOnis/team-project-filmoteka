@@ -3,14 +3,14 @@
   flex-direction: column;
   position: fixed;
   bottom: 0;
-  height: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   width: 100%;
   align-items: center;
   justify-content: center;
   color: var(--footer-text-color);
   background-color: var(--footer-bg-color);
   @media screen and(min-width: 768px) {
-    height: 77px;
     flex-direction: row;
     align-items: center;
   }
@@ -57,6 +57,7 @@
     pointer-events: none;
   }
 }
+
 .footer__members {
   display: flex;
   flex-direction: column;
