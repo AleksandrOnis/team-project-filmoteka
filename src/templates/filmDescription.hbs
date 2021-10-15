@@ -1,7 +1,11 @@
 <div class='modal-film__container' id={{id}}>
-    <button type='button' class='modal-close-btn js-modal-close-btn '>
-        <span class="close"></span>
+    <div class="modal-close__btn-wrapper"><button type='button' class='modal-close-btn js-modal-close-btn '>
+    <svg  class="close" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="m8 8 14 14M8 22 22 8" stroke="#000" stroke-width="2" />
+    </svg>
     </button>
+    </div>
+
     <div class='modal-film__img-container'>
         {{#if poster_path}}
         <img class='modal-film__img' src='https://image.tmdb.org/t/p/w780{{poster_path}}'
@@ -12,8 +16,8 @@
     </div>
 
     <div class='modal-film__description'>
-    <div>
-        <h2 class="modal-film__title">{{title}}</h2>
+   <h2 class="modal-film__title">{{title}}</h2>
+       
         <ul>
             <li class="modal-film__info">
                 <p class="modal-film__info--names">Vote / Votes</p>
@@ -43,19 +47,21 @@
                 </p>
             </li>
         </ul>
+    //<div>//??????????????????
     </div>
     <div class='modal-film__about'>
         <h3 class="modal-film__about--title">About</h3>
         <p class="modal-film__about--text">
             {{overview}}
         </p>
+       
     </div>
     <div class="modal-film__button__wrapper">
         <button type="button" class=" modal-film__button btn__watch" data-id="{{id}}">Add to watched</button>
         <button type="button" class=" modal-film__button btn__queue" data-id="{{id}}">Add to queue</button>
     </div>
-
     </div>
+   
 </div>
 
 
