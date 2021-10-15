@@ -1,16 +1,14 @@
 import { Request } from './firebase-database';
-const signupForm = document.getElementById('signup-form');
-console.log(signupForm);
 
-const inputEmail = signupForm.querySelector('#signup-email');
-const inputPassword = signupForm.querySelector('#signup-password');
-const submitBtn = signupForm.querySelector('#submit-button');
+// const inputEmail = signupForm.querySelector('#signup-email');
+// const inputPassword = signupForm.querySelector('#signup-password');
+// const submitBtn = signupForm.querySelector('#submit-button');
 
-const loginForm = document.getElementById('login-form');
+// const loginForm = document.getElementById('login-form');
 
-const inputEmailLogin = loginForm.querySelector('#login-email');
+// const inputEmailLogin = loginForm.querySelector('#login-email');
 
-const inputPasswordLogin = loginForm.querySelector('#login-password');
+// const inputPasswordLogin = loginForm.querySelector('#login-password');
 
 // console.log(signupForm);
 // console.log(inputEmail);

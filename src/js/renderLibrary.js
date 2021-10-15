@@ -6,6 +6,7 @@ import refs from './refs';
 // import hbs
 import mylibrary from '../templates/mylibrary.hbs';
 import handleAuthModals from './handle-authentication-modals';
+
 // get access to the My Library button, main
 
 const { mainHTML, myLibraryLink, homeLink } = refs;
