@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
-const { footerAccess, footerCloseBtn, footerModalAccess } = refs;
+
+const { footerAccess, footerCloseBtn, footerModalAccess, bodyAccess } = refs;
 footerAccess.addEventListener('click', modalFooter);
 
 function modalFooter(e) {
@@ -8,14 +9,16 @@ function modalFooter(e) {
     return;
   }
   footerModalAccess.classList.remove('is-hidden');
+   document.body.classList.toggle('modal-open');
   window.addEventListener('keydown', onEscapeClose);
-  // window.addEventListener('click', onClickClose);
+
+  bodyAccess.classList.add('modal-open');
+  
   footerCloseBtn.addEventListener('click', closeFooterModal);
 }
 
 function removeListener() {
   window.removeEventListener('keydown', onEscapeClose);
-  // window.removeEventListener('click', onClickClose);
 }
 
 function onEscapeClose(e) {
@@ -27,4 +30,5 @@ function onEscapeClose(e) {
 
 function closeFooterModal() {
   footerModalAccess.classList.add('is-hidden');
+  bodyAccess.classList.remove('modal-open');
 }

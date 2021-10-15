@@ -32,6 +32,10 @@
   }
 }
 
+.modal-film__img-container {
+  margin-bottom: 30px;
+}
+
 .modal-film__img,
 .modal-film_noimg {
   display: block;
@@ -48,6 +52,7 @@
 
   color: var(--secondary-text-color);
 }
+
 .modal-film__title {
   font-size: 20px;
   line-height: 1.15;
@@ -79,6 +84,10 @@
 }
 .modal-film__rating--divider {
   margin-right: 3px;
+}
+
+.modal-film__about {
+  margin-bottom: 21px;
 }
 
 .modal-film__about--title {
