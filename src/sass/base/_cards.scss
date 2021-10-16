@@ -1,21 +1,28 @@
 .item {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
   @media screen and (min-width: 768px) {
+    outline: 1px solid red;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
     margin-left: 30px;
     flex-basis: calc(100% / 2 - 30px);
+    max-width: 274px;
     flex-grow: 1;
+    &:not(:last-child) {
+      margin-bottom: 0px;
+    }
   }
   @media screen and (min-width: 1024px) {
     flex-basis: calc(100% / 3 - 30px);
   }
 }
-.item:not(:last-child) {
-  margin-bottom: 20px;
-}
 
 .gallery-item_image {
+  outline: 1px solid red;
   margin-bottom: 10px;
   border-radius: 5px;
   transform: translateY(1%);
