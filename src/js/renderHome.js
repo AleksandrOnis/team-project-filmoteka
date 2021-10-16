@@ -39,7 +39,7 @@ function renderFilmCard(cards) {
 
 export function createFilmCard(trendFilm, filmGenres, page = 1) {
   return trendFilm.map(film => {
-    film.year = film.release_date.split('-')[0];
+    film.year = film.release_date ? film.release_date.slice(0,4): 'N/A';
     if (film.genre_ids.length > 0 && film.genre_ids.length <= 3) {
       film.genres = film.genre_ids.map(id => filmGenres.filter(el => el.id === id)).flat();
     }
@@ -51,7 +51,7 @@ export function createFilmCard(trendFilm, filmGenres, page = 1) {
         .concat({ name: 'Other' });
     }
     if (film.genre_ids.length === 0) {
-      film.genres = [{ name: 'n/a' }];
+      film.genres = [{ name: 'N/A' }];
     }
     return film;
   });
