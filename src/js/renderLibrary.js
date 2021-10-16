@@ -7,6 +7,8 @@ import refs from './refs';
 import mylibrary from '../templates/mylibrary.hbs';
 import libHeader from '../templates/libheader.hbs';
 import handleAuthModals from './handle-authentication-modals';
+import { signupFormListener } from './firebase-auth';
+import { loginFormListener } from './firebase-auth';
 
 // get access to the My Library button, main
 
@@ -34,4 +36,7 @@ function renderLibrary() {
   // 4. switch current page style
   homeLink.classList.remove('current');
   myLibraryLink.classList.add('current');
+  // 5. add the 21st-line function from firebase and proceed with chaining functions one to another
+  signupFormListener();
+  loginFormListener();
 }

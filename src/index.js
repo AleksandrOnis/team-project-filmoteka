@@ -10,6 +10,6 @@ import './js/renderSearchMovie.js';
 import './js/spiner.js';
 import './js/multyLang.js';
 import './js/pagination.js';
-// import './js/firebase.js';
+import './js/firebase.js';
 import './js/firebase-database.js';
 import './js/renderLibrary.js';
