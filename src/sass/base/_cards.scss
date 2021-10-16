@@ -14,9 +14,6 @@
 .item:not(:last-child) {
   margin-bottom: 20px;
 }
-.gallery-item {
-  overflow: hidden;
-}
 
 .gallery-item_image {
   margin-bottom: 10px;
@@ -35,8 +32,11 @@
 }
 
 .gallery-item_image:hover {
-  box-shadow: 2px 4px 6px rgba(230, 113, 35, 0.12), 1px 4px 4px rgba(211, 128, 19, 0.06),
-    10px 10px 5px 0px rgba(238, 176, 54, 0.75);
+  box-shadow: (
+    10px 10px 5px 2px rgba(238, 176, 54, 0.75),
+    20px 4px 6px rgba(230, 113, 35, 0.12),
+    1px 4px 4px rgba(211, 128, 19, 0.06)
+  );
   transform: translateY(0);
 }
 .gallery-item_year {
