@@ -119,6 +119,20 @@ body {
 
 .logo-img {
   margin-right: 10px;
+  animation: logoRotate 4s infinite alternate-reverse;
+}
+
+@keyframes logoRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-img:hover {
+  animation-play-state: paused;
 }
 
 .navigation {
@@ -132,6 +146,10 @@ body {
   font-size: 12px;
   line-height: 1.17;
   color: var(--primary-text-color);
+
+  &:hover {
+    color: var(--btn-bg-primary-color);
+  }
 }
 
 .navigation-text:not(:last-child) {
