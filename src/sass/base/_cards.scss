@@ -50,24 +50,32 @@
   margin-right: 5px;
 }
 .gallery-item_title {
+  font-weight: 500;
+  line-height: 1.33;
   color: var(--secondary-text-color);
 }
 .gallery-item_genres-list {
+  align-items: baseline;
   display: flex;
   color: var(--btn-bg-primary-color);
 }
 
 .gallery-item_genres-item {
+  font-weight: 500;
+  line-height: 1.33;
   margin-right: 5px;
 }
 
-.gallery-item_rating {
+.gallery-item__rating {
   display: flex;
+  align-items: center;
   width: 36px;
   height: 16px;
-  justify-content: center;
-  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 8px;
   border-radius: 5px;
+  color: var(--primary-text-color);
   background-color: var(--btn-bg-primary-color);
 }
 .gallery-item_text-thumb {
