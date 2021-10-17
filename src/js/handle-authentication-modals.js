@@ -1,84 +1,68 @@
 import refs from './refs';
 const { mainHTML } = refs;
 
-export default function handleAuthModals() {
-  // buttons access
-  const signupBtn = document.querySelector('#signup-button');
-  const loginBtn = document.querySelector('#login-button');
+export function handleAuthModals() {}
+// event listeners
+export function addListenersForButtons() {
+  document.querySelector('#signup-button').addEventListener('click', openSignup);
+  document.querySelector('#login-button').addEventListener('click', openLogin);
 
-  const signupModalCloseBtn = document.getElementById('signup-close');
-  const loginModalCloseBtn = document.getElementById('login-close');
-  // modals access
+  document.getElementById('signup-close').addEventListener('click', closeModal);
+  document.getElementById('login-close').addEventListener('click', closeModal);
+}
+
+export function addListenersForModals() {
+  window.addEventListener('keydown', closeModalByKey);
+  // window.addEventListener('click', closeByClick);
+}
+
+// functions
+function openSignup() {
+  // console.log(signupBtn);
+  document.querySelector('#modal-signup').classList.remove('is-hidden');
+  addBackdrop();
+  addListenersForModals();
+}
+
+function openLogin() {
+  // console.log(loginBtn);
+  document.querySelector('#modal-login').classList.remove('is-hidden');
+  addBackdrop();
+  addListenersForModals();
+}
+
+function addBackdrop() {
+  mainHTML.classList.add('backdrop');
+}
+
+function removeBackdrop() {
+  mainHTML.classList.remove('backdrop');
+}
+
+function closeModal() {
+  document.querySelector('#modal-signup').classList.add('is-hidden');
+  document.querySelector('#modal-login').classList.add('is-hidden');
+  document.querySelector('#signup-email').value = '';
+  document.querySelector('#signup-password').value = '';
+  document.querySelector('#login-email').value = '';
+  document.querySelector('#login-password').value = '';
+  removeBackdrop();
+  window.removeEventListener('keydown', closeModalByKey);
+
+  window.removeEventListener('click', closeByClick);
+}
+
+function closeModalByKey(e) {
+  if (e.code === 'Escape') {
+    closeModal();
+  }
+}
+
+function closeByClick(e) {
   const signupModal = document.querySelector('#modal-signup');
   const loginModal = document.querySelector('#modal-login');
-  const signupForm = document.getElementById('signup-form');
-  const loginForm = document.getElementById('login-form');
-  // input access
-  const inputEmail = signupForm.querySelector('#signup-email');
-  console.log(inputEmail);
-  const inputPassword = signupForm.querySelector('#signup-password');
-  const inputEmailLogin = loginForm.querySelector('#login-email');
-  const inputPasswordLogin = loginForm.querySelector('#login-password');
-
-  // event listeners
-  signupBtn.addEventListener('click', openSignup);
-  loginBtn.addEventListener('click', openLogin);
-
-  signupModalCloseBtn.addEventListener('click', closeModal);
-  loginModalCloseBtn.addEventListener('click', closeModal);
-  function addListenersForModals() {
-    window.addEventListener('keydown', closeModalByKey);
-    // window.addEventListener('click', closeByClick);
+  console.log(signupModal, loginModal);
+  if (e.target !== signupModal || e.target !== loginModal) {
+    closeModal();
   }
-
-  // functions
-  function openSignup() {
-    // console.log(signupBtn);
-    signupModal.classList.remove('is-hidden');
-    addBackdrop();
-    addListenersForModals();
-  }
-
-  function openLogin() {
-    // console.log(loginBtn);
-    loginModal.classList.remove('is-hidden');
-    addBackdrop();
-    addListenersForModals();
-  }
-
-  function addBackdrop() {
-    mainHTML.classList.add('backdrop');
-  }
-
-  function removeBackdrop() {
-    mainHTML.classList.remove('backdrop');
-  }
-
-  function closeModal() {
-    signupModal.classList.add('is-hidden');
-    loginModal.classList.add('is-hidden');
-    inputEmail.value = '';
-    inputPassword.value = '';
-    inputEmailLogin.value = '';
-    inputPasswordLogin.value = '';
-    removeBackdrop();
-    window.removeEventListener('keydown', closeModalByKey);
-
-    window.removeEventListener('click', closeByClick);
-  }
-
-  function closeModalByKey(e) {
-    if (e.code === 'Escape') {
-      closeModal();
-    }
-  }
-
-  function closeByClick(e) {
-    if (e.target !== signupModal || e.target !== loginModal) {
-      closeModal();
-    }
-  }
-  return {
-    addBackdrop: addBackdrop,
-  };
 }
