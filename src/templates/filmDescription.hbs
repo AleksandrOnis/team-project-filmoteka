@@ -1,5 +1,6 @@
 <div class='modal-film__container' id={{id}}>
-    <div class="modal-close__btn-wrapper"><button type='button' class='modal-close-btn js-modal-close-btn '>
+    <div class="modal-close__btn-wrapper">
+        <button type='button' class='modal-close-btn js-modal-close-btn '>
     <svg  class="close" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="m8 8 14 14M8 22 22 8" stroke="#000" stroke-width="2" />
     </svg>
@@ -8,7 +9,7 @@
 
     <div class='modal-film__img-container'>
         {{#if poster_path}}
-        <img class='modal-film__img' src='https://image.tmdb.org/t/p/w780{{poster_path}}'
+        <img class='modal-film__img' src='https://image.tmdb.org/t/p/w500{{poster_path}}'
             alt='{{title}}' />
         {{else}}
         <img class='modal-film_noimg' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />

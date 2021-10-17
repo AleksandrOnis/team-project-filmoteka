@@ -48,4 +48,3 @@ function renderLibrary() {
   // 7. add the 21st-line function from firebase and proceed with chaining functions one to another
   signupFormListener();
   loginFormListener();
-}

@@ -20,7 +20,8 @@ export default function openModalfilm(event) {
         instance = basicLightbox.create(modalCardMarkUp);
       instance.show()
       closeBtn = document.querySelector('.js-modal-close-btn');
-         closeBtn.addEventListener('click',closeModalFilmCard)
+      closeBtn.addEventListener('click', closeModalFilmCard)
+      document.querySelector('body').classList.add('modal-open')
     }
   showModal()
    window.addEventListener('keydown',closeModalFilmCard)
@@ -30,9 +31,6 @@ export default function openModalfilm(event) {
 
 async function createFilmCard() {
   detailOfFilm = await apiService.getDetailedFilms();
-  
-    detailOfFilm.year = detailOfFilm.release_date.split('-')[0];
-
     if ( detailOfFilm.genres.length > 3) {
       detailOfFilm.genres = detailOfFilm.genres.slice(0, 2).flat().concat({ name: 'Other' });
     }
@@ -42,7 +40,8 @@ async function createFilmCard() {
 function closeModalFilmCard(e) {
     if(e.code !=='Escape' && !e.target.classList.contains('close')){
        return
-    }
+  }
+   document.querySelector('body').classList.remove('modal-open')
      instance.close();
  }
 

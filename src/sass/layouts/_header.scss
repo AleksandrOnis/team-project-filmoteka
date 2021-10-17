@@ -96,6 +96,15 @@ body {
   align-items: baseline;
 }
 
+.logo__link:hover .logo-img,
+.logo__link:focus .logo-img {
+  stroke: var(--btn-bg-primary-color);
+  animation-play-state: paused;
+}
+.logo__link:hover .logo-text,
+.logo__link:focus .logo-text {
+  color: var(--btn-bg-primary-color);
+}
 @media screen and (max-width: 767.9px) {
   .logo-text {
     display: none;
@@ -106,7 +115,7 @@ body {
   .logo-text {
     align-items: center;
     text-align: center;
-
+    transition: color var(--duration) var(--timing-function);
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -120,6 +129,7 @@ body {
 .logo-img {
   margin-right: 10px;
   animation: logoRotate 4s infinite alternate-reverse;
+  transition: stroke var(--duration) var(--timing-function);
 }
 
 @keyframes logoRotate {
@@ -131,9 +141,9 @@ body {
   }
 }
 
-.logo-img:hover {
-  animation-play-state: paused;
-}
+// .logo-img:hover {
+//   animation-play-state: paused;
+// }
 
 .navigation {
   display: flex;
@@ -146,6 +156,7 @@ body {
   font-size: 12px;
   line-height: 1.17;
   color: var(--primary-text-color);
+  transition: color var(--duration) var(--timing-function);
 
   &:hover {
     color: var(--btn-bg-primary-color);
