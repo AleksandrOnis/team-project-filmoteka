@@ -1,9 +1,9 @@
 import { Request } from './firebase-database';
 
+// const signupForm = document.getElementById('signup-form');
 // const inputEmail = signupForm.querySelector('#signup-email');
 // const inputPassword = signupForm.querySelector('#signup-password');
 // const submitBtn = signupForm.querySelector('#submit-button');
-
 // const loginForm = document.getElementById('login-form');
 
 // const inputEmailLogin = loginForm.querySelector('#login-email');
@@ -18,14 +18,16 @@ import { Request } from './firebase-database';
 // console.log(inputPasswordLogin);
 // console.log(submitBtn);
 
-signupForm.addEventListener('submit', signupHandler);
-inputPassword.addEventListener('input', () => {
-  submitBtn.disabled = !isValid(inputPassword.value);
-});
+document.getElementById('signup-form').addEventListener('submit', signupHandler);
+// inputPassword.addEventListener('input', () => {
+//   submitBtn.disabled = !isValid(inputPassword.value);
+// });
 function signupHandler(e) {
   e.preventDefault();
   console.log(inputPassword.value);
   console.log(inputEmail.value);
+  const inputEmail = e.target.querySelector('#signup-email');
+  const inputPassword = e.target.querySelector('#signup-password');
   if (isValid(inputPassword.value)) {
     const password = {
       textEmail: inputEmail.value.trim(),

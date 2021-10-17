@@ -34,4 +34,5 @@ function renderLibrary() {
   // 4. switch current page style
   homeLink.classList.remove('current');
   myLibraryLink.classList.add('current');
+  // 5. add the 21st-line function from firebase and proceed with chaining functions one to another
 }
