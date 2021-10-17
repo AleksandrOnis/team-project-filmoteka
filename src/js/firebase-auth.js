@@ -29,7 +29,7 @@ function signupHandler(e) {
       console.log(error);
       // ..
     });
-  getUserInfo();
+  //   getUserInfo();
   // if (isValid(inputPassword.value)) {
   //   const password = {
   //     textEmail: inputEmail.value.trim(),
@@ -97,8 +97,8 @@ function signupWithEmailAndPassword(email, password) {
   return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
     method: 'POST',
     body: JSON.stringify({
-      email: `${email}`,
-      password: `${password}`,
+      email: email,
+      password: password,
       returnSecureToken: true,
     }),
     headers: {
