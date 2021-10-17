@@ -6,14 +6,6 @@
 
        <div class="authentication">
            <ul id="login-nav" class="authentication__list">
-         <div class="authentication__option authentication__loggedin visually-hidden">
-              <li class="">
-            <button type="button" class="authentication__button mui-btn mui-btn--flat modal-trigger" data-target="modal-account">Account</button>
-          </li>
-          <li class="">
-            <button type="button" class="authentication__button authentication__logout mui-btn mui-btn--flat"  id="logout">Logout</button>
-          </li>
-         </div>
          <div class="authentication__option authentication__loggedout">
               <li class="">
             <button type="button" class="btn authentication__button authentication__login-btn " id="login-button">Login</button>
@@ -39,7 +31,7 @@
       </div>
       <div class="input-element">
           <label for="signup-password">Choose password</label>
-        <input type="password" id="signup-password" class="input-field" placeholder='Type in your password' required />
+        <input type="password" id="signup-password" class="input-field" placeholder='Type in your password' required minlength="10"/>
       </div>
       <button class="btn authentication__modal-button authentication__button " type="submit" id="submit-button" > Sign up</button>
     </form>
@@ -63,16 +55,6 @@
       </div>
       <button class="btn authentication__button authentication__modal-button " type="submit" >Login</button>
     </form>
-  </div>
-</div>
-
-<!-- ACCOUNT MODAL -->
-<div id="modal-account" class="authentication__modal visually-hidden ">
-    <button type="button" class="authentication__modal-close"></button>
-  <div class="">
-    <h2 class="modal__heading">Account details</h2>
-    <br />
-    <div class="account-details"></div>
   </div>
 </div>
 
