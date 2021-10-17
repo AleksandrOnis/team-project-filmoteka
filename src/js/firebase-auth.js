@@ -1,7 +1,7 @@
 export function signupFormListener() {
   document.getElementById('signup-form').addEventListener('submit', signupHandler);
 }
-
+import renderProfile from './renderProfile';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -29,6 +29,8 @@ function signupHandler(e) {
       console.log(error);
       // ..
     });
+  renderProfile();
+
   //   getUserInfo();
   // if (isValid(inputPassword.value)) {
   //   const password = {
@@ -70,6 +72,8 @@ function loginHandler(e) {
   //   getUserInfo();
 
   authWithEmailAndPassword(inputEmail, inputPassword).then(token => console.log(token));
+
+  renderProfile();
 }
 
 function authWithEmailAndPassword(email, password) {

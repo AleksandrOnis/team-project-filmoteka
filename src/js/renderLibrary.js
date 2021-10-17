@@ -30,15 +30,14 @@ function renderLibrary() {
 
   // 2. render header
   const libHeaderMarkup = libHeader();
+  headerHTML.insertAdjacentHTML('beforeend', libHeaderMarkup);
   // 3. render slideshow
   const slideshowMarkup = slideshow();
+  mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
   // 4. render content from mylibrary.hbs
   const libraryMarkup = mylibrary();
-
-  headerHTML.insertAdjacentHTML('beforeend', libHeaderMarkup);
-  mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
-
   mainHTML.insertAdjacentHTML('beforeend', libraryMarkup);
+
   // 5. handle modals
   addListenersForButtons();
   addListenersForModals();

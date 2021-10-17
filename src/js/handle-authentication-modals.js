@@ -39,7 +39,7 @@ function removeBackdrop() {
   mainHTML.classList.remove('backdrop');
 }
 
-function closeModal() {
+export function closeModal() {
   document.querySelector('#modal-signup').classList.add('is-hidden');
   document.querySelector('#modal-login').classList.add('is-hidden');
   document.querySelector('#signup-email').value = '';
