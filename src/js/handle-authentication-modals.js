@@ -1,5 +1,7 @@
 import refs from './refs';
-const { mainHTML } = refs;
+const { mainHTML, bodyAccess } = refs;
+import { hideBtns } from './handle-modal-btns';
+import { showBtns } from './handle-modal-btns';
 
 export function handleAuthModals() {}
 // event listeners
@@ -21,6 +23,8 @@ function openSignup() {
   // console.log(signupBtn);
   document.querySelector('#modal-signup').classList.remove('is-hidden');
   addBackdrop();
+  hideBtns();
+
   addListenersForModals();
 }
 
@@ -28,6 +32,7 @@ function openLogin() {
   // console.log(loginBtn);
   document.querySelector('#modal-login').classList.remove('is-hidden');
   addBackdrop();
+  hideBtns();
   addListenersForModals();
 }
 
@@ -47,6 +52,7 @@ export function closeModal() {
   document.querySelector('#login-email').value = '';
   document.querySelector('#login-password').value = '';
   removeBackdrop();
+  showBtns();
   window.removeEventListener('keydown', closeModalByKey);
 
   window.removeEventListener('click', closeByClick);

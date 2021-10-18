@@ -1,3 +1,16 @@
 .modal-open {
   overflow: hidden;
 }
+
+.backdrop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: var(--backdrop-bg);
+  opacity: 1;
+  transition: opacity var(--standard-animation);
+}

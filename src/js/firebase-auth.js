@@ -1,6 +1,3 @@
-export function signupFormListener() {
-  document.getElementById('signup-form').addEventListener('submit', signupHandler);
-}
 import renderProfile from './renderProfile';
 import {
   getAuth,
@@ -8,8 +5,28 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-report-aio';
 
+export function signupFormListener() {
+  document.getElementById('signup-form').addEventListener('submit', signupHandler);
+}
 const auth = getAuth();
+function warningNotification() {
+  Notiflix.Notify.init({
+    fontFamily: 'Roboto',
+    useGoogleFont: true,
+    distance: '50px',
+    rtl: true,
+    width: '270px',
+    fontSize: '12px',
+    warning: {
+      background: '#eb8223',
+      textColor: '#000000',
+    },
+  });
+  Notiflix.Notify.warning('THIS E-MAIL IS ALREADY IN USE');
+}
 
 function signupHandler(e) {
   e.preventDefault();
@@ -24,12 +41,12 @@ function signupHandler(e) {
       // ...
     })
     .catch(error => {
+      // add notiflix
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(error);
-      // ..
+      warningNotification(); // ..
     });
-  renderProfile();
+  //   renderProfile();
 
   //   getUserInfo();
   // if (isValid(inputPassword.value)) {
