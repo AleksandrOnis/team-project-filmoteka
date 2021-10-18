@@ -13,38 +13,48 @@ import { addListenersForButtons } from './handle-authentication-modals';
 import { signupFormListener } from './firebase-auth';
 import { loginFormListener } from './firebase-auth';
 
+///
+import { changeLanguageLibBtn} from '../js/multyLang.js';
 // get access to the My Library button, main
 
-const { mainHTML, myLibraryLink, homeLink, headerHTML } = refs;
+const { mainHTML, myLibraryLink, homeLink, headerHTML, inputHTML } = refs;
 
 // add event listener on My Library
-myLibraryLink.addEventListener('click', renderLibrary);
-// myLibraryLink.addEventListener('click', renderLibrary);
+myLibraryLink.addEventListener('click', renderLibrary, {once:true});
 
 // by click on the button:
 function renderLibrary() {
+
   // 1. hide main content
   mainHTML.innerHTML = '';
 
-  headerHTML.innerHTML = '';
+  // 2. change background-image
 
-  // 2. render header
+  headerHTML.classList.remove('home-header');
+  headerHTML.classList.add('library-header');
+
+  // 3. delete input and add btns
+  inputHTML.innerHTML = '';
   const libHeaderMarkup = libHeader();
   headerHTML.insertAdjacentHTML('beforeend', libHeaderMarkup);
-  // 3. render slideshow
+
+  // 4. render slideshow
   const slideshowMarkup = slideshow();
   mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
-  // 4. render content from mylibrary.hbs
+  // 5. render content from mylibrary.hbs
   const libraryMarkup = mylibrary();
   mainHTML.insertAdjacentHTML('beforeend', libraryMarkup);
 
-  // 5. handle modals
+  // 6. handle modals
   addListenersForButtons();
   addListenersForModals();
-  // 6. switch current page style
+  // 7. switch current page style
   homeLink.classList.remove('current');
   myLibraryLink.classList.add('current');
-  // 7. add the 21st-line function from firebase and proceed with chaining functions one to another
+  // 8. add the 21st-line function from firebase and proceed with chaining functions one to another
   signupFormListener();
   loginFormListener();
+
+  changeLanguageLibBtn()
 }
+

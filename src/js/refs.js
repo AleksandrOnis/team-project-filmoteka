@@ -7,5 +7,6 @@ export default {
   footerLinkAccess: document.querySelector('.footer__link'),
   footerModalAccess: document.querySelector('.footer__modal'),
   footerCloseBtn: document.querySelector('.footer__button'),
-  headerHTML: document.querySelector('header'),
+  headerHTML: document.querySelector('.header'),
+  inputHTML: document.querySelector('.search'),
 };

@@ -1,5 +1,7 @@
 // import * as basicLightbox from 'basiclightbox';
 import refs from './refs';
+import {changeLanguageModalFooter} from '../js/multyLang.js';
+
 
 const { footerAccess, footerCloseBtn, footerModalAccess, bodyAccess } = refs;
 footerAccess.addEventListener('click', modalFooter);
@@ -16,6 +18,7 @@ function modalFooter(e) {
   bodyAccess.classList.add('modal-open');
   
   footerCloseBtn.addEventListener('click', closeFooterModal);
+  changeLanguageModalFooter();
 }
 
 function removeListener() {
