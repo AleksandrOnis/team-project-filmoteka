@@ -1,7 +1,7 @@
 import filmCard from '../templates/filmСard.hbs';
 import { createFilmCard } from './renderHome';
 
-export default function renderGalleryLib() {
+export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');

@@ -7,7 +7,7 @@ import refs from './refs';
 import mylibrary from '../templates/mylibrary.hbs';
 import libHeader from '../templates/libheader.hbs';
 import slideshow from '../templates/slideshow.hbs';
-import renderGalleryLib from './renderGalleryLib';
+import { renderGalleryLib } from './renderGalleryLib';
 import filmCard from '../templates/filmСard.hbs';
 
 import { addListenersForModals } from './handle-authentication-modals';
@@ -55,9 +55,6 @@ function renderLibrary() {
   // 8. add the 21st-line function from firebase and proceed with chaining functions one to another
   signupFormListener();
   loginFormListener();
-
   changeLanguageLibBtn();
-}
-
   renderGalleryLib();
 }
