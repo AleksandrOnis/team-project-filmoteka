@@ -55,6 +55,6 @@ function renderLibrary() {
   signupFormListener();
   loginFormListener();
 
-  changeLanguageLibBtn()
+  changeLanguageLibBtn();
 }
 
