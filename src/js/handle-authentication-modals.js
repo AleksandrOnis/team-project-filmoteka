@@ -36,7 +36,7 @@ function openLogin() {
   addListenersForModals();
 }
 
-function addBackdrop() {
+export function addBackdrop() {
   mainHTML.classList.add('backdrop');
 }
 

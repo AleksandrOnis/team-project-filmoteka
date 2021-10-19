@@ -8,4 +8,5 @@ export default {
   footerModalAccess: document.querySelector('.footer__modal'),
   footerCloseBtn: document.querySelector('.footer__button'),
   headerHTML: document.querySelector('header'),
+  footerModalOverlay: document.querySelector('#overlay'),
 };
