@@ -1,5 +1,5 @@
-import * as basiclightbox from 'basiclightbox';
 import ApiService from './apiService';
+import { Request } from './firebase-database';
 import modalCardTpl from '../templates/filmDescription';
 
 import {changeLanguageFilmCard} from '../js/multyLang.js';
@@ -7,9 +7,13 @@ import {changeLanguageFilmCard} from '../js/multyLang.js';
 
 const apiService = new ApiService();
 const basicLightbox = require('basiclightbox');
+
 let detailOfFilm;
 let instance;
 let closeBtn;
+let filmDescriptionRef = null;
+let btnAddToWatchedRef = null;
+let btnAddToQueueRef = null;
 export default function openModalfilm(event) {
   if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'P') {
     return;
@@ -27,8 +31,48 @@ export default function openModalfilm(event) {
     closeBtn.addEventListener('click', closeModalFilmCard);
     document.querySelector('body').classList.add('modal-open');
   }
-  showModal();
-  window.addEventListener('keydown', closeModalFilmCard); 
+
+  showModal().then(response => {
+    console.log(response);
+    filmDescriptionRef = document.querySelector('.modal-film__description');
+    btnAddToWatchedRef = filmDescriptionRef.querySelector('.btn__watch');
+    btnAddToQueueRef = filmDescriptionRef.querySelector('.btn__queue');
+    btnAddToWatchedRef.addEventListener('click', addCardToWatchedHandle);
+    btnAddToQueueRef.addEventListener('click', addCardToQueueHandle);
+
+    function addCardToWatchedHandle() {
+      Request.addCardToWatched(detailOfFilm).then(request => {
+        addWatchedLocalStorage(request);
+      });
+    }
+    function addCardToQueueHandle() {
+      Request.addCardToQueue(detailOfFilm).then(request => {
+        addQueueLocalStorage(request);
+      });
+    }
+
+    function addWatchedLocalStorage(watched) {
+      const all = getWatchedFromLocalStorage();
+      all.push(watched);
+      localStorage.setItem('Watched', JSON.stringify(all));
+    }
+
+    function addQueueLocalStorage(queue) {
+      const all = getQueueFromLocalStorage();
+      all.push(queue);
+      localStorage.setItem('Queue', JSON.stringify(all));
+    }
+
+    function getWatchedFromLocalStorage() {
+      return JSON.parse(localStorage.getItem('Watched') || '[]');
+    }
+
+    function getQueueFromLocalStorage() {
+      return JSON.parse(localStorage.getItem('Queue') || '[]');
+    }
+  });
+  window.addEventListener('keydown', closeModalFilmCard);
+
 }
 
 async function createFilmCard() {
@@ -41,6 +85,7 @@ async function createFilmCard() {
   }
   return detailOfFilm;
 }
+
 function closeModalFilmCard(e) {
   if (e.code !== 'Escape' && !e.target.classList.contains('close')) {
     return;
