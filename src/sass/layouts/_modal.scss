@@ -33,15 +33,14 @@
 }
 .modal-film__img-container {
   margin-bottom: 30px;
+  // height: 356px;
 }
 
-// .modal-film__img,
-// .modal-film_noimg {
-//   // display: block;
-//   // width: 240px;
-//   // height: 357px;
-//   border-radius: 5px;
-// }
+.modal-film__img,
+.modal-film_noimg {
+  overflow: hidden;
+  border-radius: 5px;
+}
 .modal-film__description {
   display: flex;
   flex-direction: column;
@@ -122,6 +121,12 @@
     padding: 42px 30px 40px 30px;
   }
 
+  .modal-film__img-container {
+    overflow: hidden;
+    border-radius: 5px;
+    max-width: 264px;
+    height: 374px;
+  }
   // .modal-film__img {
   //   width: 264px;
   //   height: 373px;

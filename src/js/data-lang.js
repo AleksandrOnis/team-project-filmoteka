@@ -41,8 +41,8 @@ export default {
   //  library
   watchedLib: {
     en: 'Watched',
-    ru: 'Просмотрены',
-    ua: 'Переглянуті',
+    ru: 'Просмотрено',
+    ua: 'Переглянуто',
   },
   queueLib: {
     en: 'Queue',

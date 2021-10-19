@@ -85,6 +85,4 @@ export function changeLanguageModalFooter() {
   document.querySelector('.lng-margarita').innerHTML = LangArr['margarita'][hash];
   document.querySelector('.lng-evgeniy').innerHTML = LangArr['evgeniy'][hash];
   document.querySelector('.lng-andrew').innerHTML = LangArr['andrew'][hash];
-
-
 }

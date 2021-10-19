@@ -7,6 +7,8 @@ import refs from './refs';
 import mylibrary from '../templates/mylibrary.hbs';
 import libHeader from '../templates/libheader.hbs';
 import slideshow from '../templates/slideshow.hbs';
+import { renderGalleryLib } from './renderGalleryLib';
+import filmCard from '../templates/filmСard.hbs';
 
 import { addListenersForModals } from './handle-authentication-modals';
 import { addListenersForButtons } from './handle-authentication-modals';
@@ -14,17 +16,16 @@ import { signupFormListener } from './firebase-auth';
 import { loginFormListener } from './firebase-auth';
 
 ///
-import { changeLanguageLibBtn} from '../js/multyLang.js';
+import { changeLanguageLibBtn } from '../js/multyLang.js';
 // get access to the My Library button, main
 
 const { mainHTML, myLibraryLink, homeLink, headerHTML, inputHTML } = refs;
 
 // add event listener on My Library
-myLibraryLink.addEventListener('click', renderLibrary, {once:true});
+myLibraryLink.addEventListener('click', renderLibrary, { once: true });
 
 // by click on the button:
 function renderLibrary() {
-
   // 1. hide main content
   mainHTML.innerHTML = '';
 
@@ -54,7 +55,6 @@ function renderLibrary() {
   // 8. add the 21st-line function from firebase and proceed with chaining functions one to another
   signupFormListener();
   loginFormListener();
-
-  changeLanguageLibBtn()
+  changeLanguageLibBtn();
+  renderGalleryLib();
 }
-

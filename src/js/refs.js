@@ -9,5 +9,4 @@ export default {
   footerCloseBtn: document.querySelector('.footer__button'),
   headerHTML: document.querySelector('.header'),
   inputHTML: document.querySelector('.search'),
-  footerModalOverlay: document.querySelector('#overlay'),
 };
