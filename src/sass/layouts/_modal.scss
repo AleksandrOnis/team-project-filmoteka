@@ -35,13 +35,11 @@
   margin-bottom: 30px;
 }
 
-// .modal-film__img,
-// .modal-film_noimg {
-//   // display: block;
-//   // width: 240px;
-//   // height: 357px;
-//   border-radius: 5px;
-// }
+.modal-film__img,
+.modal-film_noimg {
+  overflow: hidden;
+  border-radius: 5px;
+}
 .modal-film__description {
   display: flex;
   flex-direction: column;
