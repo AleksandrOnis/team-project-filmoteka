@@ -42,8 +42,8 @@ export function changeLanguageLibBtn() {
   }
   select.value = hash;
 
-  document.querySelector('.lng-watchedLib').innerHTML = LangArr['watchedLib'][hash];
-  document.querySelector('.lng-queueLib').innerHTML = LangArr['queueLib'][hash];
+  // document.querySelector('.lng-watchedLib').innerHTML = LangArr['watchedLib'][hash];
+  // document.querySelector('.lng-queueLib').innerHTML = LangArr['queueLib'][hash];
 
   document.querySelector('.lng-login').innerHTML = LangArr['login'][hash];
   document.querySelector('.lng-signUp').innerHTML = LangArr['signUp'][hash];
@@ -85,6 +85,4 @@ export function changeLanguageModalFooter() {
   document.querySelector('.lng-margarita').innerHTML = LangArr['margarita'][hash];
   document.querySelector('.lng-evgeniy').innerHTML = LangArr['evgeniy'][hash];
   document.querySelector('.lng-andrew').innerHTML = LangArr['andrew'][hash];
-
-
 }
