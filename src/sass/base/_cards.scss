@@ -4,7 +4,6 @@
   }
 
   @media screen and (min-width: 768px) {
-    outline: 1px solid red;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -21,8 +20,8 @@
   }
 }
 
-.gallery-item_image {
-  outline: 1px solid red;
+.gallery-item_image,
+.gallery-item_noimage {
   margin-bottom: 10px;
   border-radius: 5px;
   transform: translateY(1%);
@@ -35,7 +34,8 @@
     max-height: 398px;
   }
 }
-.gallery-item_image:hover {
+.gallery-item_image:hover,
+.gallery-item_noimage:hover {
   box-shadow: (
     10px 10px 5px 2px rgba(238, 176, 54, 0.75),
     20px 4px 6px rgba(230, 113, 35, 0.12),
