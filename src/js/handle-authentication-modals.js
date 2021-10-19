@@ -40,7 +40,7 @@ function addBackdrop() {
   mainHTML.classList.add('backdrop');
 }
 
-function removeBackdrop() {
+export function removeBackdrop() {
   mainHTML.classList.remove('backdrop');
 }
 

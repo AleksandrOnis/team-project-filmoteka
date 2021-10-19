@@ -6,55 +6,14 @@ import {
   onAuthStateChanged,
   getIdToken,
   getCookie,
-  signOut,
 } from 'firebase/auth';
-import { Auth } from '@firebase/auth';
-import Notiflix from 'notiflix';
-import { openLogin } from './handle-authentication-modals';
+import { signOut } from '@firebase/auth';
+import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './handle-authentication-modals';
-
-export function signupFormListener() {
-  document.getElementById('signup-form').addEventListener('submit', signupHandler);
-}
-
-export function loginFormListener() {
-  document.getElementById('login-form').addEventListener('submit', signInHandler);
-}
-
-function getCurrentUser() {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      const uid = user.uid;
-      console.log(uid);
-    } else {
-      return;
-    }
-  });
-}
-
-function signupHandler(e) {
-  e.preventDefault();
-  firebaseSignupEP(e).then(data => console.log(data));
-  Notiflix.Notify.success('WELCOME!', {
-    width: '170px',
-    rtl: false,
-  });
-  closeModal();
-  openLogin();
-}
-
-function signInHandler(e) {
-  e.preventDefault();
-  firebaseSignInEP(e)
-    .then(renderProfile())
-    .catch(error => {
-      const errorCode = error.code;
-      console.log(errorCode);
-    });
-}
+import { logOutListener } from './handle-logged-in-user';
+import { removeBackdrop } from './handle-authentication-modals';
 
 const auth = getAuth();
-
 Notiflix.Notify.init({
   fontFamily: 'Roboto',
   useGoogleFont: true,
@@ -70,6 +29,38 @@ Notiflix.Notify.init({
     background: '#007740',
   },
 });
+
+export function signupFormListener() {
+  document.getElementById('signup-form').addEventListener('submit', signupHandler);
+}
+
+export function loginFormListener() {
+  document.getElementById('login-form').addEventListener('submit', signInHandler);
+}
+
+function signupHandler(e) {
+  e.preventDefault();
+  firebaseSignupEP(e).then(data => console.log(data));
+  Notiflix.Notify.success('WELCOME!', {
+    width: '170px',
+    rtl: false,
+  });
+  closeModal();
+  logOutListener();
+}
+
+function signInHandler(e) {
+  e.preventDefault();
+  firebaseSignInEP(e)
+    .then(renderProfile())
+    .catch(error => {
+      const errorCode = error.code;
+      console.log(errorCode);
+    });
+  removeBackdrop();
+  logOutListener();
+}
+
 function errorNotification(errorCode, errorMessage) {
   if (errorCode === 'auth/email-already-in-use') {
     Notiflix.Notify.failure('THIS E-MAIL IS ALREADY IN USE');
@@ -105,27 +96,16 @@ function firebaseSignInEP(e) {
   const inputPassword = e.target.querySelector('#login-password').value;
   console.log(inputEmail);
   return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-    .then(user => {
-      // Get the user's ID token as it is needed to exchange for a session cookie.
-      return getIdToken().then(idToken => {
-        // Session login endpoint is queried and the session cookie is set.
-        // CSRF protection should be taken into account.
-        // ...
-        const csrfToken = getCookie('csrfToken');
-        return postIdTokenToSessionLogin('/sessionLogin', idToken, csrfToken);
-      });
-    })
-    .then(() => {
-      // A page redirect would suffice as the persistence is set to NONE.
-      return signOut();
-    })
-    .then(() => {
-      window.location.assign('/profile');
+    .then(userCredential => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      return user;
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      errorNotification(errorCode, errorMessage);
+      errorNotification(errorCode);
     });
 }
 
