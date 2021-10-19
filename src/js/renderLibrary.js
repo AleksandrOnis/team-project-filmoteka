@@ -57,6 +57,7 @@ function renderLibrary() {
   loginFormListener();
 
   changeLanguageLibBtn();
+}
 
   renderGalleryLib();
 }
