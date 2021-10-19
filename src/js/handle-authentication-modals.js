@@ -2,7 +2,7 @@ import refs from './refs';
 const { mainHTML, bodyAccess } = refs;
 import { hideBtns } from './handle-modal-btns';
 import { showBtns } from './handle-modal-btns';
-
+import signupValidation from './signupValidation';
 export function handleAuthModals() {}
 // event listeners
 export function addListenersForButtons() {
@@ -24,11 +24,11 @@ function openSignup() {
   document.querySelector('#modal-signup').classList.remove('is-hidden');
   addBackdrop();
   hideBtns();
-
+  signupValidation();
   addListenersForModals();
 }
 
-function openLogin() {
+export function openLogin() {
   // console.log(loginBtn);
   document.querySelector('#modal-login').classList.remove('is-hidden');
   addBackdrop();

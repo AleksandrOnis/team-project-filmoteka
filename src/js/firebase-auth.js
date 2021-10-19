@@ -6,93 +6,101 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import Notiflix from 'notiflix';
-import { Notify } from 'notiflix/build/notiflix-report-aio';
+import { openLogin } from './handle-authentication-modals';
+import { closeModal } from './handle-authentication-modals';
 
 export function signupFormListener() {
   document.getElementById('signup-form').addEventListener('submit', signupHandler);
 }
-const auth = getAuth();
-function warningNotification() {
-  Notiflix.Notify.init({
-    fontFamily: 'Roboto',
-    useGoogleFont: true,
-    distance: '50px',
-    rtl: true,
-    width: '270px',
-    fontSize: '12px',
-    warning: {
-      background: '#eb8223',
-      textColor: '#000000',
-    },
-  });
-  Notiflix.Notify.warning('THIS E-MAIL IS ALREADY IN USE');
+
+export function loginFormListener() {
+  document.getElementById('login-form').addEventListener('submit', signInHandler);
 }
 
 function signupHandler(e) {
   e.preventDefault();
+  firebaseSignupEP(e).then(data => console.log(data));
+  Notiflix.Notify.success('WELCOME!', {
+    width: '170px',
+    rtl: false,
+  });
+  closeModal();
+  openLogin();
+}
+
+function signInHandler(e) {
+  e.preventDefault();
+  firebaseSignInEP(e).then(data => console.log(data));
+
+  //   renderProfile();
+}
+
+const auth = getAuth();
+
+Notiflix.Notify.init({
+  fontFamily: 'Roboto',
+  useGoogleFont: true,
+  distance: '25px',
+  rtl: true,
+  width: '270px',
+  fontSize: '12px',
+  failure: {
+    background: '#eb8223',
+    textColor: '#000000',
+  },
+  success: {
+    background: '#007740',
+  },
+});
+function errorNotification(errorCode) {
+  if (errorCode === 'auth/email-already-in-use') {
+    Notiflix.Notify.failure('THIS E-MAIL IS ALREADY IN USE');
+  } else if (errorCode === 'auth/wrong-password') {
+    Notiflix.Notify.failure('WRONG PASSWORD');
+  } else if (errorCode === 'auth/user-not-found') {
+    Notiflix.Notify.failure('USER NOT FOUND');
+  } else {
+    console.log(errorCode);
+  }
+}
+
+function firebaseSignupEP(e) {
   const inputEmail = e.target.querySelector('#signup-email').value;
   const inputPassword = e.target.querySelector('#signup-password').value.trim();
-  console.log(inputPassword);
   console.log(inputEmail);
-  createUserWithEmailAndPassword(auth, inputEmail, inputPassword)
+  console.log(inputPassword);
+  return createUserWithEmailAndPassword(auth, inputEmail, inputPassword)
+    .then(userCredential => {
+      // Signed up
+      const user = userCredential.user;
+      return user;
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      errorNotification(errorCode);
+    });
+}
+
+function firebaseSignInEP(e) {
+  const inputEmail = e.target.querySelector('#login-email').value;
+  const inputPassword = e.target.querySelector('#login-password').value;
+  console.log(inputEmail);
+  return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
     .then(userCredential => {
       // Signed in
       const user = userCredential.user;
       // ...
+      return user;
     })
     .catch(error => {
-      // add notiflix
       const errorCode = error.code;
       const errorMessage = error.message;
-      warningNotification(); // ..
+      errorNotification(errorCode);
     });
-  //   renderProfile();
-
-  //   getUserInfo();
-  // if (isValid(inputPassword.value)) {
-  //   const password = {
-  //     textEmail: inputEmail.value.trim(),
-  //     textPassword: inputPassword.value.trim(),
-  //   };
-  //   submitBtn.disabled = true;
-  //   console.log('Password', password);
-  //   Request.create(password).then(() => {
-  //     inputEmail.value = '';
-  //     inputPassword.value = '';
-  //     submitBtn.disabled = false;
-  //   });
-  // }
 }
 
-export function loginFormListener() {
-  document.getElementById('login-form').addEventListener('submit', loginHandler);
-}
-
-function loginHandler(e) {
-  e.preventDefault();
-  const inputEmail = e.target.querySelector('#login-email').value;
-  const inputPassword = e.target.querySelector('#login-password').value;
-  console.log(inputEmail);
-  //   signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-  //     .then(userCredential => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       // ...
-  //       console.log(user);
-  //     })
-
-  //     .catch(error => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //     })
-  //     .then(user => console.log(user));
-  //   getUserInfo();
-
-  authWithEmailAndPassword(inputEmail, inputPassword).then(token => console.log(token));
-
-  renderProfile();
-}
-
+// old methods, should be deleted when everything works okay
 function authWithEmailAndPassword(email, password) {
   const apiKey = `AIzaSyAczp-nt7EkuvejJNmht7Ysicz6S69NMLY`;
   return fetch(
@@ -113,6 +121,7 @@ function authWithEmailAndPassword(email, password) {
     .then(data => data.idToken);
 }
 
+//   authWithEmailAndPassword(inputEmail, inputPassword).then(token => console.log(token));
 function signupWithEmailAndPassword(email, password) {
   const apiKey = `AIzaSyAczp-nt7EkuvejJNmht7Ysicz6S69NMLY`;
   return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {

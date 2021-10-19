@@ -38,31 +38,3 @@ import { Request } from './firebase-database';
 // console.log(inputEmailLogin);
 // console.log(inputPasswordLogin);
 // console.log(submitBtn);
-
-// inputPassword.addEventListener('input', () => {
-//   submitBtn.disabled = !isValid(inputPassword.value);
-// });
-// function signupHandler(e) {
-//   e.preventDefault();
-//   console.log(inputPassword.value);
-//   console.log(inputEmail.value);
-//   const inputEmail = e.target.querySelector('#signup-email');
-//   const inputPassword = e.target.querySelector('#signup-password');
-//   if (isValid(inputPassword.value)) {
-//     const password = {
-//       textEmail: inputEmail.value.trim(),
-//       textPassword: inputPassword.value.trim(),
-//     };
-//     submitBtn.disabled = true;
-//     console.log('Password', password);
-//     Request.create(password).then(() => {
-//       inputEmail.value = '';
-//       inputPassword.value = '';
-//       submitBtn.disabled = false;
-//     });
-//   }
-// }
-
-// function isValid(value) {
-//   return value.length >= 10;
-// }
