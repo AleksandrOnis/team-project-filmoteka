@@ -38,7 +38,59 @@ export default {
     ua: 'Студентами GoIT',
   },
 
-  //  modal
+  //  library
+  watchedLib: {
+    en: 'Watched',
+    ru: 'Просмотрено',
+    ua: 'Переглянуто',
+  },
+  queueLib: {
+    en: 'Queue',
+    ru: 'В очереди',
+    ua: 'В черзі',
+  },
+  login: {
+    en: 'LOGIN',
+    ru: 'Войти',
+    ua: 'Увійти',
+  },
+  signUp: {
+    en: 'SIGN UP',
+    ru: 'Регистрация',
+    ua: 'Реєстрація',
+  },
+
+  //  modal-card
+  vote: {
+    en: 'Vote / Votes',
+    ru: 'Рейтинг / Оценили',
+    ua: 'Рейтинг / Оцінили',
+  },
+
+  popularity: {
+    en: 'Popularity',
+    ru: 'Популярность',
+    ua: 'Популярність',
+  },
+
+  title: {
+    en: 'Original title',
+    ru: 'Название',
+    ua: 'Назва',
+  },
+
+  genre: {
+    en: 'Genre',
+    ru: 'Жанр',
+    ua: 'Жанр',
+  },
+
+  about: {
+    en: 'About',
+    ru: 'Сюжет',
+    ua: 'Сюжет',
+  },
+
   watch: {
     en: 'Add to watched',
     ru: 'Добавить к просмотру',
@@ -48,5 +100,48 @@ export default {
     en: 'Add to queue',
     ru: 'Добавить в очередь',
     ua: 'Додати в чергу',
+  },
+
+  //modal-footer
+  team: {
+    en: 'Opportunity Team',
+    ru: 'Команда разработчиков',
+    ua: 'Команда розробників',
+  },
+
+  olha: {
+    en: 'Olha',
+    ru: 'Ольга',
+    ua: 'Ольга',
+  },
+
+  oleksandr: {
+    en: 'Oleksandr',
+    ru: 'Александр',
+    ua: 'Олександр',
+  },
+
+  anastasiia: {
+    en: 'Anastasiia',
+    ru: 'Анастасия',
+    ua: 'Анастасія',
+  },
+
+  margarita: {
+    en: 'Margarita',
+    ru: 'Маргарита',
+    ua: 'Маргарита',
+  },
+
+  evgeniy: {
+    en: 'Evgeniy',
+    ru: 'Евгений',
+    ua: 'Євген',
+  },
+
+  andrew: {
+    en: 'Andrew',
+    ru: 'Андрей',
+    ua: 'Андрій',
   },
 };

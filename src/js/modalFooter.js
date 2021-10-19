@@ -2,6 +2,7 @@
 import { addBackdrop } from './handle-authentication-modals';
 import refs from './refs';
 const { footerAccess, footerCloseBtn, footerModalAccess, bodyAccess, footerModalOverlay } = refs;
+import {changeLanguageModalFooter} from '../js/multyLang.js';
 footerAccess.addEventListener('click', modalFooter);
 console.log(footerModalAccess);
 
@@ -15,7 +16,6 @@ function modalFooter(e) {
   } else {
     return;
   }
-}
 
 function removeListener() {
   window.removeEventListener('keydown', onEscapeClose);
