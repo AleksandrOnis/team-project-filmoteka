@@ -33,6 +33,7 @@
 }
 .modal-film__img-container {
   margin-bottom: 30px;
+  // height: 356px;
 }
 
 // .modal-film__img,
@@ -122,6 +123,12 @@
     padding: 42px 30px 40px 30px;
   }
 
+  .modal-film__img-container {
+    overflow: hidden;
+    border-radius: 5px;
+    max-width: 264px;
+    height: 374px;
+  }
   // .modal-film__img {
   //   width: 264px;
   //   height: 373px;
