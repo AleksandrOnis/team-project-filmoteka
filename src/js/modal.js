@@ -1,6 +1,10 @@
 import * as basiclightbox from 'basiclightbox';
 import ApiService from './apiService';
 import modalCardTpl from '../templates/filmDescription';
+
+import {changeLanguageFilmCard} from '../js/multyLang.js';
+
+
 const apiService = new ApiService();
 const basicLightbox = require('basiclightbox');
 let detailOfFilm;
@@ -16,12 +20,15 @@ export default function openModalfilm(event) {
     const modalCardMarkUp = modalCardTpl(detailOfFilm);
     instance = basicLightbox.create(modalCardMarkUp);
     instance.show();
+//
+    changeLanguageFilmCard();
+//
     closeBtn = document.querySelector('.js-modal-close-btn');
     closeBtn.addEventListener('click', closeModalFilmCard);
     document.querySelector('body').classList.add('modal-open');
   }
   showModal();
-  window.addEventListener('keydown', closeModalFilmCard);
+  window.addEventListener('keydown', closeModalFilmCard); 
 }
 
 async function createFilmCard() {

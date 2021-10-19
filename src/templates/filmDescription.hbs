@@ -21,7 +21,7 @@
        
         <ul>
             <li class="modal-film__info">
-                <p class="modal-film__info--names">Vote / Votes</p>
+                <p class="modal-film__info--names lng-vote">Vote / Votes</p>
                 <p class="modal-film__info--text">
                     <span class="modal-film__rating">{{vote_average}}</span>
                     <span class="modal-film__rating--divider"> / </span>
@@ -29,15 +29,15 @@
                 </p>
             </li>
             <li class="modal-film__info">
-                <p class="modal-film__info--names ">Popularity</p>
+                <p class="modal-film__info--names lng-popularity">Popularity</p>
                 <p class="modal-film__info--text">{{popularity}}</p>
             </li>
             <li class="modal-film__info">
-                <p class="modal-film__info--names">Original title</p>
+                <p class="modal-film__info--names lng-title">Original title</p>
                 <p class="modal-film__info--text">{{original_title}}</p>
             </li>
             <li class="modal-film__info">
-                <p class="modal-film__info--names">Genre</p>
+                <p class="modal-film__info--names lng-genre">Genre</p>
                 <p class="modal-film__info--text">
                     {{#if genres}}
                     {{#each genres}}
@@ -50,15 +50,15 @@
         </ul>
         
     <div class='modal-film__about'>
-        <h3 class="modal-film__about--title">About</h3>
+        <h3 class="modal-film__about--title lng-about">About</h3>
         <p class="modal-film__about--text">
             {{overview}}
         </p>
        
     </div>
     <div class="modal-film__button__wrapper">
-        <button type="button" class=" modal-film__button btn__watch" data-id="{{id}}">Add to watched</button>
-        <button type="button" class=" modal-film__button btn__queue" data-id="{{id}}">Add to queue</button>
+        <button type="button" class=" modal-film__button btn__watch lng-watch" data-id="{{id}}">Add to watched</button>
+        <button type="button" class=" modal-film__button btn__queue lng-queue" data-id="{{id}}">Add to queue</button>
     </div>
     </div>
    
