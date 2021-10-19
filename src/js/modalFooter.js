@@ -2,7 +2,7 @@
 import { addBackdrop } from './handle-authentication-modals';
 import refs from './refs';
 const { footerAccess, footerCloseBtn, footerModalAccess, bodyAccess, footerModalOverlay } = refs;
-import {changeLanguageModalFooter} from '../js/multyLang.js';
+import { changeLanguageModalFooter } from '../js/multyLang.js';
 footerAccess.addEventListener('click', modalFooter);
 console.log(footerModalAccess);
 
@@ -17,18 +17,19 @@ function modalFooter(e) {
     return;
   }
 
-function removeListener() {
-  window.removeEventListener('keydown', onEscapeClose);
-}
-
-function onEscapeClose(e) {
-  if (e.code === 'Escape') {
-    closeFooterModal();
-    removeListener();
+  function removeListener() {
+    window.removeEventListener('keydown', onEscapeClose);
   }
-}
 
-function closeFooterModal() {
-  footerModalAccess.classList.add('is-hidden');
-  bodyAccess.classList.remove('modal-open');
+  function onEscapeClose(e) {
+    if (e.code === 'Escape') {
+      closeFooterModal();
+      removeListener();
+    }
+  }
+
+  function closeFooterModal() {
+    footerModalAccess.classList.add('is-hidden');
+    bodyAccess.classList.remove('modal-open');
+  }
 }
