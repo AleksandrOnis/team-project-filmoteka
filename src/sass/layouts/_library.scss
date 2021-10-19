@@ -9,20 +9,6 @@
   color: var(--secondary-text-color);
 }
 
-.backdrop {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 94px 15px;
-  overflow-y: hidden;
-  background-color: var(--backdrop-bg);
-  opacity: 1;
-  transition: opacity var(--standard-animation);
-}
-
 .authentication__list {
   display: flex;
   flex-direction: row;
@@ -38,10 +24,15 @@
 }
 
 .input-element {
+  font-size: 14px;
   text-align: left;
 
   &:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
   }
 }
 
@@ -57,7 +48,7 @@
   transform: translateX(-50%);
   padding: 15px;
   box-shadow: var(--basic-box-shadow);
-  background-color: var(--footer-bg-color);
+  background-color: var(--modal-bg);
   &.is-hidden {
     opacity: 0;
     pointer-events: none;
@@ -65,13 +56,13 @@
 
   @media screen and (min-width: 350px) {
     width: 320px;
-    height: 200px;
+    height: 220px;
   }
 
   @media screen and (min-width: 768px) {
     display: block;
     height: 255px;
-    width: 465px;
+    width: 365px;
     font-size: 20px;
     padding: 25px;
   }
@@ -80,13 +71,21 @@
 .modal__heading {
   text-align: center;
   font-size: 18px;
+  margin-bottom: 15px;
 
   @media screen and (min-width: 768px) {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
 .input-field {
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 3px;
+  padding: 5px 3px;
+  font-size: 12px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
   &::placeholder {
     font-size: 10px;
     @media screen and (min-width: 768px) {
@@ -95,12 +94,17 @@
   }
 }
 
+label {
+  margin-right: 5px;
+  font-weight: 500;
+}
+
 // buttons
 .authentication__button {
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  width: 110px;
+  width: 155px;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.87);
   background-color: #fff;
