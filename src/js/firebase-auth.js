@@ -4,7 +4,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  getIdToken,
+  getCookie,
+  signOut,
 } from 'firebase/auth';
+import { Auth } from '@firebase/auth';
 import Notiflix from 'notiflix';
 import { openLogin } from './handle-authentication-modals';
 import { closeModal } from './handle-authentication-modals';
@@ -15,6 +19,17 @@ export function signupFormListener() {
 
 export function loginFormListener() {
   document.getElementById('login-form').addEventListener('submit', signInHandler);
+}
+
+function getCurrentUser() {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      const uid = user.uid;
+      console.log(uid);
+    } else {
+      return;
+    }
+  });
 }
 
 function signupHandler(e) {
@@ -30,9 +45,12 @@ function signupHandler(e) {
 
 function signInHandler(e) {
   e.preventDefault();
-  firebaseSignInEP(e).then(data => console.log(data));
-
-  //   renderProfile();
+  firebaseSignInEP(e)
+    .then(renderProfile())
+    .catch(error => {
+      const errorCode = error.code;
+      console.log(errorCode);
+    });
 }
 
 const auth = getAuth();
@@ -52,7 +70,7 @@ Notiflix.Notify.init({
     background: '#007740',
   },
 });
-function errorNotification(errorCode) {
+function errorNotification(errorCode, errorMessage) {
   if (errorCode === 'auth/email-already-in-use') {
     Notiflix.Notify.failure('THIS E-MAIL IS ALREADY IN USE');
   } else if (errorCode === 'auth/wrong-password') {
@@ -60,7 +78,7 @@ function errorNotification(errorCode) {
   } else if (errorCode === 'auth/user-not-found') {
     Notiflix.Notify.failure('USER NOT FOUND');
   } else {
-    console.log(errorCode);
+    console.log(errorCode, errorMessage);
   }
 }
 
@@ -78,7 +96,7 @@ function firebaseSignupEP(e) {
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      errorNotification(errorCode);
+      errorNotification(errorCode, errorMessage);
     });
 }
 
@@ -87,16 +105,27 @@ function firebaseSignInEP(e) {
   const inputPassword = e.target.querySelector('#login-password').value;
   console.log(inputEmail);
   return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      return user;
+    .then(user => {
+      // Get the user's ID token as it is needed to exchange for a session cookie.
+      return getIdToken().then(idToken => {
+        // Session login endpoint is queried and the session cookie is set.
+        // CSRF protection should be taken into account.
+        // ...
+        const csrfToken = getCookie('csrfToken');
+        return postIdTokenToSessionLogin('/sessionLogin', idToken, csrfToken);
+      });
+    })
+    .then(() => {
+      // A page redirect would suffice as the persistence is set to NONE.
+      return signOut();
+    })
+    .then(() => {
+      window.location.assign('/profile');
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      errorNotification(errorCode);
+      errorNotification(errorCode, errorMessage);
     });
 }
 

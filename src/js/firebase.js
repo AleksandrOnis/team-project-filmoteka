@@ -17,24 +17,3 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// доделать или почистить позже
-import { Request } from './firebase-database';
-
-// const signupForm = document.getElementById('signup-form');
-// const inputEmail = signupForm.querySelector('#signup-email');
-// const inputPassword = signupForm.querySelector('#signup-password');
-// const submitBtn = signupForm.querySelector('#submit-button');
-// const loginForm = document.getElementById('login-form');
-
-// const inputEmailLogin = loginForm.querySelector('#login-email');
-
-// const inputPasswordLogin = loginForm.querySelector('#login-password');
-
-// console.log(signupForm);
-// console.log(inputEmail);
-// console.log(inputPassword);
-// console.log(loginForm);
-// console.log(inputEmailLogin);
-// console.log(inputPasswordLogin);
-// console.log(submitBtn);

@@ -13,7 +13,7 @@ export default function renderProfile() {
   const slideshowMarkup = slideshow();
   mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
 
-  document.querySelector('#account button').addEventListener('click', openAccountModal);
+  document.querySelector('#account-button').addEventListener('click', openAccountModal);
 }
 
 function openAccountModal() {
