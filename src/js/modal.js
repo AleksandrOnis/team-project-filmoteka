@@ -38,7 +38,14 @@ export default function openModalfilm(event) {
     btnAddToWatchedRef = filmDescriptionRef.querySelector('.btn__watch');
     btnAddToQueueRef = filmDescriptionRef.querySelector('.btn__queue');
     btnAddToWatchedRef.addEventListener('click', addCardToWatchedHandle);
+    console.log(btnAddToWatchedRef)
+    btnAddToWatchedRef.addEventListener('click', () => {
+    btnAddToWatchedRef.textContent = "ADDED TO WATCHED"
+     });
     btnAddToQueueRef.addEventListener('click', addCardToQueueHandle);
+    btnAddToQueueRef.addEventListener('click', ()=>{;
+    btnAddToQueueRef.textContent = "ADDED TO QUEUE"
+     });
 
     function addCardToWatchedHandle() {
       Request.addCardToWatched(detailOfFilm).then(request => {
