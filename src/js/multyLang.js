@@ -42,8 +42,8 @@ export function changeLanguageLibBtn() {
   }
   select.value = hash;
 
-  // document.querySelector('.lng-watchedLib').innerHTML = LangArr['watchedLib'][hash];
-  // document.querySelector('.lng-queueLib').innerHTML = LangArr['queueLib'][hash];
+  document.querySelector('.lng-watchedLib').innerHTML = LangArr['watchedLib'][hash];
+  document.querySelector('.lng-queueLib').innerHTML = LangArr['queueLib'][hash];
 
   document.querySelector('.lng-login').innerHTML = LangArr['login'][hash];
   document.querySelector('.lng-signUp').innerHTML = LangArr['signUp'][hash];
