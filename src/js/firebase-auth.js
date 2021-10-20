@@ -6,13 +6,14 @@ import {
   onAuthStateChanged,
   getIdToken,
   getCookie,
+  setPersistence,
+  browserLocalPersistence,
 } from 'firebase/auth';
 import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './handle-authentication-modals';
 import { logOutListener } from './handle-logged-in-user';
 import { removeBackdrop } from './handle-authentication-modals';
 import { hideBtns } from './handle-modal-btns';
-
 const auth = getAuth();
 Notiflix.Notify.init({
   fontFamily: 'Roboto',
@@ -96,17 +97,25 @@ function firebaseSignInEP(e) {
   const inputEmail = e.target.querySelector('#login-email').value;
   const inputPassword = e.target.querySelector('#login-password').value;
   console.log(inputEmail);
-  return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      return user;
+  return setPersistence(auth, browserLocalPersistence)
+    .then(() => {
+      return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
+        .then(userCredential => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch(error => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          errorNotification(errorCode);
+        });
     })
     .catch(error => {
+      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      errorNotification(errorCode);
+      console.log(errorCode, errorMessage);
     });
 }
 

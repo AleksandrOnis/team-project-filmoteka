@@ -9,8 +9,7 @@ export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
-  btnWatchedRef.removeEventListener('click', showNoti);
-  btnQueueRef.removeEventListener('click', showNoti);
+
   btnWatchedRef.addEventListener('click', renderWatched);
   btnQueueRef.addEventListener('click', renderQueue);
 
