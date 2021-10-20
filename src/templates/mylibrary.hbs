@@ -4,10 +4,6 @@
 
   </ul>
 
-
-
-
-
        <div class="authentication">
            <ul id="login-nav" class="authentication__list">
          <div class="authentication__option authentication__loggedout">
@@ -23,46 +19,43 @@
        </div>
 
 <!-- SIGN UP MODAL -->
-<div id="modal-signup" class="authentication__modal is-hidden">
-    <button type="button" class="authentication__modal-close" id="signup-close"></button>
-  <div class="modal__content">
-    <h2 class="modal__heading">Sign up</h2>
-    <br />
-    <form id="signup-form">
-      <div class="input-element">
-          <label for="signup-email" >Email address</label>
-        <input type="email" id="signup-email" class="input-field" placeholder='Type in your email'required />
+    <div id="modal-signup" class="authentication__modal is-hidden">
+        <button type="button" class="authentication__modal-close" id="signup-close"></button>
+      <div class="modal__content">
+        <h2 class="modal__heading">Sign up</h2>
+        <br />
+        <form id="signup-form">
+          <div class="input-element">
+              <label for="signup-email" >Email address</label>
+            <input type="email" id="signup-email" class="input-field" placeholder='Type in your email'required />
+          </div>
+          <div class="input-element">
+              <label for="signup-password">Choose password</label>
+            <input type="password" id="signup-password" class="input-field" placeholder='Type in your password' required "/>
+          </div>
+          <button class="btn authentication__modal-button authentication__button " type="submit" id="submit-button" > Sign up</button>
+        </form>
       </div>
-      <div class="input-element">
-          <label for="signup-password">Choose password</label>
-        <input type="password" id="signup-password" class="input-field" placeholder='Type in your password' required "/>
-      </div>
-      <button class="btn authentication__modal-button authentication__button " type="submit" id="submit-button" > Sign up</button>
-    </form>
-  </div>
-</div>
+    </div>
 
 <!-- LOGIN MODAL -->
-<div id="modal-login" class="authentication__modal is-hidden ">
-    <button type="button" class="authentication__modal-close" id="login-close"></button>
-    <div class="modal__content">
-    <h2 class="modal__heading">Login</h2>
-    <br />
-    <form id="login-form">
-      <div class="input-element">
-          <label for="login-email" >Email address</label>
-        <input type="email" id="login-email" class="input-field"  placeholder='Type in your email'required />
+    <div id="modal-login" class="authentication__modal is-hidden ">
+        <button type="button" class="authentication__modal-close" id="login-close"></button>
+        <div class="modal__content">
+        <h2 class="modal__heading">Login</h2>
+        <br />
+        <form id="login-form">
+          <div class="input-element">
+              <label for="login-email" >Email address</label>
+            <input type="email" id="login-email" class="input-field"  placeholder='Type in your email'required />
+          </div>
+          <div class="input-element">
+              <label for="login-password">Your password</label>
+            <input type="password" id="login-password" class="input-field" placeholder='Type in your password' required/>
+          </div>
+          <button class="btn authentication__button authentication__modal-button " type="submit" >Login</button>
+        </form>
       </div>
-      <div class="input-element">
-          <label for="login-password">Your password</label>
-        <input type="password" id="login-password" class="input-field" placeholder='Type in your password' required/>
-      </div>
-      <button class="btn authentication__button authentication__modal-button " type="submit" >Login</button>
-    </form>
-  </div>
-</div>
-
-
-  
-</section>
+    </div>
+  </section>
 </div>
