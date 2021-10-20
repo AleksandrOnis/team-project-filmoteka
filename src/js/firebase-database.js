@@ -43,17 +43,27 @@ export class Request {
       .then(response => response.json())
       .then(response => {
         queue.id = response.name;
-        console.log('🚀 ~ addCardToQueue ~ queue', queue);
         return queue;
       });
-    // .then(addQueueLocalStorage);
+  }
+
+  static getCardsFromWatched() {
+    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/Watched.json`) //?access_token=${token} //// ?auth=
+      .then(response => {
+        return response.json();
+      })
+      .then(object => {
+        return Object.values(object);
+      });
+  }
+
+  static getCardsFromQueue() {
+    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/Queue.json`) //?access_token=${token} //// ?auth=
+      .then(response => {
+        return response.json();
+      })
+      .then(object => {
+        return Object.values(object);
+      });
   }
 }
-
-// function addWatchedLocalStorage(watched) {
-//   localStorage.setItem('Watched', JSON.stringify(watched));
-// }
-
-// function addQueueLocalStorage(queue) {
-//   localStorage.setItem('Queue', JSON.stringify(queue));
-// }

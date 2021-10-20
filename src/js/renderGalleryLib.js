@@ -1,16 +1,14 @@
 import filmCard from '../templates/filmcard-lib.hbs';
 import { showSpiner, hideSpiner } from './spiner.js';
 import { createFilmCard } from './renderHome';
+import { Request } from './firebase-database';
 
 export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
-  // console.log('🚀 ~ renderGalleryLib ~ btnQueueRef', btnQueueRef);
-  // btnWatchedRef.disabled = false;
-  // btnQueueRef.disabled = false;
-  btnWatchedRef.removeEventListener;
-  btnQueueRef.removeEventListener;
+  btnWatchedRef.removeEventListener('click', showNoti);
+  btnQueueRef.removeEventListener('click', showNoti);
   btnWatchedRef.addEventListener('click', renderWatched);
   btnQueueRef.addEventListener('click', renderQueue);
 
@@ -18,29 +16,24 @@ export function renderGalleryLib() {
 
   function renderWatched() {
     showSpiner();
-    const films = getWatchedFromLocalStorage();
-    const genres = films.flatMap(film => film.genres); //.filter(); //unik
-    // console.log('🚀 ~ renderWatched ~ genres', genres);
-    // const filmCard = createFilmCard(films, genres); //ошибка по жанрам
-    renderFilmCard(films);
-    if (galleryLib.classList.contains('is-hidden')) {
-      galleryLib.classList.remove('is-hidden');
-    }
-    hideSpiner();
+    Request.getCardsFromWatched().then(films => {
+      renderFilmCard(films);
+      if (galleryLib.classList.contains('is-hidden')) {
+        galleryLib.classList.remove('is-hidden');
+      }
+      hideSpiner();
+    });
   }
 
   function renderQueue() {
     showSpiner();
-    galleryLib.classList.toggle('is-hidden');
-    const films = getQueueFromLocalStorage();
-    const genres = films.flatMap(film => film.genres); //.filter(); //unik
-    // console.log('🚀 ~ renderWatched ~ genres', genres);
-    // const filmCard = createFilmCard(films, genres); //ошибка по жанрам
-    renderFilmCard(films);
-    if (galleryLib.classList.contains('is-hidden')) {
-      galleryLib.classList.remove('is-hidden');
-    }
-    hideSpiner();
+    Request.getCardsFromQueue().then(films => {
+      renderFilmCard(films);
+      if (galleryLib.classList.contains('is-hidden')) {
+        galleryLib.classList.remove('is-hidden');
+      }
+      hideSpiner();
+    });
   }
 
   function renderFilmCard(films = 0) {
@@ -48,11 +41,5 @@ export function renderGalleryLib() {
     galleryLib.insertAdjacentHTML('beforeend', filmCard(films));
   }
 
-  function getWatchedFromLocalStorage() {
-    return JSON.parse(localStorage.getItem('Watched') || '[]');
-  }
-
-  function getQueueFromLocalStorage() {
-    return JSON.parse(localStorage.getItem('Queue') || '[]');
-  }
+  function showNoti() {}
 }
