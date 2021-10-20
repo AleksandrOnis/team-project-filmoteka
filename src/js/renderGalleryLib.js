@@ -6,12 +6,13 @@ export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
-  console.log('🚀 ~ renderGalleryLib ~ btnQueueRef', btnQueueRef);
-  btnWatchedRef.disabled = false;
-  btnQueueRef.disabled = false;
+  // console.log('🚀 ~ renderGalleryLib ~ btnQueueRef', btnQueueRef);
+  // btnWatchedRef.disabled = false;
+  // btnQueueRef.disabled = false;
+  btnWatchedRef.removeEventListener;
+  btnQueueRef.removeEventListener;
   btnWatchedRef.addEventListener('click', renderWatched);
   btnQueueRef.addEventListener('click', renderQueue);
-  console.log('🚀 ~ renderLibrary ~ btn-ON');
 
   const galleryLib = document.querySelector('#galleryLib');
 

@@ -59,7 +59,10 @@ export function renderLibrary() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
-  btnWatchedRef.disabled = true;
-  btnQueueRef.disabled = true;
-  console.log('🚀 ~ renderLibrary ~ btn-OFF');
+  // btnWatchedRef.disabled = true;
+  // btnQueueRef.disabled = true;
+  // console.log('🚀 ~ renderLibrary ~ btn-OFF');
+  btnWatchedRef.addEventListener('click', showNoti);
+  btnQueueRef.addEventListener('click', showNoti);
+  function showNoti() {}
 }
