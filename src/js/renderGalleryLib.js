@@ -1,4 +1,4 @@
-import filmCard from '../templates/filmСard.hbs';
+import filmCard from '../templates/filmcard-lib.hbs';
 import { createFilmCard } from './renderHome';
 
 export function renderGalleryLib() {
@@ -8,24 +8,34 @@ export function renderGalleryLib() {
   btnWatchedRef.addEventListener('click', renderWatched);
   btnQueueRef.addEventListener('click', renderQueue);
 
+  const galleryLib = document.querySelector('.watched-list');
+  
   function renderWatched() {
-    const films = getWatchedFromLocalStorage();
-    const genres = films.flatMap(film => film.genres); //.filter(); //unik
-    // console.log('🚀 ~ renderWatched ~ genres', genres);
-    // const filmCard = createFilmCard(films, genres); //ошибка по жанрам
+      const films = getWatchedFromLocalStorage();
+      const genres = films.flatMap(film => film.genres); //.filter(); //unik
+      // console.log('🚀 ~ renderWatched ~ genres', genres);
+      // const filmCard = createFilmCard(films, genres); //ошибка по жанрам
     renderFilmCard(films);
+      if (galleryLib.classList.contains('is-hidden')) {
+      galleryLib.classList.remove('is-hidden')
+    }
+  
   }
 
   function renderQueue() {
+     galleryLib.classList.toggle('is-hidden')
     const films = getQueueFromLocalStorage();
     const genres = films.flatMap(film => film.genres); //.filter(); //unik
     // console.log('🚀 ~ renderWatched ~ genres', genres);
     // const filmCard = createFilmCard(films, genres); //ошибка по жанрам
     renderFilmCard(films);
+     if (galleryLib.classList.contains('is-hidden')) {
+      galleryLib.classList.remove('is-hidden')
+    }
   }
 
   function renderFilmCard(films = 0) {
-    const galleryLib = document.querySelector('.mylibrary');
+    const galleryLib = document.querySelector('.watched-list');
     galleryLib.innerHTML = '';
     galleryLib.insertAdjacentHTML('beforeend', filmCard(films));
   }
