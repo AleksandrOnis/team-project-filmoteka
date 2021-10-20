@@ -1,0 +1,29 @@
+.watched-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -30px;
+    margin-top: -30px;
+    padding: 5px;
+    max-width: 100%;
+    // outline: 3px solid red;
+  }
+}
+.card-thumb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
