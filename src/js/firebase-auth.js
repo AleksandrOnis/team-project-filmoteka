@@ -14,6 +14,7 @@ import { closeModal } from './handle-authentication-modals';
 import { logOutListener } from './handle-logged-in-user';
 import { removeBackdrop } from './handle-authentication-modals';
 import { hideBtns } from './handle-modal-btns';
+import { enableHeaderBtns } from './handle-header-btns';
 const auth = getAuth();
 Notiflix.Notify.init({
   fontFamily: 'Roboto',
@@ -48,6 +49,7 @@ function signupHandler(e) {
   });
   hideBtns();
   closeModal();
+  enableHeaderBtns();
   logOutListener();
 }
 
@@ -60,6 +62,7 @@ function signInHandler(e) {
       console.log(errorCode);
     });
   removeBackdrop();
+  enableHeaderBtns();
   logOutListener();
 }
 

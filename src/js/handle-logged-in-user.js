@@ -16,6 +16,8 @@ import renderProfile from './renderProfile';
 import { hideBtns } from './handle-modal-btns';
 import { renderLoggedOutLibrary } from './renderLibrary';
 import { removeBackdrop } from './handle-authentication-modals';
+import { enableHeaderBtns } from './handle-header-btns';
+import { disableHeaderBtns } from './handle-header-btns';
 const { mainHTML, myLibraryLink } = refs;
 
 const auth = getAuth();
@@ -31,14 +33,14 @@ Notiflix.Notify.init({
   success: { background: '#f2f84e', textColor: '#000000' },
 });
 export function handleLoggedUser() {
-  onAuthStateChanged(auth, user => {
+  return onAuthStateChanged(auth, user => {
     if (user) {
       console.log(user);
       console.log(user.uid);
-      return user.uid;
+      const uidResult = user.uid;
+      return true;
     } else {
-      console.log(user);
-      return user;
+      return false;
     }
   });
 }
@@ -56,6 +58,7 @@ export function logOutListener() {
       })
       .then(data => {
         removeBackdrop();
+        disableHeaderBtns();
         renderLoggedOutLibrary();
         // document.querySelector('.library-header__buttons__wrapper').innerHTML = '';
       })
