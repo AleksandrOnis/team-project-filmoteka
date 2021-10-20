@@ -13,7 +13,6 @@ import { closeModal } from './handle-authentication-modals';
 import { logOutListener } from './handle-logged-in-user';
 import { removeBackdrop } from './handle-authentication-modals';
 import { hideBtns } from './handle-modal-btns';
-// import { renderGalleryLib } from './renderGalleryLib';
 
 const auth = getAuth();
 Notiflix.Notify.init({
@@ -50,7 +49,6 @@ function signupHandler(e) {
   hideBtns();
   closeModal();
   logOutListener();
-  // renderGalleryLib();
 }
 
 function signInHandler(e) {
@@ -63,7 +61,6 @@ function signInHandler(e) {
     });
   removeBackdrop();
   logOutListener();
-  // renderGalleryLib();
 }
 
 function errorNotification(errorCode, errorMessage) {
