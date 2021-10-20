@@ -9,4 +9,8 @@ export default {
   footerCloseBtn: document.querySelector('.footer__button'),
   headerHTML: document.querySelector('.header'),
   inputHTML: document.querySelector('.search'),
+  libBtnWatch: document.querySelector('.btn__watch'),
+  libBtnQueue: document.querySelector('.btn__queue'),
+  galleryLib: document.getElementById('galleryLib'),
+  slideShow: document.querySelector('.mylibrary__slideshow')
 };
