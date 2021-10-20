@@ -4,7 +4,7 @@ import refs from './refs';
 import mylibrary from '../templates/mylibrary.hbs';
 import libHeader from '../templates/libheader.hbs';
 import slideshow from '../templates/slideshow.hbs';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import { renderGalleryLib } from './renderGalleryLib';
 import filmCard from '../templates/filmСard.hbs';
 import { handleLoggedUser } from './handle-logged-in-user';
@@ -64,5 +64,7 @@ export function renderLibrary() {
   // console.log('🚀 ~ renderLibrary ~ btn-OFF');
   btnWatchedRef.addEventListener('click', showNoti);
   btnQueueRef.addEventListener('click', showNoti);
-  function showNoti() {}
+  function showNoti() {
+    Notify.warning('Please log in ')
+  }
 }
