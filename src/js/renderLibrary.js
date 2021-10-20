@@ -64,7 +64,8 @@ export function renderLibrary() {
   // console.log('🚀 ~ renderLibrary ~ btn-OFF');
   btnWatchedRef.addEventListener('click', showNoti);
   btnQueueRef.addEventListener('click', showNoti);
-  function showNoti() {
-    Notify.warning('Please log in ')
-  }
+}
+
+export function showNoti() {
+  Notify.warning('Please log in');
 }

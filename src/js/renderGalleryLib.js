@@ -2,12 +2,13 @@ import filmCard from '../templates/filmcard-lib.hbs';
 import { showSpiner, hideSpiner } from './spiner.js';
 import { createFilmCard } from './renderHome';
 import { Request } from './firebase-database';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { showNoti } from './renderLibrary';
+
 export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
- btnWatchedRef.removeEventListener('click', showNoti);
+  btnWatchedRef.removeEventListener('click', showNoti);
   btnQueueRef.removeEventListener('click', showNoti);
   btnWatchedRef.addEventListener('click', renderWatched);
   btnQueueRef.addEventListener('click', renderQueue);
@@ -40,7 +41,4 @@ export function renderGalleryLib() {
     galleryLib.innerHTML = '';
     galleryLib.insertAdjacentHTML('beforeend', filmCard(films));
   }
-
-  function showNoti() {}
 }
-function showNoti() {}
