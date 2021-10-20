@@ -7,7 +7,6 @@ import {
   getIdToken,
   getCookie,
 } from 'firebase/auth';
-import { signOut } from '@firebase/auth';
 import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './handle-authentication-modals';
 import { logOutListener } from './handle-logged-in-user';

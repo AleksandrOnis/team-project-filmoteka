@@ -56,6 +56,9 @@ export function logOutListener() {
       .catch(error => {
         console.log(error);
       })
-      .then(renderLibrary());
+      .then(data => {
+        document.querySelector('.library-header__buttons__wrapper').innerHTML = '';
+        renderLibrary();
+      });
   });
 }
