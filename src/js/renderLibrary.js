@@ -5,7 +5,7 @@ import mylibrary from '../templates/mylibrary.hbs';
 import libHeader from '../templates/libheader.hbs';
 import slideshow from '../templates/slideshow.hbs';
 
-import { renderGalleryLib } from './renderGalleryLib';
+// import { renderGalleryLib } from './renderGalleryLib';
 import filmCard from '../templates/filmСard.hbs';
 import { handleLoggedUser } from './handle-logged-in-user';
 import { addListenersForModals, removeBackdrop } from './handle-authentication-modals';
@@ -56,5 +56,10 @@ export function renderLibrary() {
     loginFormListener();
   }
   changeLanguageLibBtn();
-  renderGalleryLib();
+  const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
+  const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
+  const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
+  btnWatchedRef.disabled = true;
+  btnQueueRef.disabled = true;
+  console.log('🚀 ~ renderLibrary ~ btn-OFF');
 }
