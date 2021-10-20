@@ -9,8 +9,8 @@ export function renderGalleryLib() {
   // console.log('🚀 ~ renderGalleryLib ~ btnQueueRef', btnQueueRef);
   // btnWatchedRef.disabled = false;
   // btnQueueRef.disabled = false;
-  btnWatchedRef.removeEventListener;
-  btnQueueRef.removeEventListener;
+ btnWatchedRef.removeEventListener('click', showNoti);
+  btnQueueRef.removeEventListener('click', showNoti);
   btnWatchedRef.addEventListener('click', renderWatched);
   btnQueueRef.addEventListener('click', renderQueue);
 
@@ -56,3 +56,4 @@ export function renderGalleryLib() {
     return JSON.parse(localStorage.getItem('Queue') || '[]');
   }
 }
+// function showNoti() {}
