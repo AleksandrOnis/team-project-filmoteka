@@ -14,7 +14,8 @@ import { renderLibrary } from './renderLibrary';
 import mylibrary from '../templates/mylibrary.hbs';
 import renderProfile from './renderProfile';
 import { hideBtns } from './handle-modal-btns';
-
+import { renderLoggedOutLibrary } from './renderLibrary';
+import { removeBackdrop } from './handle-authentication-modals';
 const { mainHTML, myLibraryLink } = refs;
 
 const auth = getAuth();
@@ -50,15 +51,16 @@ export function logOutListener() {
           background: '#f2f84e',
           textColor: '#000000',
           width: '150px',
+          rtl: false,
         });
       })
-
+      .then(data => {
+        removeBackdrop();
+        renderLoggedOutLibrary();
+        // document.querySelector('.library-header__buttons__wrapper').innerHTML = '';
+      })
       .catch(error => {
         console.log(error);
-      })
-      .then(data => {
-        document.querySelector('.library-header__buttons__wrapper').innerHTML = '';
-        renderLibrary();
       });
   });
 }
