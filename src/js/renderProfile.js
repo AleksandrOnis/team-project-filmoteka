@@ -19,6 +19,8 @@ export default function renderProfile() {
   const slideshowMarkup = slideshow();
   mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
   removeBackdrop();
+  const stopSlideshowMarkup = stopSlideshow();
+  mainHTML.insertAdjacentHTML('beforeend', stopSlideshowMarkup);
   renderGalleryLib();
   // document.querySelector('#account-button').addEventListener('click', openAccountModal);
 }
