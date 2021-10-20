@@ -7,8 +7,8 @@ export default {
   },
   library: {
     en: 'my library',
-    ru: 'моя библиотека',
-    ua: 'моя бібліотека',
+    ru: 'библиотека',
+    ua: 'бібліотека',
   },
   placeholder: {
     en: 'Movie search ',

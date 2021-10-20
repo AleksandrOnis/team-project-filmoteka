@@ -1,6 +1,6 @@
 .item {
   // padding: 5px;
-
+  cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 20px;
   }

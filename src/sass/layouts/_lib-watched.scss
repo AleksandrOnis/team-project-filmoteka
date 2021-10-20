@@ -19,3 +19,11 @@
     max-width: 100%;
   }
 }
+
+.item-watched {
+  @media screen and (max-width: 767.98px) {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

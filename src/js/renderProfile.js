@@ -1,4 +1,6 @@
 import libraryprofile from '../templates/libraryprofile.hbs';
+import stopSlideshow from '../templates/stop-slideshow.hbs';
+
 import refs from './refs';
 import slideshow from '../templates/slideshow.hbs';
 import { closeModal } from './handle-authentication-modals';
