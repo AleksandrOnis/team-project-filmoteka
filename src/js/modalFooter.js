@@ -17,6 +17,7 @@ function modalFooter(e) {
   } else {
     return;
   }
+  changeLanguageModalFooter();
 }
 function removeListener() {
   window.removeEventListener('keydown', onEscapeClose);

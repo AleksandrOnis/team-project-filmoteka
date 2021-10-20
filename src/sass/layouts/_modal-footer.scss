@@ -48,8 +48,9 @@
 
 .footer__image {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   z-index: 1200;
+  height: 150px;
 }
 .footer__member {
   display: flex;
@@ -58,7 +59,7 @@
   justify-content: center;
   box-shadow: var(--footer-cards-shadow);
   margin-bottom: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   z-index: 1200;
   max-width: 140px;
   min-width: 100px;
@@ -66,7 +67,7 @@
   position: relative;
   text-align: center;
   color: var(--primary-text-color);
-  background-color: var(--secondary-text-color);
+  background-color: var(--footer-text-color);
   border-radius: 4px;
   overflow: hidden;
   animation: memberRotate 5s linear 1;
