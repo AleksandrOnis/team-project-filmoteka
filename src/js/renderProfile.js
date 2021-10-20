@@ -6,6 +6,8 @@ import { hideBtns } from './handle-modal-btns';
 import { logOutListener } from './handle-logged-in-user';
 import { renderGalleryLib } from './renderGalleryLib';
 const { mainHTML } = refs;
+
+
 export default function renderProfile() {
   closeModal();
   mainHTML.innerHTML = '';

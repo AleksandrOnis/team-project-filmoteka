@@ -1,7 +1,7 @@
 import filmCard from '../templates/filmcard-lib.hbs';
 import { showSpiner, hideSpiner } from './spiner.js';
 import { createFilmCard } from './renderHome';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
@@ -56,4 +56,4 @@ export function renderGalleryLib() {
     return JSON.parse(localStorage.getItem('Queue') || '[]');
   }
 }
-// function showNoti() {}
+function showNoti() {}

@@ -124,12 +124,14 @@ label {
   overflow: hidden;
   box-shadow: var(--button-shadow);
 }
-.authentication__signup-btn {
+.authentication__signup-btn,
+.authentication__logout {
   color: #fff;
   background-color: var(--btn-bg-primary-color);
 }
 
-.authentication__login-btn {
+.authentication__login-btn,
+.authentication_account-btn {
   margin-right: 25px;
 }
 
