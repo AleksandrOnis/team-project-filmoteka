@@ -4,6 +4,7 @@ import slideshow from '../templates/slideshow.hbs';
 import { closeModal } from './handle-authentication-modals';
 import { hideBtns } from './handle-modal-btns';
 import { logOutListener } from './handle-logged-in-user';
+import { renderGalleryLib } from './renderGalleryLib';
 const { mainHTML } = refs;
 export default function renderProfile() {
   closeModal();
@@ -13,7 +14,7 @@ export default function renderProfile() {
   mainHTML.insertAdjacentHTML('beforeend', profileMarkup);
   const slideshowMarkup = slideshow();
   mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
-
+  renderGalleryLib();
   // document.querySelector('#account-button').addEventListener('click', openAccountModal);
 }
 
