@@ -1,6 +1,5 @@
 .item {
-  padding: 5px;
-  // background-color: aliceblue;
+  // padding: 5px;
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -9,6 +8,7 @@
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-top: 30px;
     margin-left: 30px;
     flex-basis: calc(100% / 2 - 30px);
@@ -28,8 +28,8 @@
   margin-bottom: 10px;
   border-radius: 5px;
   max-height: 398px;
-  transform: translateY(1%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // transform: translateY(1%);
+  // transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     flex-grow: 1;
   }
@@ -38,15 +38,15 @@
     max-height: 398px;
   }
 }
-.gallery-item_image:hover,
-.gallery-item_noimage:hover {
-  box-shadow: (
-    10px 10px 5px 2px rgba(238, 176, 54, 0.75),
-    20px 4px 6px rgba(230, 113, 35, 0.12),
-    1px 4px 4px rgba(211, 128, 19, 0.06)
-  );
-  transform: translateY(0);
-}
+// .gallery-item_image:hover,
+// .gallery-item_noimage:hover {
+//   box-shadow: (
+//     10px 10px 5px 2px rgba(238, 176, 54, 0.75),
+//     20px 4px 6px rgba(230, 113, 35, 0.12),
+//     1px 4px 4px rgba(211, 128, 19, 0.06)
+//   );
+//   transform: translateY(0);
+// }
 .gallery-item_year {
   color: var(--btn-bg-primary-color);
   font-weight: 500;
@@ -82,11 +82,30 @@
   border-radius: 5px;
   background-color: var(--btn-bg-primary-color);
 }
-
-.gallery-item_text-thumb {
+.card-thumb {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  transform: translateY(1%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--bg-color);
+
+  &:hover {
+    box-shadow: (
+      10px 10px 5px 2px rgba(238, 176, 54, 0.75),
+      20px 4px 6px rgba(230, 113, 35, 0.12),
+      1px 4px 4px rgba(211, 128, 19, 0.06)
+    );
+    transform: translateY(0);
+  }
 }
+
+// .gallery-item_text-thumb {
+//   display: flex;
+//   align-items: center;
+// }
 .gallery-item_noimage {
   width: 100%;
   max-height: 400px;
