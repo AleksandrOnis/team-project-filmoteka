@@ -7,7 +7,7 @@ import {
   getIdToken,
   getCookie,
   setPersistence,
-  browserLocalPersistence,
+  browserSessionPersistence,
 } from 'firebase/auth';
 import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './handle-authentication-modals';
@@ -100,7 +100,7 @@ function firebaseSignInEP(e) {
   const inputEmail = e.target.querySelector('#login-email').value;
   const inputPassword = e.target.querySelector('#login-password').value;
   console.log(inputEmail);
-  return setPersistence(auth, browserLocalPersistence)
+  return setPersistence(auth, browserSessionPersistence)
     .then(() => {
       return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
         .then(userCredential => {
