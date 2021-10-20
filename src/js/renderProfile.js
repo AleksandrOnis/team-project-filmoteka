@@ -6,7 +6,7 @@ import { hideBtns } from './handle-modal-btns';
 import { logOutListener } from './handle-logged-in-user';
 const { mainHTML } = refs;
 export default function renderProfile() {
-  // closeModal();
+  closeModal();
   mainHTML.innerHTML = '';
   const profileMarkup = libraryprofile();
 
