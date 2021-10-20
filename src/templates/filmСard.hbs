@@ -1,6 +1,7 @@
 {{#each this}}
 <li class="item gallery-item">
     {{#if poster_path}}
+    <div class='card-thumb'>
     <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" data-id="{{id}}"/>
     {{else}}
     <img class='gallery-item_noimage' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' data-id="{{id}}"/>
@@ -13,6 +14,7 @@
             {{/each}}
         <p class="gallery-item_year"><span class='gallery-item_delimeter'>|</span>{{year}}</p>
         {{!-- <span class="gallery-item__rating">{{vote_average}}</span> --}}
+    </div>
     </div>
 </li>
 {{/each}}
