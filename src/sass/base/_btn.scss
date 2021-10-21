@@ -17,7 +17,7 @@
 .button-modal-delete {
   // display: flex;
   border: none;
-  background-image: url(../images/delete.svg);
+  background-image: url(../images/close.svg);
   background-color: var(----bg-color);
   background-size: 125%;
   background-position: center;
@@ -26,4 +26,8 @@
   width: 25px;
   height: 25px;
   margin-right: 5px;
+}
+.button-modal-delete:hover,
+.button-modal-delete:focus {
+  transform: scale(1.2);
 }
