@@ -26,7 +26,7 @@ export class Request {
     })
       .then(response => response.json())
       .then(response => {
-        watched.id = response.name;
+       // watched.id = response.name;
         return watched;
       });
     // .then(addWatchedLocalStorage);
@@ -42,7 +42,7 @@ export class Request {
     })
       .then(response => response.json())
       .then(response => {
-        queue.id = response.name;
+        //queue.id = response.name;
         return queue;
       });
   }

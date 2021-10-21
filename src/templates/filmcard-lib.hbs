@@ -3,12 +3,12 @@
 <li class="item gallery-item item-watched">
     {{#if poster_path}}
     <div class='card-thumb'>
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" />
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" data-id='{{id}}' />
     {{else}}
-    <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
+    <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' data-id='{{id}}' />
     {{/if}}
     <div class="gallery-item_text">
-        <p class="gallery-item_title  gallery-item_title-watched title">{{title}}</p>
+        <p class="gallery-item_title  gallery-item_title-watched title" data-id="{{id}}">{{title}}</p>
         <ul class='gallery-item_genres-list'>
             {{#each genres}}
             <li class='gallery-item_genres-item'>{{name}}{{#unless @last}},{{/unless}}</li>
