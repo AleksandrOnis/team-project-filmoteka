@@ -62,8 +62,8 @@ export class Request {
         .then(object => {
           createNoti(1);
           return Object.values(object);
-        })
-        .catch(createNotiError());
+        });
+    // .catch(createNotiError());
     else createNoti(0);
   }
 
@@ -76,8 +76,8 @@ export class Request {
         .then(object => {
           createNoti(1);
           return Object.values(object);
-        })
-        .catch(createNotiError());
+        });
+    // .catch(createNotiError());
     else createNoti(0);
   }
 
@@ -137,9 +137,9 @@ function createNoti(value) {
         rtl: false,
       });
 }
-function createNotiError() {
-  Notiflix.Notify.failure('There is nothing here yet', {
-    width: '170px',
-    rtl: false,
-  });
-}
+// function createNotiError() {
+//   Notiflix.Notify.failure('There is nothing here yet', {
+//     width: '170px',
+//     rtl: false,
+//   });
+// }
