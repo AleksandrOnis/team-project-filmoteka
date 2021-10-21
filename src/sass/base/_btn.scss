@@ -19,13 +19,14 @@
   border: none;
   background-image: url(../images/delete.svg);
   background-color: var(----bg-color);
-  background-size: 125%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   // border-radius: 10px;
   width: 25px;
   height: 25px;
   margin-right: 5px;
+  cursor: pointer;
 }
 .button-modal-delete:hover,
 .button-modal-delete:focus {
