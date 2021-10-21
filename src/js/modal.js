@@ -1,7 +1,7 @@
 import ApiService from './apiService';
-import { Request } from './firebase-database';
+// import { Request } from './firebase-database';
 import modalCardTpl from '../templates/filmDescription';
-
+import  refs from './refs'
 import { changeLanguageFilmCard } from '../js/multyLang.js';
 
 const apiService = new ApiService();
@@ -10,15 +10,20 @@ const basicLightbox = require('basiclightbox');
 let detailOfFilm;
 let instance;
 let closeBtn;
-let filmDescriptionRef = null;
-let btnAddToWatchedRef = null;
-let btnAddToQueueRef = null;
+let modalFilm;
+let btnAddToWatchedRef;
+let btnAddToQueueRef;
+const watchedFilms = JSON.parse(localStorage.getItem('watchedFilms')) || [];
+const queueFilms = JSON.parse(localStorage.getItem('queueFilms')) || [];
+const arrWatchedFilms = JSON.parse(localStorage.getItem('arrWatchedFilms')) || [];
+const arrQueueFilms = JSON.parse(localStorage.getItem('arrQueueFilms')) || [];
+
 export default function openModalfilm(event) {
   if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'P') {
     return;
   }
   apiService.filmId = event.target.dataset.id;
-  async function showModal() {
+  (async () => {
     await createFilmCard();
     const modalCardMarkUp = modalCardTpl(detailOfFilm);
     instance = basicLightbox.create(modalCardMarkUp);
@@ -27,32 +32,43 @@ export default function openModalfilm(event) {
     changeLanguageFilmCard();
     //
     closeBtn = document.querySelector('.js-modal-close-btn');
-    closeBtn.addEventListener('click', closeModalFilmCard);
+    modalFilm = document.querySelector('.modal-film__container')
+    btnAddToWatchedRef = document.querySelector('.js-btn__watch ');
+    btnAddToQueueRef = document.querySelector('.js-btn__queue');
     document.querySelector('body').classList.add('modal-open');
-  }
 
-  showModal().then(response => {
-    console.log(response);
-    filmDescriptionRef = document.querySelector('.modal-film__description');
-    btnAddToWatchedRef = filmDescriptionRef.querySelector('.btn__watch');
-    btnAddToQueueRef = filmDescriptionRef.querySelector('.btn__queue');
-    btnAddToWatchedRef.addEventListener('click', addCardToWatchedHandle);
-    console.log(btnAddToWatchedRef);
-    btnAddToWatchedRef.addEventListener('click', () => {
-      btnAddToWatchedRef.textContent = 'ADDED TO WATCHED';
-    });
-    btnAddToQueueRef.addEventListener('click', addCardToQueueHandle);
-    btnAddToQueueRef.addEventListener('click', () => {
-      btnAddToQueueRef.textContent = 'ADDED TO QUEUE';
-    });
+    if (arrWatchedFilms.includes(Number(event.target.dataset.id))) {
+      btnAddToWatchedRef.textContent = 'remove from watched'
+    }
 
-    function addCardToWatchedHandle() {
-      Request.addCardToWatched(detailOfFilm);
+    if (arrQueueFilms.includes(Number(event.target.dataset.id))) {
+      btnAddToQueueRef.textContent = 'remove from queue'
     }
-    function addCardToQueueHandle() {
-      Request.addCardToQueue(detailOfFilm);
-    }
-  });
+
+    closeBtn.addEventListener('click', closeModalFilmCard);
+    modalFilm.addEventListener('click', addOrRemoveMovieFromLocalStorage)
+  })();
+
+    
+   
+
+  //   btnAddToWatchedRef.addEventListener('click', addCardToWatchedHandle);
+  //   console.log(btnAddToWatchedRef);
+  //   btnAddToWatchedRef.addEventListener('click', () => {
+  //     btnAddToWatchedRef.textContent = 'ADDED TO WATCHED';
+  //   });
+  //   btnAddToQueueRef.addEventListener('click', addCardToQueueHandle);
+  //   btnAddToQueueRef.addEventListener('click', () => {
+  //     btnAddToQueueRef.textContent = 'ADDED TO QUEUE';
+  //   });
+
+  //   function addCardToWatchedHandle() {
+  //     Request.addCardToWatched(detailOfFilm);
+  //   }
+  //   function addCardToQueueHandle() {
+  //     Request.addCardToQueue(detailOfFilm);
+  //   }
+  // });
   window.addEventListener('keydown', closeModalFilmCard);
 }
 
@@ -70,8 +86,64 @@ async function createFilmCard() {
 function closeModalFilmCard(e) {
   if (e.code !== 'Escape' && !e.target.classList.contains('close')) {
     return;
-    // }
   }
   document.querySelector('body').classList.remove('modal-open');
   instance.close();
+  window.removeEventListener('keydown', closeModalFilmCard);
+  if (refs.myLibraryLink.classList.contains('current')) {
+    if (refs.libBtnWatch.classList.contains('focus')) {
+      parseWatchedFilmsMarkup()
+    }
+    else {
+       parseQueueFilmsMarkup();
+    }
+  }
+}
+
+
+function addOrRemoveMovieFromLocalStorage(e) {
+
+  if (e.target.classList.contains('js-btn__watch')) {
+
+    if (!arrWatchedFilms.includes(Number(e.currentTarget.id))) {
+      arrWatchedFilms.push(detailOfFilm.id);
+      watchedFilms.push(detailOfFilm);
+      localStorage.setItem('arrWatchedFilms', JSON.stringify(arrWatchedFilms))
+      localStorage.setItem('watchedFilms', JSON.stringify(watchedFilms));
+      e.target.textContent = "remove from watched";
+    } else {
+      watchedFilms.forEach((el, ind) => {
+        if (el.id === Number(e.currentTarget.id)) {
+          watchedFilms.splice(ind, 1);
+        }
+      });
+
+      arrWatchedFilms.splice(arrWatchedFilms.indexOf(Number(e.currentTarget.id)), 1);
+      localStorage.setItem('arrWatchedFilms', JSON.stringify(arrWatchedFilms))
+      localStorage.setItem('watchedFilms', JSON.stringify(watchedFilms));
+      e.target.textContent = "add to watched";
+    }
+  }
+
+  if (e.target.classList.contains('js-btn__queue')) {
+
+    if (!arrQueueFilms.includes(Number(e.currentTarget.id))) {
+      arrQueueFilms.push(detailOfFilm.id);
+      queueFilms.push(detailOfFilm);
+      localStorage.setItem('arrQueueFilms', JSON.stringify(arrQueueFilms));
+      localStorage.setItem('queueFilms', JSON.stringify(queueFilms));
+      e.target.textContent = "remove from queue";
+    } else {
+      queueFilms.forEach((el, ind) => {
+        if (el.id === Number(e.currentTarget.id)) {
+          queueFilms.splice(ind, 1)
+        }
+      });
+
+      arrQueueFilms.splice(arrQueueFilms.indexOf(Number(e.currentTarget.id)), 1);
+      localStorage.setItem('arrQueueFilms', JSON.stringify(arrQueueFilms));
+      localStorage.setItem('queueFilms', JSON.stringify(queueFilms));
+      e.target.textContent = "add to queue";
+    }
+  }
 }

@@ -1,9 +1,8 @@
 {{#each this}}
 
 <li class="item gallery-item item-watched">
-    {{#if poster_path}}
     <div class='card-thumb'>
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" data-id='{{id}}' />
+    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" class='gallery-item_image' alt="{{title}} poster" data-id="{{id}}"/>
     {{else}}
     <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' data-id='{{id}}' />
     {{/if}}

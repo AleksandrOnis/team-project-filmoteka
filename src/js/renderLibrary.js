@@ -79,3 +79,33 @@ export function renderLoggedOutLibrary() {
   // btnWatchedRef.addEventListener('click', showNoti);
   // btnQueueRef.addEventListener('click', showNoti);
 }
+
+
+// function watchedFilmsMarkup() {
+//     refs.galleryLib.innerHTML = '';        
+//     // libraryWatchedLocalStorage();
+//     const watchedFilmsLib = JSON.parse(localStorage.getItem('watchedFilms'));
+//     refs.libBtnWatch.classList.add('focus');
+//     refs.libBtnQueue.classList.remove('focus'); 
+//     if (watchedFilmsLib ) {
+//       watchedFilmsLib.forEach(el => oneCardMarkup(el));
+//     } else return;
+// }
+
+// function queueFilmsMarkup() {
+//     refs.galleryLib.innerHTML = '';
+//     // libraryQueueLocalStorage();
+//     const queueFilmsLib = JSON.parse(localStorage.getItem('queueFilms'));
+//     refs.libBtnWatch.classList.remove('focus');
+//     refs.libBtnQueue.classList.add('focus');
+//     if (queueFilmsLib) {
+//         queueFilmsLib.forEach(el =>oneCardMarkup(el));
+//     } else return;
+// }
+
+// function oneCardMarkup(films) {
+//     refs.galleryLib.insertAdjacentHTML('beforeend', filmCard(films));
+// }
+
+
+// export { watchedFilmsMarkup, queueFilmsMarkup};
