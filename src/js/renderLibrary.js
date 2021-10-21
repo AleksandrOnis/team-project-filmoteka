@@ -18,7 +18,7 @@ import { changeLanguageLibBtn } from '../js/multyLang.js';
 import { disableHeaderBtns } from './handle-header-btns';
 import { localStorageCurrent } from './localStorageCurrent';
 // get access to the My Library button, main
-
+let userUid = null;
 const { mainHTML, myLibraryLink, homeLink, headerHTML, inputHTML } = refs;
 // add event listener on My Library
 myLibraryLink.addEventListener('click', renderLibrary, { once: true });
@@ -78,4 +78,9 @@ export function renderLoggedOutLibrary() {
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
   // btnWatchedRef.addEventListener('click', showNoti);
   // btnQueueRef.addEventListener('click', showNoti);
+}
+
+export default function getUserUid(uid) {
+  userUid = uid;
+  console.log(':rocket: ~ getUserUid ~ userUid', userUid);
 }
