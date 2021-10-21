@@ -41,3 +41,8 @@
 // .gallery-item_title {
 //   color: var(--secondary-text-color);
 // }
+.card_lib {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
