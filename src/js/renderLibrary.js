@@ -49,7 +49,7 @@ export function renderLibrary() {
   // 7. switch current page style
   homeLink.classList.remove('current');
   myLibraryLink.classList.add('current');
-  // changeLanguageLibBtn();
+  changeLanguageLibBtn();
   // btnWatchedRef.disabled = true;
   // btnQueueRef.disabled = true;
   // console.log('🚀 ~ renderLibrary ~ btn-OFF');
