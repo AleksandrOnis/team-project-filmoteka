@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="plugins/notiflix-3.1.0.min.css" />
     <link rel="stylesheet" href="plugins/basicLightbox.min.css" />
   </head>
-  <body>
+  <body id="scroll-anchor">
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/spiner.html"></include>
     <include src="./partials/header.html"></include>
@@ -28,6 +28,9 @@
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
     <script src="./js/modal.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+
     <script src="plugins/notiflix-3.1.0.min.js"></script>
     <script src="plugins/basicLightbox.min.js"></script>
   </body>

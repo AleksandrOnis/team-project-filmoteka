@@ -402,3 +402,10 @@ body {
 .library-header__button:first-child {
   margin-right: 15px;
 }
+
+.library-header__button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+  box-shadow: none;
+}

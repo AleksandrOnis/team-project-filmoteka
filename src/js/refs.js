@@ -13,4 +13,6 @@ export default {
   libBtnQueue: document.querySelector('.btn__queue'),
   galleryLib: document.getElementById('galleryLib'),
   slideShow: document.querySelector('.mylibrary__slideshow')
+  CURRENT_LIB: 'library-current',
+  CURRENT_HOME: 'home-current',
 };

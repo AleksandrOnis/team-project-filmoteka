@@ -15,14 +15,17 @@ import { loginFormListener } from './firebase-auth';
 import renderProfile from './renderProfile';
 import { logOutListener } from './handle-logged-in-user';
 import { changeLanguageLibBtn } from '../js/multyLang.js';
+import { disableHeaderBtns } from './handle-header-btns';
+import { localStorageCurrent } from './localStorageCurrent';
 // get access to the My Library button, main
 
 const { mainHTML, myLibraryLink, homeLink, headerHTML, inputHTML } = refs;
 // add event listener on My Library
 myLibraryLink.addEventListener('click', renderLibrary, { once: true });
+myLibraryLink.addEventListener('change', localStorageCurrent);
+
 // myLibraryLink.addEventListener('click', renderLibrary);
 // by click on the button:
-handleLoggedUser();
 export function renderLibrary() {
   // 1.  change background-image
   headerHTML.classList.remove('home-header');
@@ -34,39 +37,47 @@ export function renderLibrary() {
   headerHTML.insertAdjacentHTML('beforeend', libHeaderMarkup);
   // 3. hide main content
   mainHTML.innerHTML = '';
-  if (handleLoggedUser() != null) {
+  handleLoggedUser();
+  if (handleLoggedUser() == true) {
     renderProfile();
     console.log('logged in');
     logOutListener();
   } else {
-    // 3. render slideshow
-    const slideshowMarkup = slideshow();
-    mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
-    // 4. render content from mylibrary.hbs
-    const libraryMarkup = mylibrary();
-    mainHTML.insertAdjacentHTML('beforeend', libraryMarkup);
-    // 5. handle modals
-    addListenersForButtons();
-    addListenersForModals();
-    // 6. switch current page style
-    homeLink.classList.remove('current');
-    myLibraryLink.classList.add('current');
-    // 7. add the 21st-line function from firebase and proceed with chaining functions one to another
-    signupFormListener();
-    loginFormListener();
+    disableHeaderBtns();
+    renderLoggedOutLibrary();
   }
-  changeLanguageLibBtn();
-  const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
-  const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
-  const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
+  // 7. switch current page style
+  homeLink.classList.remove('current');
+  myLibraryLink.classList.add('current');
+  // changeLanguageLibBtn();
   // btnWatchedRef.disabled = true;
   // btnQueueRef.disabled = true;
   // console.log('🚀 ~ renderLibrary ~ btn-OFF');
-  btnWatchedRef.addEventListener('click', showNoti);
-  btnQueueRef.addEventListener('click', showNoti);
-  function showNoti() {
-    Notify.warning('Please log in ')
-  }
+}
+// export function showNoti() {
+//   Notify.warning('Please log in');
+// }
+
+export function renderLoggedOutLibrary() {
+  mainHTML.innerHTML = '';
+
+  // render slideshow
+  const slideshowMarkup = slideshow();
+  mainHTML.insertAdjacentHTML('beforeend', slideshowMarkup);
+  // render content from mylibrary.hbs
+  const libraryMarkup = mylibrary();
+  mainHTML.insertAdjacentHTML('beforeend', libraryMarkup);
+  // handle modals
+  addListenersForButtons();
+  addListenersForModals();
+  // add the 21st-line function from firebase and proceed with chaining functions one to another
+  signupFormListener();
+  loginFormListener();
+  const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
+  const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
+  const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
+  // btnWatchedRef.addEventListener('click', showNoti);
+  // btnQueueRef.addEventListener('click', showNoti);
 }
 
 

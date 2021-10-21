@@ -1,3 +1,4 @@
+import { Request } from './firebase-database';
 import renderProfile from './renderProfile';
 import {
   getAuth,
@@ -6,13 +7,15 @@ import {
   onAuthStateChanged,
   getIdToken,
   getCookie,
+  setPersistence,
+  browserSessionPersistence,
 } from 'firebase/auth';
 import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './handle-authentication-modals';
 import { logOutListener } from './handle-logged-in-user';
 import { removeBackdrop } from './handle-authentication-modals';
 import { hideBtns } from './handle-modal-btns';
-
+import { enableHeaderBtns } from './handle-header-btns';
 const auth = getAuth();
 Notiflix.Notify.init({
   fontFamily: 'Roboto',
@@ -47,6 +50,7 @@ function signupHandler(e) {
   });
   hideBtns();
   closeModal();
+  enableHeaderBtns();
   logOutListener();
 }
 
@@ -59,6 +63,7 @@ function signInHandler(e) {
       console.log(errorCode);
     });
   removeBackdrop();
+  enableHeaderBtns();
   logOutListener();
 }
 
@@ -96,17 +101,25 @@ function firebaseSignInEP(e) {
   const inputEmail = e.target.querySelector('#login-email').value;
   const inputPassword = e.target.querySelector('#login-password').value;
   console.log(inputEmail);
-  return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      return user;
+  return setPersistence(auth, browserSessionPersistence)
+    .then(() => {
+      return signInWithEmailAndPassword(auth, inputEmail, inputPassword)
+        .then(userCredential => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch(error => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          errorNotification(errorCode);
+        });
     })
     .catch(error => {
+      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      errorNotification(errorCode);
+      console.log(errorCode, errorMessage);
     });
 }
 
@@ -148,3 +161,14 @@ function signupWithEmailAndPassword(email, password) {
     .then(response => response.json())
     .then(data => console.log(data));
 }
+
+export default onAuthStateChanged(auth, user => {
+  if (user) {
+    const uid = user.uid;
+    Request.getUid(uid);
+    console.log('🚀 ~ uid', uid);
+    return uid;
+  } else {
+    console.log('🚀 ~ else');
+  }
+});
