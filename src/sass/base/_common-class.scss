@@ -14,3 +14,16 @@
   opacity: 1;
   transition: opacity var(--standard-animation);
 }
+
+.button__scrollup {
+  position: fixed;
+  right: 30px;
+  box-shadow: none;
+  bottom: 100px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+}
+.button__svg {
+  fill: var(--secondary-text-color);
+}

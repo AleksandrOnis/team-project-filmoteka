@@ -15,14 +15,17 @@ import { loginFormListener } from './firebase-auth';
 import renderProfile from './renderProfile';
 import { logOutListener } from './handle-logged-in-user';
 import { changeLanguageLibBtn } from '../js/multyLang.js';
+import { disableHeaderBtns } from './handle-header-btns';
+import { localStorageCurrent } from './localStorageCurrent';
 // get access to the My Library button, main
 
 const { mainHTML, myLibraryLink, homeLink, headerHTML, inputHTML } = refs;
 // add event listener on My Library
 myLibraryLink.addEventListener('click', renderLibrary, { once: true });
+myLibraryLink.addEventListener('change', localStorageCurrent);
+
 // myLibraryLink.addEventListener('click', renderLibrary);
 // by click on the button:
-handleLoggedUser();
 export function renderLibrary() {
   // 1.  change background-image
   headerHTML.classList.remove('home-header');
@@ -35,11 +38,12 @@ export function renderLibrary() {
   // 3. hide main content
   mainHTML.innerHTML = '';
   handleLoggedUser();
-  if (handleLoggedUser() != 'null') {
+  if (handleLoggedUser() == true) {
     renderProfile();
     console.log('logged in');
     logOutListener();
   } else {
+    disableHeaderBtns();
     renderLoggedOutLibrary();
   }
   // 7. switch current page style
@@ -50,10 +54,9 @@ export function renderLibrary() {
   // btnQueueRef.disabled = true;
   // console.log('🚀 ~ renderLibrary ~ btn-OFF');
 }
-
-export function showNoti() {
-  Notify.warning('Please log in');
-}
+// export function showNoti() {
+//   Notify.warning('Please log in');
+// }
 
 export function renderLoggedOutLibrary() {
   mainHTML.innerHTML = '';
@@ -73,6 +76,6 @@ export function renderLoggedOutLibrary() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
   const btnWatchedRef = btnsLibRef.querySelector('.btn__watch');
   const btnQueueRef = btnsLibRef.querySelector('.btn__queue');
-  btnWatchedRef.addEventListener('click', showNoti);
-  btnQueueRef.addEventListener('click', showNoti);
+  // btnWatchedRef.addEventListener('click', showNoti);
+  // btnQueueRef.addEventListener('click', showNoti);
 }
