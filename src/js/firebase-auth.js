@@ -1,4 +1,5 @@
 import { Request } from './firebase-database';
+import getUserUid from './renderLibrary';
 import renderProfile from './renderProfile';
 import {
   getAuth,
@@ -166,6 +167,7 @@ export default onAuthStateChanged(auth, user => {
   if (user) {
     const uid = user.uid;
     Request.getUid(uid);
+    getUserUid(uid);
     console.log('🚀 ~ uid', uid);
     return uid;
   } else {
