@@ -3,9 +3,7 @@ import { showSpiner, hideSpiner } from './spiner.js';
 import { createFilmCard } from './renderHome';
 import { Request } from './firebase-database';
 import { showNoti } from './renderLibrary';
-import {libModalListener} from './libModalListener.js';
-
-
+import { libModalListener } from './libModalListener.js';
 
 export function renderGalleryLib() {
   const btnsLibRef = document.querySelector('.library-header__buttons__wrapper');
@@ -22,14 +20,13 @@ export function renderGalleryLib() {
     Request.getCardsFromWatched().then(films => {
       renderFilmCard(films);
       if (galleryLib.classList.contains('is-hidden')) {
-        galleryLib.classList.remove('is-hidden');       
-      }      
+        galleryLib.classList.remove('is-hidden');
+      }
       hideSpiner();
     });
     libModalListener();
   }
-  
-  
+
   function renderQueue() {
     showSpiner();
     Request.getCardsFromQueue().then(films => {
@@ -46,4 +43,6 @@ export function renderGalleryLib() {
     galleryLib.innerHTML = '';
     galleryLib.insertAdjacentHTML('beforeend', filmCard(films));
   }
+
+  //   btnRef.addEventListener;
 }
