@@ -8,13 +8,18 @@
     <img class='film-list__image' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' data-id='{{id}}' />
     {{/if}}
     <div class="gallery-item_text">
+        <div class="card_lib">
         <p class="gallery-item_title  gallery-item_title-watched title" data-id="{{id}}">{{title}}</p>
+         <button class="button-modal-delete" data-id="{{id}}"></button>   
+        </div>
         <ul class='gallery-item_genres-list'>
             {{#each genres}}
             <li class='gallery-item_genres-item'>{{name}}{{#unless @last}},{{/unless}}</li>
             {{/each}}
             <p class="gallery-item_year"><span class='gallery-item_delimeter'>|</span>{{year}}</p>
             <span class='gallery-item_rating'>{{vote_average}}</span>
+        </ul>
+         
     </div>
     </div>
 </li>
