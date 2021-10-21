@@ -1,3 +1,4 @@
+import { Request } from './firebase-database';
 import renderProfile from './renderProfile';
 import {
   getAuth,
@@ -160,3 +161,14 @@ function signupWithEmailAndPassword(email, password) {
     .then(response => response.json())
     .then(data => console.log(data));
 }
+
+export default onAuthStateChanged(auth, user => {
+  if (user) {
+    const uid = user.uid;
+    Request.getUid(uid);
+    console.log('🚀 ~ uid', uid);
+    return uid;
+  } else {
+    console.log('🚀 ~ else');
+  }
+});

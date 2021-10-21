@@ -1,5 +1,5 @@
 const baseURL = 'https://filmoteka-81e54-default-rtdb.firebaseio.com/';
-
+let userUid = null;
 export class Request {
   static create(signup) {
     fetch('baseURL .signup.json', {
@@ -16,8 +16,7 @@ export class Request {
   }
 
   static addCardToWatched(watched) {
-    //заминить на film
-    return fetch('https://filmoteka-81e54-default-rtdb.firebaseio.com/Watched.json', {
+    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/${userUid}/Watched.json`, {
       method: 'POST',
       body: JSON.stringify(watched),
       headers: {
@@ -26,14 +25,13 @@ export class Request {
     })
       .then(response => response.json())
       .then(response => {
-       // watched.id = response.name;
         return watched;
       });
     // .then(addWatchedLocalStorage);
   }
 
   static addCardToQueue(queue) {
-    return fetch('https://filmoteka-81e54-default-rtdb.firebaseio.com/Queue.json', {
+    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/${userUid}/Queue.json`, {
       method: 'POST',
       body: JSON.stringify(queue),
       headers: {
@@ -42,13 +40,12 @@ export class Request {
     })
       .then(response => response.json())
       .then(response => {
-        //queue.id = response.name;
         return queue;
       });
   }
 
   static getCardsFromWatched() {
-    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/Watched.json`) //?access_token=${token} //// ?auth=
+    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/${userUid}/Watched.json`) //?access_token=${token} //// ?auth=
       .then(response => {
         return response.json();
       })
@@ -58,12 +55,17 @@ export class Request {
   }
 
   static getCardsFromQueue() {
-    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/Queue.json`) //?access_token=${token} //// ?auth=
+    return fetch(`https://filmoteka-81e54-default-rtdb.firebaseio.com/${userUid}/Queue.json`) //?access_token=${token} //// ?auth=
       .then(response => {
         return response.json();
       })
       .then(object => {
         return Object.values(object);
       });
+  }
+
+  static getUid(uid) {
+    userUid = uid;
+    console.log('🚀 ~ getUid ~ userUid', userUid);
   }
 }
