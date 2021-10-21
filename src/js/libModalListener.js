@@ -27,7 +27,7 @@ async function showModal() {
   const modalCardMarkUp = modalCardTpl(detailOfFilm);
   instance = basicLightbox.create(modalCardMarkUp);
   instance.show();
-  hideIrrBtns();
+  //hideIrrBtns();
   
   changeLanguageFilmCard();
   
